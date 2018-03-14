@@ -39,11 +39,11 @@ public class mpesanan extends koneksi {
         System.out.println("query insert makan "+query);
         return execute(query);
     }
-    public boolean tambahtoping(String data[]) {
+    public boolean tambahtoping(String id_pesan_toping,String id_toping) {
         //data[0]=id_pesan_toping
         //data[1]=id_topingn
         String query = "INSERT INTO `pesan_toping` (`id_table_toping`, `id_pesan_toping`, `id_toping`) "
-                + "VALUES (NULL, '" + data[0] + "', '" + data[1] + "');";
+                + "VALUES (NULL, '" + id_pesan_toping+ "', '" + id_toping + "');";
         return execute(query);
     }
 

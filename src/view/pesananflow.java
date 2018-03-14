@@ -42,7 +42,7 @@ public class pesananflow extends javax.swing.JFrame {
         showtgl();
         showjam();
         pesanan = new mpesanan();
-        idtoping = pesanan.getidtoping();
+        idpesanan = pesanan.getidpesanan();
     }
 
     public void showtgl() {
@@ -98,7 +98,7 @@ public class pesananflow extends javax.swing.JFrame {
         tambah = new javax.swing.JButton();
         jPanel1 = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
-        jButton3 = new javax.swing.JButton();
+        minuman1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
         jButton6 = new javax.swing.JButton();
@@ -114,11 +114,11 @@ public class pesananflow extends javax.swing.JFrame {
         tabeltoping = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableminuman = new javax.swing.JTable();
-        jButton12 = new javax.swing.JButton();
+        btnbayar = new javax.swing.JButton();
         boxhargatotal = new javax.swing.JTextField();
         boxtgl = new javax.swing.JTextField();
         boxjam = new javax.swing.JTextField();
-        jButton13 = new javax.swing.JButton();
+        clear = new javax.swing.JButton();
         btndeleteminuman = new javax.swing.JButton();
         btndeletemenu = new javax.swing.JButton();
         btndeletetoping = new javax.swing.JButton();
@@ -238,13 +238,13 @@ public class pesananflow extends javax.swing.JFrame {
         jButton2.setText("minuman 10");
         jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 90, 70));
 
-        jButton3.setText("minuman 1");
-        jButton3.addActionListener(new java.awt.event.ActionListener() {
+        minuman1.setText("minuman 1");
+        minuman1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton3ActionPerformed(evt);
+                minuman1ActionPerformed(evt);
             }
         });
-        jPanel1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 70));
+        jPanel1.add(minuman1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 70));
 
         jButton4.setText("minuman 2");
         jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 90, 70));
@@ -341,13 +341,13 @@ public class pesananflow extends javax.swing.JFrame {
 
         getContentPane().add(panelpesanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 1300, 250));
 
-        jButton12.setText("bayar");
-        jButton12.addActionListener(new java.awt.event.ActionListener() {
+        btnbayar.setText("bayar");
+        btnbayar.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton12ActionPerformed(evt);
+                btnbayarActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 680, 130, 60));
+        getContentPane().add(btnbayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 680, 130, 60));
 
         boxhargatotal.setEditable(false);
         boxhargatotal.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
@@ -371,13 +371,13 @@ public class pesananflow extends javax.swing.JFrame {
         boxjam.setText("jam nya");
         getContentPane().add(boxjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 100, 30));
 
-        jButton13.setText("clear");
-        jButton13.addActionListener(new java.awt.event.ActionListener() {
+        clear.setText("clear");
+        clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton13ActionPerformed(evt);
+                clearActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton13, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 90, 60));
+        getContentPane().add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 90, 60));
 
         btndeleteminuman.setText("delete minuman");
         btndeleteminuman.addActionListener(new java.awt.event.ActionListener() {
@@ -407,93 +407,106 @@ public class pesananflow extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void tambahActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tambahActionPerformed
+        ArrayList<String> daftartoping = new ArrayList<String>();
         level = pillevel.getSelectedIndex() + 1;
         int menu = 0;
         if (seblak_original.isSelected()) {
             hargasatu = hargasatu + 7000;
-            menu = 0;
+            menu = 1;
         } else if (seblakmi.isSelected()) {
             hargasatu = hargasatu + 10000;
-            menu = 1;
+            menu = 2;
         } else if (mi_goreng.isSelected()) {
             hargasatu = hargasatu + 12000;
-            menu = 2;
+            menu = 3;
         } else if (seblak_bakso.isSelected()) {
             hargasatu = hargasatu + 20000;
-            menu = 3;
+            menu = 4;
         }
 
         if (pil1.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("0");
+            toping = true;
+            daftartoping.add("1");
         }
         if (pil2.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("1");
+            toping = true;
+            daftartoping.add("2");
         }
         if (pil3.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("2");
+            toping = true;
+            daftartoping.add("3");
         }
         if (pil4.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("3");
+            toping = true;
+            daftartoping.add("4");
         }
         if (pil5.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("4");
+            toping = true;
+            daftartoping.add("5");
         }
         if (pil6.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("5");
+            toping = true;
+            daftartoping.add("6");
         }
         if (pil7.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("6");
+            toping = true;
+            daftartoping.add("7");
         }
         if (pil8.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("7");
+            toping = true;
+            daftartoping.add("8");
         }
         if (pil9.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("8");
+            toping = true;
+            daftartoping.add("9");
         }
         if (pil10.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("9");
+            toping = true;
+            daftartoping.add("10");
         }
         if (pil11.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("10");
+            toping = true;
+            daftartoping.add("11");
         }
         if (pil12.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("11");
+            toping = true;
+            daftartoping.add("12");
         }
         if (pil13.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("12");
+            toping = true;
+            daftartoping.add("13");
         }
         if (pil14.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("13");
+            toping = true;
+            daftartoping.add("14");
         }
         if (pil15.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("14");
+            toping = true;
+            daftartoping.add("15");
         }
         if (pil16.isSelected()) {
             hargasatu = hargasatu + 2000;
-            inserttoping("15");
+            toping = true;
+            daftartoping.add("16");
         }
-        System.out.println("idtoping sebelum"+idtoping);
-        if (toping==true) {
-            idtoping = pesanan.getidtoping();
-        } else {
-            idtoping = null;
-        }
-        System.out.println("idtoping sesudah"+idtoping);
+
+        System.out.println("idtoping sesudah" + idtoping);
+        inserttoping(daftartoping);
         insertmenu("" + menu);
         idtoping = null;
         hargatotal = hargatotal + hargasatu;
@@ -516,15 +529,35 @@ public class pesananflow extends javax.swing.JFrame {
         }
     }
 
-    public void inserttoping(String id) {
+    public void inserttoping(ArrayList id) {
         //data[0]=id_pesan_toping
         //data[1]=id_toping
-        toping = true;
-        String data[] = {"" + idpesanan, id, idtoping};
-        if (pesanan.tambahtoping(data)) {
-            message("berhasil insert toping");
-        } else {
-            message("gagal insert toping");
+//        System.out.println("idtoping sebelum"+idtoping);
+//        if (toping==true) {
+//            idtoping = pesanan.getidtoping();
+//            toping=false;
+//        } else {
+//            idtoping = null;
+//        }
+//        String data[] = {"" + idpesanan, id, idtoping};
+//        if (pesanan.tambahtoping(data)) {
+//            message("berhasil insert toping");
+//        } else {
+//            message("gagal insert toping");
+//        }
+        if (toping) {
+            idtoping = pesanan.getidtoping();
+            for (int i = 0; i < id.size(); i++) {
+                if (pesanan.tambahtoping(idtoping, id.get(i).toString())) {
+                    message("berhasil insert toping");
+                } else {
+                    message("gagal insert toping");
+                }
+
+            }
+        }
+        else{
+            message("beli tanpa toping");
         }
     }
 
@@ -557,14 +590,14 @@ public class pesananflow extends javax.swing.JFrame {
         tambah.setEnabled(true);
     }//GEN-LAST:event_seblakmiActionPerformed
 
-    private void jButton13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton13ActionPerformed
+    private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
         panelpesanan.removeAll();
         panelpesanan.revalidate();
         panelpesanan.repaint();
         boxhargatotal.setText("");
         hargatotal = 0;
         clear();
-    }//GEN-LAST:event_jButton13ActionPerformed
+    }//GEN-LAST:event_clearActionPerformed
 
     private void seblak_originalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_seblak_originalActionPerformed
         tambah.setEnabled(true);
@@ -578,11 +611,11 @@ public class pesananflow extends javax.swing.JFrame {
         tambah.setEnabled(true);
     }//GEN-LAST:event_seblak_baksoActionPerformed
 
-    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+    private void minuman1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman1ActionPerformed
         String data[] = {idpesanan, "1", "10000"};
         pesanan.tambahpesananminum(data);
         refreshtable();
-    }//GEN-LAST:event_jButton3ActionPerformed
+    }//GEN-LAST:event_minuman1ActionPerformed
 
     private void tablemenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablemenuMouseClicked
         try {
@@ -623,48 +656,26 @@ public class pesananflow extends javax.swing.JFrame {
         refreshtable();
     }//GEN-LAST:event_btndeletemenuActionPerformed
 
-    private void jButton12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton12ActionPerformed
+    private void btnbayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbayarActionPerformed
         idpesanan = pesanan.getidpesanan();
         tabeltoping.setModel(null);
         tablemenu.setModel(null);
         tableminuman.setModel(null);
-    }//GEN-LAST:event_jButton12ActionPerformed
-    public void addpesanan(String menu, String level, ArrayList<String> labels, String harga, String id) {
-        JPanel panel = new JPanel();
-        panel.setSize(100, 100);
-        JLabel labelmenu = new JLabel();
-        labelmenu.setText(menu);
-        JLabel labellevel = new JLabel();
-        labellevel.setText(level);
-        JLabel holder;
-
-        for (int i = 0; i < labels.size(); i++) {
-            holder = new JLabel();
-            holder.setText(labels.get(i));  // assuming order's objects are Strings, otherwise .toString() on there somewhere
-            panel.add(holder); //adds holder to the ArrayList of JLabels
-        }
-        JLabel labelharga = new JLabel();
-        labelharga.setText(harga);
-        JButton hapus = new JButton();
-        hapus.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                message("tombol hapus di klik dengan id" + id);
-            }
-        });
-    }
+    }//GEN-LAST:event_btnbayarActionPerformed
 
     public void refreshtable() {
         try {
             System.out.println("dapat id pesana" + idpesanan);
             tablemenu.setModel(pesanan.cekpesananmakanan(idpesanan));
             tableminuman.setModel(pesanan.cekpesananminuman(idpesanan));
+            tabeltoping.setModel(pesanan.gettoping(idtoping));
         } catch (SQLException ex) {
             Logger.getLogger(pesananflow.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
 
     public void message(String txt) {
-        JOptionPane.showMessageDialog(null, txt, "error", JOptionPane.ERROR_MESSAGE);
+        JOptionPane.showMessageDialog(null, txt, "error", JOptionPane.OK_OPTION);
     }
 
     /**
@@ -711,16 +722,15 @@ public class pesananflow extends javax.swing.JFrame {
     private javax.swing.JTextField boxhargatotal;
     private javax.swing.JTextField boxjam;
     private javax.swing.JTextField boxtgl;
+    private javax.swing.JButton btnbayar;
     private javax.swing.JButton btndeletemenu;
     private javax.swing.JButton btndeleteminuman;
     private javax.swing.JButton btndeletetoping;
+    private javax.swing.JButton clear;
     private javax.swing.ButtonGroup groupmenu;
     private javax.swing.JButton jButton10;
     private javax.swing.JButton jButton11;
-    private javax.swing.JButton jButton12;
-    private javax.swing.JButton jButton13;
     private javax.swing.JButton jButton2;
-    private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
@@ -732,6 +742,7 @@ public class pesananflow extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JRadioButton mi_goreng;
+    private javax.swing.JButton minuman1;
     private javax.swing.JPanel panelmenu;
     private javax.swing.JPanel panelpesanan;
     private javax.swing.JPanel paneltoping;
