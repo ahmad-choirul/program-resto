@@ -39,6 +39,17 @@ public class mpesanan extends koneksi {
         System.out.println("query insert makan "+query);
         return execute(query);
     }
+public boolean tambahpesananmakantanpatoping(String data[]) {
+        //data[0]=id_pesanan
+        //data[1]=id_menu
+        //data[2]=id_toping
+        //data[3]=level
+        //data[4]=harga_bayar
+        String query = "INSERT INTO `pesanan` (`id_daftar_pesanan`, `id_pesanan`, `id_menu`, `id_pesan_toping`, `id_minuman`, `level`, `harga_bayar`) "
+                + "VALUES (NULL, '" + data[0] + "', '" + data[1] + "',NULL, NULL,'" + data[2] + "', '" + data[3] + "');";
+        System.out.println("query insert makan "+query);
+        return execute(query);
+    }
     public boolean tambahtoping(String id_pesan_toping,String id_toping) {
         //data[0]=id_pesan_toping
         //data[1]=id_topingn
@@ -53,6 +64,12 @@ public class mpesanan extends koneksi {
     }
     public boolean deletetoping(String data) {
         String query = "DELETE FROM `pesan_toping` WHERE `pesan_toping`.`id_table_toping` = " + data;
+        return execute(query);
+    }
+    public boolean updateharga(String nama_toping,String id_pesan_toping,String id_pesanan) {
+        String query = "UPDATE pesanan set harga_bayar = harga_bayar - (SELECT MAX(harga_toping) from pesan_toping pt JOIN toping t ON(pt.id_toping=t.id_toping)"
+                + " where nama_toping='"+nama_toping+"') where id_pesan_toping = '"+id_pesan_toping+"' and id_pesanan = '"+id_pesanan+"'";
+        System.out.println("query kurang harga = "+query);
         return execute(query);
     }
     public DefaultTableModel cekpesananmakanan(String data) throws SQLException {
@@ -82,6 +99,26 @@ public class mpesanan extends koneksi {
             Logger.getLogger(mpesanan.class.getName()).log(Level.SEVERE, null, ex);
         }
         return id;
+    }
+    public String getuangbayar(String id) {
+        String uang = null;
+        try {
+            String query = "select concat('Rp ', format( SUM(harga_bayar), 0)) as uang from pesanan WHERE id_pesanan='"+id+"'";
+            uang = getdataidNoaray(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(mpesanan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return uang;
+    }
+    public String getuangbayarasli(String id) {
+        String uang = null;
+        try {
+            String query = "select SUM(harga_bayar) as uang from pesanan WHERE id_pesanan='"+id+"'";
+            uang = getdataidNoaray(query);
+        } catch (SQLException ex) {
+            Logger.getLogger(mpesanan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return uang;
     }
     public String getidtoping() {
         String id = null;

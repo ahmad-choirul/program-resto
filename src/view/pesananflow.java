@@ -5,19 +5,20 @@
  */
 package view;
 
+import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JButton;
-import javax.swing.JLabel;
 import javax.swing.JOptionPane;
-import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.Timer;
+import javax.swing.table.DefaultTableModel;
 import model.mpesanan;
 
 /**
@@ -36,7 +37,7 @@ public class pesananflow extends javax.swing.JFrame {
     String idtoping = null;
     int level;
     boolean toping = false;
-
+popupkembalian popupkembalian = new popupkembalian();
     public pesananflow() throws SQLException {
         initComponents();
         showtgl();
@@ -90,13 +91,12 @@ public class pesananflow extends javax.swing.JFrame {
         pil13 = new javax.swing.JCheckBox();
         pil14 = new javax.swing.JCheckBox();
         pil15 = new javax.swing.JCheckBox();
-        pil16 = new javax.swing.JCheckBox();
         pil12 = new javax.swing.JCheckBox();
         pil11 = new javax.swing.JCheckBox();
         pil10 = new javax.swing.JCheckBox();
         pil9 = new javax.swing.JCheckBox();
         tambah = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        panelminuman = new javax.swing.JPanel();
         jButton2 = new javax.swing.JButton();
         minuman1 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
@@ -114,23 +114,29 @@ public class pesananflow extends javax.swing.JFrame {
         tabeltoping = new javax.swing.JTable();
         jScrollPane3 = new javax.swing.JScrollPane();
         tableminuman = new javax.swing.JTable();
-        btnbayar = new javax.swing.JButton();
-        boxhargatotal = new javax.swing.JTextField();
-        boxtgl = new javax.swing.JTextField();
-        boxjam = new javax.swing.JTextField();
-        clear = new javax.swing.JButton();
-        btndeleteminuman = new javax.swing.JButton();
         btndeletemenu = new javax.swing.JButton();
         btndeletetoping = new javax.swing.JButton();
+        btndeleteminuman = new javax.swing.JButton();
+        boxhargatotal = new javax.swing.JTextField();
+        clear = new javax.swing.JButton();
+        boxkembalian = new javax.swing.JTextField();
+        boxbayar = new javax.swing.JTextField();
+        boxtgl = new javax.swing.JLabel();
+        boxjam = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         panelmenu.setBackground(new java.awt.Color(255, 153, 51));
+        panelmenu.setOpaque(false);
         panelmenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         groupmenu.add(seblak_original);
+        seblak_original.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         seblak_original.setText("seblak original 7k");
+        seblak_original.setOpaque(false);
         seblak_original.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seblak_originalActionPerformed(evt);
@@ -139,7 +145,9 @@ public class pesananflow extends javax.swing.JFrame {
         panelmenu.add(seblak_original, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 30, -1, -1));
 
         groupmenu.add(seblakmi);
+        seblakmi.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         seblakmi.setText("seblakmi 10k");
+        seblakmi.setOpaque(false);
         seblakmi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seblakmiActionPerformed(evt);
@@ -148,7 +156,9 @@ public class pesananflow extends javax.swing.JFrame {
         panelmenu.add(seblakmi, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, -1, -1));
 
         groupmenu.add(mi_goreng);
+        mi_goreng.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         mi_goreng.setText("mi goreng 12k");
+        mi_goreng.setOpaque(false);
         mi_goreng.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 mi_gorengActionPerformed(evt);
@@ -157,7 +167,9 @@ public class pesananflow extends javax.swing.JFrame {
         panelmenu.add(mi_goreng, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, -1, -1));
 
         groupmenu.add(seblak_bakso);
+        seblak_bakso.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         seblak_bakso.setText("seblak bakso 20k");
+        seblak_bakso.setOpaque(false);
         seblak_bakso.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 seblak_baksoActionPerformed(evt);
@@ -165,63 +177,93 @@ public class pesananflow extends javax.swing.JFrame {
         });
         panelmenu.add(seblak_bakso, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 150, -1, -1));
 
+        pillevel.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pillevel.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "level 1", "level 2", "level 3", "level 4", "level 5" }));
-        panelmenu.add(pillevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 30, -1, -1));
+        pillevel.setOpaque(false);
+        panelmenu.add(pillevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 30, -1, -1));
 
-        getContentPane().add(panelmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, 297, 187));
+        getContentPane().add(panelmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 510, 290));
 
         paneltoping.setBackground(new java.awt.Color(255, 153, 51));
+        paneltoping.setOpaque(false);
         paneltoping.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        pil1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil1.setText("susu");
-        paneltoping.add(pil1, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 27, -1, -1));
+        pil1.setOpaque(false);
+        paneltoping.add(pil1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 40, -1, -1));
 
+        pil2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil2.setText("bakso");
-        paneltoping.add(pil2, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 68, -1, -1));
+        pil2.setOpaque(false);
+        paneltoping.add(pil2, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 90, -1, -1));
 
+        pil3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil3.setText("makaroni");
-        paneltoping.add(pil3, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 109, -1, -1));
+        pil3.setOpaque(false);
+        paneltoping.add(pil3, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 190, -1, -1));
 
+        pil4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil4.setText("spageti");
-        paneltoping.add(pil4, new org.netbeans.lib.awtextra.AbsoluteConstraints(19, 150, -1, -1));
+        pil4.setOpaque(false);
+        paneltoping.add(pil4, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 190, -1, -1));
 
+        pil5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil5.setText("mi");
-        paneltoping.add(pil5, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 27, -1, -1));
+        pil5.setOpaque(false);
+        paneltoping.add(pil5, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
 
+        pil6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil6.setText("cilot");
-        paneltoping.add(pil6, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 68, -1, -1));
+        pil6.setOpaque(false);
+        paneltoping.add(pil6, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 140, -1, -1));
 
+        pil7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil7.setText("krupuk");
-        paneltoping.add(pil7, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 109, -1, -1));
+        pil7.setOpaque(false);
+        paneltoping.add(pil7, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, -1, -1));
 
+        pil8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil8.setText("ceker");
-        paneltoping.add(pil8, new org.netbeans.lib.awtextra.AbsoluteConstraints(98, 150, -1, -1));
+        pil8.setOpaque(false);
+        paneltoping.add(pil8, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 240, -1, -1));
 
+        pil13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil13.setText("somay");
-        paneltoping.add(pil13, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 30, -1, -1));
+        pil13.setOpaque(false);
+        paneltoping.add(pil13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
 
+        pil14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil14.setText("jeroan");
-        paneltoping.add(pil14, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 68, -1, -1));
+        pil14.setOpaque(false);
+        paneltoping.add(pil14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 40, -1, -1));
 
+        pil15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil15.setText("kerang");
-        paneltoping.add(pil15, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 109, -1, -1));
+        pil15.setOpaque(false);
+        paneltoping.add(pil15, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 140, -1, -1));
 
-        pil16.setText("gurita");
-        paneltoping.add(pil16, new org.netbeans.lib.awtextra.AbsoluteConstraints(236, 150, -1, -1));
-
+        pil12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil12.setText("cumi");
-        paneltoping.add(pil12, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, -1, -1));
+        pil12.setOpaque(false);
+        paneltoping.add(pil12, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 240, -1, -1));
 
+        pil11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil11.setText("ikan");
-        paneltoping.add(pil11, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 110, -1, -1));
+        pil11.setOpaque(false);
+        paneltoping.add(pil11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, -1, -1));
 
+        pil10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil10.setText("daging");
-        paneltoping.add(pil10, new org.netbeans.lib.awtextra.AbsoluteConstraints(161, 68, -1, -1));
+        pil10.setOpaque(false);
+        paneltoping.add(pil10, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 90, -1, -1));
 
+        pil9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         pil9.setText("tulang");
-        paneltoping.add(pil9, new org.netbeans.lib.awtextra.AbsoluteConstraints(159, 27, -1, -1));
+        pil9.setOpaque(false);
+        paneltoping.add(pil9, new org.netbeans.lib.awtextra.AbsoluteConstraints(150, 40, -1, -1));
 
-        getContentPane().add(paneltoping, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 150, 320, 190));
+        getContentPane().add(paneltoping, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 110, 350, 290));
 
         tambah.setText("tambah");
         tambah.setEnabled(false);
@@ -230,13 +272,14 @@ public class pesananflow extends javax.swing.JFrame {
                 tambahActionPerformed(evt);
             }
         });
-        getContentPane().add(tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 350, 80, 60));
+        getContentPane().add(tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 420, 100, 50));
 
-        jPanel1.setBackground(new java.awt.Color(51, 255, 51));
-        jPanel1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+        panelminuman.setBackground(new java.awt.Color(51, 255, 51));
+        panelminuman.setOpaque(false);
+        panelminuman.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("minuman 10");
-        jPanel1.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 100, 90, 70));
+        panelminuman.add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 110, 90, 70));
 
         minuman1.setText("minuman 1");
         minuman1.addActionListener(new java.awt.event.ActionListener() {
@@ -244,35 +287,36 @@ public class pesananflow extends javax.swing.JFrame {
                 minuman1ActionPerformed(evt);
             }
         });
-        jPanel1.add(minuman1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 70));
+        panelminuman.add(minuman1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 20, 90, 70));
 
         jButton4.setText("minuman 2");
-        jPanel1.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 100, 90, 70));
+        panelminuman.add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 90, 70));
 
         jButton5.setText("minuman 3");
-        jPanel1.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, 90, 70));
+        panelminuman.add(jButton5, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 20, 90, 70));
 
         jButton6.setText("minuman 4");
-        jPanel1.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 100, 90, 70));
+        panelminuman.add(jButton6, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 90, 70));
 
         jButton7.setText("miuman 5");
-        jPanel1.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 20, 90, 70));
+        panelminuman.add(jButton7, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 20, 90, 70));
 
         jButton8.setText("minuman 6");
-        jPanel1.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 100, 90, 70));
+        panelminuman.add(jButton8, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, 90, 70));
 
         jButton9.setText("minuman 7");
-        jPanel1.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 20, 90, 70));
+        panelminuman.add(jButton9, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 200, 90, 70));
 
         jButton10.setText("minuman 8");
-        jPanel1.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 100, 90, 70));
+        panelminuman.add(jButton10, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 200, 90, 70));
 
         jButton11.setText("minuman 9");
-        jPanel1.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 20, 90, 70));
+        panelminuman.add(jButton11, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 20, 90, 70));
 
-        getContentPane().add(jPanel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(800, 150, 560, 200));
+        getContentPane().add(panelminuman, new org.netbeans.lib.awtextra.AbsoluteConstraints(920, 110, 430, 300));
 
         panelpesanan.setBackground(new java.awt.Color(51, 255, 51));
+        panelpesanan.setOpaque(false);
         panelpesanan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tablemenu.setModel(new javax.swing.table.DefaultTableModel(
@@ -286,6 +330,7 @@ public class pesananflow extends javax.swing.JFrame {
                 "id_pesan", "nama_menu", "level"
             }
         ));
+        tablemenu.setOpaque(false);
         tablemenu.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 tablemenuMouseClicked(evt);
@@ -299,8 +344,9 @@ public class pesananflow extends javax.swing.JFrame {
             tablemenu.getColumnModel().getColumn(2).setMaxWidth(50);
         }
 
-        panelpesanan.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 370, 250));
+        panelpesanan.add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 10, 320, 200));
 
+        tabeltoping.setBorder(new javax.swing.border.SoftBevelBorder(javax.swing.border.BevelBorder.RAISED));
         tabeltoping.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null},
@@ -320,9 +366,15 @@ public class pesananflow extends javax.swing.JFrame {
                 return canEdit [columnIndex];
             }
         });
+        tabeltoping.setOpaque(false);
+        tabeltoping.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tabeltopingMouseClicked(evt);
+            }
+        });
         jScrollPane2.setViewportView(tabeltoping);
 
-        panelpesanan.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 0, 190, 250));
+        panelpesanan.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 240, 220));
 
         tableminuman.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -335,41 +387,58 @@ public class pesananflow extends javax.swing.JFrame {
                 "id_pesan", "nama_minuman"
             }
         ));
-        jScrollPane3.setViewportView(tableminuman);
-
-        panelpesanan.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(760, 0, 240, 250));
-
-        getContentPane().add(panelpesanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 1300, 250));
-
-        btnbayar.setText("bayar");
-        btnbayar.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnbayarActionPerformed(evt);
+        tableminuman.setOpaque(false);
+        tableminuman.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                tableminumanMouseClicked(evt);
             }
         });
-        getContentPane().add(btnbayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 680, 130, 60));
+        jScrollPane3.setViewportView(tableminuman);
+
+        panelpesanan.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 10, 230, 210));
+
+        btndeletemenu.setText("delete menu");
+        btndeletemenu.setEnabled(false);
+        btndeletemenu.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeletemenuActionPerformed(evt);
+            }
+        });
+        panelpesanan.add(btndeletemenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 10, 100, 60));
+
+        btndeletetoping.setText("delete toping");
+        btndeletetoping.setEnabled(false);
+        btndeletetoping.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeletetopingActionPerformed(evt);
+            }
+        });
+        panelpesanan.add(btndeletetoping, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 80, 100, 60));
+
+        btndeleteminuman.setText("delete minuman");
+        btndeleteminuman.setEnabled(false);
+        btndeleteminuman.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btndeleteminumanActionPerformed(evt);
+            }
+        });
+        panelpesanan.add(btndeleteminuman, new org.netbeans.lib.awtextra.AbsoluteConstraints(900, 150, 100, 60));
+
+        getContentPane().add(panelpesanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 510, 1020, 230));
 
         boxhargatotal.setEditable(false);
-        boxhargatotal.setFont(new java.awt.Font("Tahoma", 1, 36)); // NOI18N
-        boxhargatotal.setForeground(new java.awt.Color(255, 51, 0));
+        boxhargatotal.setBackground(new java.awt.Color(93, 68, 33));
+        boxhargatotal.setFont(new java.awt.Font("Arial", 1, 60)); // NOI18N
+        boxhargatotal.setForeground(new java.awt.Color(255, 255, 255));
         boxhargatotal.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-        boxhargatotal.setText("harga nya");
+        boxhargatotal.setBorder(null);
+        boxhargatotal.setOpaque(false);
         boxhargatotal.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 boxhargatotalActionPerformed(evt);
             }
         });
-        getContentPane().add(boxhargatotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 80, 350, 50));
-
-        boxtgl.setEditable(false);
-        boxtgl.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        boxtgl.setText("jam nya");
-        getContentPane().add(boxtgl, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 20, 110, 30));
-
-        boxjam.setEditable(false);
-        boxjam.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
-        boxjam.setText("jam nya");
-        getContentPane().add(boxjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, 100, 30));
+        getContentPane().add(boxhargatotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 20, 370, 80));
 
         clear.setText("clear");
         clear.addActionListener(new java.awt.event.ActionListener() {
@@ -377,31 +446,48 @@ public class pesananflow extends javax.swing.JFrame {
                 clearActionPerformed(evt);
             }
         });
-        getContentPane().add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 350, 90, 60));
+        getContentPane().add(clear, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 420, 90, 50));
 
-        btndeleteminuman.setText("delete minuman");
-        btndeleteminuman.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndeleteminumanActionPerformed(evt);
+        boxkembalian.setEditable(false);
+        boxkembalian.setBackground(new java.awt.Color(93, 68, 33));
+        boxkembalian.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        boxkembalian.setForeground(new java.awt.Color(255, 255, 255));
+        boxkembalian.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        boxkembalian.setBorder(null);
+        boxkembalian.setOpaque(false);
+        boxkembalian.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                boxkembalianKeyPressed(evt);
             }
         });
-        getContentPane().add(btndeleteminuman, new org.netbeans.lib.awtextra.AbsoluteConstraints(850, 350, 130, 60));
+        getContentPane().add(boxkembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1070, 660, 280, 60));
 
-        btndeletemenu.setText("delete menu");
-        btndeletemenu.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndeletemenuActionPerformed(evt);
+        boxbayar.setBackground(new java.awt.Color(93, 68, 33));
+        boxbayar.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
+        boxbayar.setForeground(new java.awt.Color(255, 255, 255));
+        boxbayar.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
+        boxbayar.setBorder(null);
+        boxbayar.setOpaque(false);
+        boxbayar.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                boxbayarKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                boxbayarKeyReleased(evt);
             }
         });
-        getContentPane().add(btndeletemenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 350, 100, 60));
+        getContentPane().add(boxbayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1080, 560, 270, 60));
 
-        btndeletetoping.setText("delete toping");
-        btndeletetoping.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btndeletetopingActionPerformed(evt);
-            }
-        });
-        getContentPane().add(btndeletetoping, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 350, 100, 60));
+        boxtgl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        boxtgl.setText("jLabel2");
+        getContentPane().add(boxtgl, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 130, -1));
+
+        boxjam.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        boxjam.setText("jLabel2");
+        getContentPane().add(boxjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 40, 140, -1));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/transaksi.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -499,19 +585,18 @@ public class pesananflow extends javax.swing.JFrame {
             toping = true;
             daftartoping.add("15");
         }
-        if (pil16.isSelected()) {
-            hargasatu = hargasatu + 2000;
-            toping = true;
-            daftartoping.add("16");
-        }
 
         System.out.println("idtoping sesudah" + idtoping);
-        inserttoping(daftartoping);
-        insertmenu("" + menu);
+        if (toping) {
+            inserttoping(daftartoping);
+            insertmenu("" + menu);
+        } else {
+            insertmenutanpatoping("" + menu);
+        }
+
         idtoping = null;
         hargatotal = hargatotal + hargasatu;
         hargasatu = 0;
-        boxhargatotal.setText("" + hargatotal);
         refreshtable();
         clear();
     }//GEN-LAST:event_tambahActionPerformed
@@ -523,42 +608,33 @@ public class pesananflow extends javax.swing.JFrame {
         //data[4]=harga_bayar
         String data[] = {"" + idpesanan, id, idtoping, "" + level, "" + hargasatu};
         if (pesanan.tambahpesananmakan(data)) {
-            message("berhasil insert makanan");
+        } else {
+            message("gagal insert makanan");
+        }
+    }
+
+    public void insertmenutanpatoping(String id) {
+        //data[0]=id_pesanan
+        //data[1]=id_menu
+        //data[2]=id_toping
+        //data[3]=level
+        //data[4]=harga_bayar
+        String data[] = {"" + idpesanan, id, "" + level, "" + hargasatu};
+        if (pesanan.tambahpesananmakantanpatoping(data)) {
         } else {
             message("gagal insert makanan");
         }
     }
 
     public void inserttoping(ArrayList id) {
-        //data[0]=id_pesan_toping
-        //data[1]=id_toping
-//        System.out.println("idtoping sebelum"+idtoping);
-//        if (toping==true) {
-//            idtoping = pesanan.getidtoping();
-//            toping=false;
-//        } else {
-//            idtoping = null;
-//        }
-//        String data[] = {"" + idpesanan, id, idtoping};
-//        if (pesanan.tambahtoping(data)) {
-//            message("berhasil insert toping");
-//        } else {
-//            message("gagal insert toping");
-//        }
-        if (toping) {
-            idtoping = pesanan.getidtoping();
-            for (int i = 0; i < id.size(); i++) {
-                if (pesanan.tambahtoping(idtoping, id.get(i).toString())) {
-                    message("berhasil insert toping");
-                } else {
-                    message("gagal insert toping");
-                }
-
+        idtoping = pesanan.getidtoping();
+        for (int i = 0; i < id.size(); i++) {
+            if (pesanan.tambahtoping(idtoping, id.get(i).toString())) {
+            } else {
+                message("gagal insert toping");
             }
         }
-        else{
-            message("beli tanpa toping");
-        }
+
     }
 
     public void clear() {
@@ -579,7 +655,6 @@ public class pesananflow extends javax.swing.JFrame {
         pil13.setSelected(false);
         pil14.setSelected(false);
         pil15.setSelected(false);
-        pil16.setSelected(false);
         pillevel.setSelectedIndex(0);
     }
     private void boxhargatotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxhargatotalActionPerformed
@@ -591,9 +666,6 @@ public class pesananflow extends javax.swing.JFrame {
     }//GEN-LAST:event_seblakmiActionPerformed
 
     private void clearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_clearActionPerformed
-        panelpesanan.removeAll();
-        panelpesanan.revalidate();
-        panelpesanan.repaint();
         boxhargatotal.setText("");
         hargatotal = 0;
         clear();
@@ -618,11 +690,14 @@ public class pesananflow extends javax.swing.JFrame {
     }//GEN-LAST:event_minuman1ActionPerformed
 
     private void tablemenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablemenuMouseClicked
+        btndeletemenu.setEnabled(true);
+        btndeleteminuman.setEnabled(false);
+        btndeletetoping.setEnabled(false);
         try {
             String idtoping = tablemenu.getValueAt(tablemenu.getSelectedRow(), 3).toString();
             tabeltoping.setModel(pesanan.gettoping(idtoping));
-        } catch (SQLException ex) {
-            Logger.getLogger(pesananflow.class.getName()).log(Level.SEVERE, null, ex);
+        } catch (Exception ex) {
+            cleartable(tabeltoping);
         }
     }//GEN-LAST:event_tablemenuMouseClicked
 
@@ -639,7 +714,13 @@ public class pesananflow extends javax.swing.JFrame {
     private void btndeletetopingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btndeletetopingActionPerformed
         String idtoping = tabeltoping.getValueAt(tabeltoping.getSelectedRow(), 0).toString();
         if (pesanan.deletetoping(idtoping)) {
-            message("toping di hapus");
+            String nama_toping = tabeltoping.getValueAt(tabeltoping.getSelectedRow(), 1).toString();
+            String id_pesanan_toping = tablemenu.getValueAt(tablemenu.getSelectedRow(), 3).toString();
+            if (pesanan.updateharga(nama_toping, id_pesanan_toping, idpesanan)) {
+                message("toping di hapus");
+            } else {
+                message("gagal ngurangi");
+            }
         } else {
             message("gagal hapus");
         }
@@ -656,12 +737,65 @@ public class pesananflow extends javax.swing.JFrame {
         refreshtable();
     }//GEN-LAST:event_btndeletemenuActionPerformed
 
-    private void btnbayarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnbayarActionPerformed
-        idpesanan = pesanan.getidpesanan();
-        tabeltoping.setModel(null);
-        tablemenu.setModel(null);
-        tableminuman.setModel(null);
-    }//GEN-LAST:event_btnbayarActionPerformed
+    private void tabeltopingMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tabeltopingMouseClicked
+        btndeletemenu.setEnabled(false);
+        btndeleteminuman.setEnabled(false);
+        btndeletetoping.setEnabled(true);
+    }//GEN-LAST:event_tabeltopingMouseClicked
+
+    private void tableminumanMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tableminumanMouseClicked
+        btndeletemenu.setEnabled(false);
+        btndeleteminuman.setEnabled(true);
+        btndeletetoping.setEnabled(false);
+    }//GEN-LAST:event_tableminumanMouseClicked
+
+    private void boxkembalianKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boxkembalianKeyPressed
+
+    }//GEN-LAST:event_boxkembalianKeyPressed
+
+    private void boxbayarKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boxbayarKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER && !boxbayar.getText().equals("")) {
+            double uangbayar = Double.parseDouble(boxbayar.getText());
+            if (uangbayar < hargatotal) {
+                message("uangkurang");
+            } else {
+                idpesanan = pesanan.getidpesanan();
+                cleartable(tablemenu);
+                cleartable(tableminuman);
+                cleartable(tabeltoping);
+                popupkembalian.setkembalian(boxkembalian.getText());
+                boxbayar.setText("");
+                boxkembalian.setText("");
+                clear();
+            }
+        }
+    }//GEN-LAST:event_boxbayarKeyPressed
+
+    private void boxbayarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boxbayarKeyReleased
+        try {
+            if (!boxbayar.getText().equals("")) {
+                double uangbayar = Double.parseDouble(boxbayar.getText());
+                if (uangbayar < hargatotal) {
+                    boxkembalian.setBackground(Color.red);
+                    boxkembalian.setText("uang kurang");
+                } else {
+                    boxkembalian.setBackground(Color.green);
+                    double kembalian = uangbayar - hargatotal;
+                    boxkembalian.setText("" + rubahuang(kembalian));
+                }
+            }
+        } catch (Exception e) {
+            message("periksa kembali inputan anda");
+            e.printStackTrace();
+            boxbayar.setText("");
+        }
+
+    }//GEN-LAST:event_boxbayarKeyReleased
+    public String rubahuang(double uang) {
+        String mataUang = String.format("Rp.%,.0f", uang).replaceAll(",", ".") + ",00";
+        return mataUang;
+
+    }
 
     public void refreshtable() {
         try {
@@ -669,9 +803,18 @@ public class pesananflow extends javax.swing.JFrame {
             tablemenu.setModel(pesanan.cekpesananmakanan(idpesanan));
             tableminuman.setModel(pesanan.cekpesananminuman(idpesanan));
             tabeltoping.setModel(pesanan.gettoping(idtoping));
+            String uang = pesanan.getuangbayar(idpesanan);
+            hargatotal = Double.parseDouble(pesanan.getuangbayarasli(idpesanan));
+            boxhargatotal.setText(uang);
         } catch (SQLException ex) {
             Logger.getLogger(pesananflow.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+
+    public void cleartable(JTable table) {
+        DefaultTableModel model = (DefaultTableModel) table.getModel();
+        model.setRowCount(0);
+        table.setModel(model);
     }
 
     public void message(String txt) {
@@ -719,10 +862,11 @@ public class pesananflow extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextField boxbayar;
     private javax.swing.JTextField boxhargatotal;
-    private javax.swing.JTextField boxjam;
-    private javax.swing.JTextField boxtgl;
-    private javax.swing.JButton btnbayar;
+    private javax.swing.JLabel boxjam;
+    private javax.swing.JTextField boxkembalian;
+    private javax.swing.JLabel boxtgl;
     private javax.swing.JButton btndeletemenu;
     private javax.swing.JButton btndeleteminuman;
     private javax.swing.JButton btndeletetoping;
@@ -737,13 +881,14 @@ public class pesananflow extends javax.swing.JFrame {
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
     private javax.swing.JButton jButton9;
-    private javax.swing.JPanel jPanel1;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JRadioButton mi_goreng;
     private javax.swing.JButton minuman1;
     private javax.swing.JPanel panelmenu;
+    private javax.swing.JPanel panelminuman;
     private javax.swing.JPanel panelpesanan;
     private javax.swing.JPanel paneltoping;
     private javax.swing.JCheckBox pil1;
@@ -753,7 +898,6 @@ public class pesananflow extends javax.swing.JFrame {
     private javax.swing.JCheckBox pil13;
     private javax.swing.JCheckBox pil14;
     private javax.swing.JCheckBox pil15;
-    private javax.swing.JCheckBox pil16;
     private javax.swing.JCheckBox pil2;
     private javax.swing.JCheckBox pil3;
     private javax.swing.JCheckBox pil4;

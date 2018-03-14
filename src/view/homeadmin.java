@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author acer
@@ -33,6 +37,7 @@ public class homeadmin extends javax.swing.JFrame {
         btnlaporan = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setUndecorated(true);
 
         btnpesanan.setText("pesanan");
         btnpesanan.addActionListener(new java.awt.event.ActionListener() {
@@ -80,8 +85,12 @@ public class homeadmin extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnpesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesananActionPerformed
-       pesanan a = new pesanan();
-       a.setVisible(true);
+        try {
+            pesananflow a = new pesananflow();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(homeadmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_btnpesananActionPerformed
 
     /**
