@@ -108,6 +108,66 @@ public class mpesanan extends koneksi {
         }
         return id;
     }
+    public double gethargatopping(String toping) {
+        double id = 0;
+        try {
+            String query = "SELECT harga_toping from toping where id_toping = "+toping;
+            id = Double.parseDouble(getdataidNoaray(query));
+        } catch (SQLException ex) {
+            Logger.getLogger(mpesanan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+    public double gethargamenu(int menu) {
+        double id = 0;
+        try {
+            String query = "SELECT harga_menu from menu where id_menu = "+menu;
+            id = Double.parseDouble(getdataidNoaray(query));
+        } catch (SQLException ex) {
+            Logger.getLogger(mpesanan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+    public double gethargaminuman(int minuman) {
+        double id = 0;
+        try {
+            String query = "SELECT harga from minuman where id_minuman = "+minuman;
+            id = Double.parseDouble(getdataidNoaray(query));
+        } catch (SQLException ex) {
+            Logger.getLogger(mpesanan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+    public double gethargatoppinggojek(String toping) {
+        double id = 0;
+        try {
+            String query = "SELECT harga_toping from toping where id_toping = "+toping;
+            id = Double.parseDouble(getdataidNoaray(query));
+        } catch (SQLException ex) {
+            Logger.getLogger(mpesanan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+    public double gethargamenugojek(int menu) {
+        double id = 0;
+        try {
+            String query = "SELECT harga_menu from menu where id_menu = "+menu;
+            id = Double.parseDouble(getdataidNoaray(query));
+        } catch (SQLException ex) {
+            Logger.getLogger(mpesanan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
+    public double gethargaminumangojek(int minuman) {
+        double id = 0;
+        try {
+            String query = "SELECT harga from minuman where id_minuman = "+minuman;
+            id = Double.parseDouble(getdataidNoaray(query));
+        } catch (SQLException ex) {
+            Logger.getLogger(mpesanan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        return id;
+    }
 
     public String getuangbayar(String id) {
         String uang = null;

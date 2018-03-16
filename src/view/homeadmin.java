@@ -86,7 +86,7 @@ public class homeadmin extends javax.swing.JFrame {
 
     private void btnpesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesananActionPerformed
         try {
-            pesananflow a = new pesananflow();
+            pesanan a = new pesanan();
             a.setVisible(true);
         } catch (SQLException ex) {
             Logger.getLogger(homeadmin.class.getName()).log(Level.SEVERE, null, ex);
