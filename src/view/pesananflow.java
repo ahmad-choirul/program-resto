@@ -9,10 +9,13 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
+import java.io.File;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
@@ -20,6 +23,14 @@ import javax.swing.JTable;
 import javax.swing.Timer;
 import javax.swing.table.DefaultTableModel;
 import model.mpesanan;
+import net.sf.jasperreports.engine.JasperCompileManager;
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.JasperPrintManager;
+import net.sf.jasperreports.engine.JasperReport;
+import net.sf.jasperreports.engine.design.JasperDesign;
+import net.sf.jasperreports.engine.xml.JRXmlLoader;
+import net.sf.jasperreports.view.JasperViewer;
 
 /**
  *
@@ -37,7 +48,12 @@ public class pesananflow extends javax.swing.JFrame {
     String idtoping = null;
     int level;
     boolean toping = false;
-popupkembalian popupkembalian = new popupkembalian();
+    popupkembalian popupkembalian = new popupkembalian();
+    JasperReport jasperReport;
+    JasperDesign jasperDesign;
+    JasperPrint jasperPrint;
+    Map<String, Object> param = new HashMap<String, Object>();
+
     public pesananflow() throws SQLException {
         initComponents();
         showtgl();
@@ -586,14 +602,14 @@ popupkembalian popupkembalian = new popupkembalian();
             daftartoping.add("15");
         }
 
-        System.out.println("idtoping sesudah" + idtoping);
+        System.out.println("idtoping sebelum" + idtoping);
         if (toping) {
             inserttoping(daftartoping);
             insertmenu("" + menu);
         } else {
             insertmenutanpatoping("" + menu);
         }
-
+        System.out.println("idtoping sesudah" + idtoping);
         idtoping = null;
         hargatotal = hargatotal + hargasatu;
         hargasatu = 0;
@@ -624,6 +640,7 @@ popupkembalian popupkembalian = new popupkembalian();
         } else {
             message("gagal insert makanan");
         }
+        toping = false;
     }
 
     public void inserttoping(ArrayList id) {
@@ -759,7 +776,7 @@ popupkembalian popupkembalian = new popupkembalian();
             if (uangbayar < hargatotal) {
                 message("uangkurang");
             } else {
-                idpesanan = pesanan.getidpesanan();
+                cetak();
                 cleartable(tablemenu);
                 cleartable(tableminuman);
                 cleartable(tabeltoping);
@@ -767,10 +784,37 @@ popupkembalian popupkembalian = new popupkembalian();
                 boxbayar.setText("");
                 boxkembalian.setText("");
                 clear();
+                idpesanan = pesanan.getidpesanan();
             }
         }
     }//GEN-LAST:event_boxbayarKeyPressed
+    public void cetak() {
+        String bayar = rubahuang(Double.parseDouble(boxbayar.getText()));
+        try {
 
+            File file = new File("src/report/strukjual.jrxml");
+            try {
+                jasperDesign = JRXmlLoader.load(file);
+                param.clear();
+                param.put("tgl", boxtgl.getText());
+                param.put("jam", boxjam.getText());
+                param.put("id_pesanan", idpesanan);
+                param.put("kembalian", boxkembalian.getText());
+                param.put("totalharga", boxhargatotal.getText());
+                param.put("totalbayar", bayar);
+                jasperReport = JasperCompileManager.compileReport(jasperDesign);
+                jasperPrint = JasperFillManager.fillReport(jasperReport, param, pesanan.getConnection());
+//                JasperViewer.viewReport(jasperPrint, true);
+                JasperPrintManager.printReport(jasperPrint, false);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        } catch (Exception ex) {
+            JOptionPane.showMessageDialog(rootPane, "Dokumen Tidak Ada" + ex);
+            ex.printStackTrace();
+        }
+
+    }
     private void boxbayarKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_boxbayarKeyReleased
         try {
             if (!boxbayar.getText().equals("")) {
@@ -793,6 +837,7 @@ popupkembalian popupkembalian = new popupkembalian();
     }//GEN-LAST:event_boxbayarKeyReleased
     public String rubahuang(double uang) {
         String mataUang = String.format("Rp.%,.0f", uang).replaceAll(",", ".") + ",00";
+        System.out.println("uang"+mataUang);
         return mataUang;
 
     }

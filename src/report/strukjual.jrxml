@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="164" pageHeight="842" columnWidth="124" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="716fdaa4-ab1c-45d1-a342-e3ed01e79326">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="18"/>
+	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
+	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
+	<style name="Detail" fontName="Arial" fontSize="12"/>
+	<style name="Row" mode="Transparent"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["D:\\google drive\\back up tugas\\project luar\\program resto\\src\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id_pesanan" class="java.lang.String"/>
+	<parameter name="totalharga" class="java.lang.String"/>
+	<parameter name="totalbayar" class="java.lang.String"/>
+	<parameter name="kembalian" class="java.lang.String"/>
+	<parameter name="tgl" class="java.lang.String"/>
+	<parameter name="jam" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select p.id_pesanan,m.nama_menu,concat('Rp ', format( p.harga_bayar, 0)) as harga_bayar, GROUP_CONCAT(nama_toping SEPARATOR ',') as toping,p.level from pesan_toping pt JOIN toping t ON(pt.id_toping=t.id_toping) RIGHT join pesanan p ON(p.id_pesan_toping=pt.id_pesan_toping) join menu m on (m.id_menu=p.id_menu) where p.id_pesanan = $P{id_pesanan} GROUP BY p.id_pesanan,p.harga_bayar,m.nama_menu]]>
+	</queryString>
+	<field name="id_pesanan" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nama_menu" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="harga_bayar" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="toping" class="java.lang.String"/>
+	<field name="level" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="68" splitType="Stretch">
+			<staticText>
+				<reportElement style="SubTitle" x="0" y="26" width="124" height="22" uuid="4e1f7ae4-a758-47a4-94c9-0fdbe014bfd6"/>
+				<textElement textAlignment="Center">
+					<font fontName="Times New Roman" size="8" pdfFontName="Times-Roman"/>
+				</textElement>
+				<text><![CDATA[The Priengers]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="3" y="48" width="110" height="10" uuid="184c3892-0b89-453f-bcd2-25046d1c38e6"/>
+				<textElement textAlignment="Right">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[restoran apa ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="66" y="0" width="58" height="15" forecolor="#736343" uuid="5f1e0a86-eee2-4bd9-b47c-f8c205340cb1"/>
+				<textElement textAlignment="Right">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[id_pesanan]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="66" y="15" width="58" height="11" uuid="b57aab71-1554-4d87-8b42-b331ea95964e"/>
+				<textElement textAlignment="Right">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{id_pesanan}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="0" width="58" height="10" uuid="f5cadfa6-8089-4bf7-aee6-2a4616a56a20"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{tgl}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="10" width="56" height="10" uuid="8f7e3d9c-b466-4139-97c5-dea46ea8062a"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{jam}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="8" splitType="Stretch">
+			<staticText>
+				<reportElement x="57" y="0" width="25" height="8" uuid="2fd0cd8f-9846-43b5-b403-952d88627e84"/>
+				<textElement>
+					<font size="6" isBold="true"/>
+				</textElement>
+				<text><![CDATA[level]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" mode="Transparent" x="82" y="-1" width="44" height="7" forecolor="#000000" backcolor="#FFFFFF" uuid="bf9e0f7e-d32e-4e83-bf59-7cde0cd38a1f"/>
+				<textElement textAlignment="Right" verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="6" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[harga bayar]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="1" y="6" width="124" height="1" uuid="4cf5f029-04cc-4db9-ae34-88269793f332"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+			<staticText>
+				<reportElement style="Column header" mode="Transparent" x="1" y="0" width="51" height="7" forecolor="#000000" backcolor="#FFFFFF" uuid="7d697b36-09e5-4a3a-8577-f54544e0f1f0"/>
+				<textElement verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="6" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[nama menu]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="24" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" mode="Transparent" x="1" y="7" width="123" height="8" forecolor="#000000" backcolor="#FFFFFF" uuid="c131b1d9-ad20-4f17-af5b-ccea38271e52"/>
+				<textElement verticalAlignment="Top" rotation="None" markup="none">
+					<font fontName="Arial" size="6" isBold="true" isItalic="false" isUnderline="false" isStrikeThrough="false" pdfEncoding="Cp1252" isPdfEmbedded="false"/>
+					<paragraph lineSpacing="Single"/>
+				</textElement>
+				<text><![CDATA[toping]]></text>
+			</staticText>
+			<textField isStretchWithOverflow="true">
+				<reportElement style="Detail" x="1" y="14" width="123" height="9" uuid="90e36a5f-8195-4279-b7b3-b2dd5aa3ae77"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{toping}]]></textFieldExpression>
+			</textField>
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="1" y="0" width="124" height="8" uuid="b01d664d-46d8-4811-8d01-0fed3163a731"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="0" y="0" width="53" height="7" uuid="12cfe3cc-bcca-438c-8785-4ee786f95eb8"/>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{nama_menu}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" x="79" y="0" width="45" height="7" uuid="fdd439c7-96c7-4cc9-b03a-a5fe4bf27a15"/>
+					<textElement textAlignment="Right">
+						<font size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{harga_bayar}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="53" y="0" width="26" height="8" uuid="4d5d682b-c318-460c-ba4f-261ed3c89251"/>
+					<textElement>
+						<font size="6"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{level}]]></textFieldExpression>
+				</textField>
+			</frame>
+			<line>
+				<reportElement x="0" y="22" width="124" height="1" uuid="d751e197-aac2-4f14-bf82-c51e9f028968"/>
+			</line>
+		</band>
+	</detail>
+	<summary>
+		<band height="46">
+			<subreport>
+				<reportElement x="-19" y="0" width="163" height="12" uuid="f3788252-4606-41a3-a69b-c314719a65fb"/>
+				<subreportParameter name="id_pesanan">
+					<subreportParameterExpression><![CDATA[$P{id_pesanan}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA[$P{SUBREPORT_DIR} + "subreportminuman.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="82" y="15" width="42" height="10" uuid="d9fbbb8c-622c-43b9-b95a-0cb3865b4405"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalharga}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="24" width="42" height="10" uuid="fbbdac44-92ec-4947-adb8-acb18fa600b1"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{totalbayar}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="34" width="42" height="10" uuid="a8fd7791-8672-4edb-a276-fdbd48e391e8"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{kembalian}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="26" y="15" width="54" height="10" uuid="0f4bba72-de01-4af2-9359-570427940c69"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[total harga]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="25" width="54" height="10" uuid="d71b128f-db8f-4b49-8c2b-60b63ab1c144"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[total bayar]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="26" y="35" width="54" height="10" uuid="ef345ac2-397b-42e5-b8a0-3bb7168abbee"/>
+				<textElement>
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[kembalian]]></text>
+			</staticText>
+		</band>
+	</summary>
+</jasperReport>
