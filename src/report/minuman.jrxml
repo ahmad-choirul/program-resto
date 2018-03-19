@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dapurminuman" language="groovy" pageWidth="164" pageHeight="792" columnWidth="124" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="ec7fbaa5-526b-4926-bcdb-ce5672200ada">
+	<property name="ireport.zoom" value="3.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="id_pesanan" class="java.lang.String"/>
+	<parameter name="namapelanggan" class="java.lang.String"/>
+	<parameter name="lantai" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select mn.nama_minuman,COUNT(p.id_minuman) as jumlah from pesanan p join minuman mn on(p.id_minuman=mn.id_minuman) where p.id_pesanan=$P{id_pesanan} GROUP by mn.nama_minuman]]>
+	</queryString>
+	<field name="nama_minuman" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jumlah" class="java.lang.Long"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="22">
+			<textField>
+				<reportElement x="42" y="-1" width="62" height="11" uuid="7aeff884-f11f-4a99-a615-d71b028b690e"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{namapelanggan}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="-1" width="27" height="11" uuid="f8f6fcbb-feec-47bc-b6d4-256aa683292a"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[nama ]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="42" y="10" width="62" height="11" uuid="4ec5ae00-f9cf-4839-b2d3-28e89538a9d6"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{lantai}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="0" y="10" width="27" height="11" uuid="5478720a-51e4-4420-aade-4651fd6ccc8e"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<text><![CDATA[lantai]]></text>
+			</staticText>
+			<line>
+				<reportElement x="0" y="21" width="124" height="1" uuid="36c1b0ac-fda6-4ed1-9b76-ed377bb05391"/>
+			</line>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="11" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="82" height="10" uuid="f558fdf3-c212-47db-9074-1465ce2c1e90"/>
+				<textElement verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[nama_minuman]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="82" y="0" width="22" height="10" uuid="2c7c68bf-300e-4484-8899-9cca98806b0d"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[jumlah]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="12" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="0" width="82" height="12" uuid="fb26a48a-4409-4e31-aa37-4a42938f4dba"/>
+				<textElement verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nama_minuman}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="82" y="0" width="22" height="12" uuid="65c590a0-cfd2-4685-84c1-ab91f06ae1ed"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{jumlah}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="0" y="0" width="124" height="1" uuid="06db392a-d9a6-4bc5-9a0c-647d78292dd5"/>
+			</line>
+		</band>
+	</detail>
+</jasperReport>

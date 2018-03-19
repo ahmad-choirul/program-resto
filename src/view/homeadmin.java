@@ -31,67 +31,93 @@ public class homeadmin extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnpesanan = new javax.swing.JButton();
         btngrafik = new javax.swing.JButton();
         btnkasir = new javax.swing.JButton();
         btnlaporan = new javax.swing.JButton();
+        ubahharga = new javax.swing.JButton();
+        jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        btnpesanan.setText("pesanan");
-        btnpesanan.addActionListener(new java.awt.event.ActionListener() {
+        btngrafik.setBorderPainted(false);
+        btngrafik.setContentAreaFilled(false);
+        btngrafik.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btngrafik.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnpesananActionPerformed(evt);
+                btngrafikActionPerformed(evt);
             }
         });
+        getContentPane().add(btngrafik, new org.netbeans.lib.awtextra.AbsoluteConstraints(340, 100, 420, 220));
 
-        btngrafik.setText("grafik");
+        btnkasir.setBorderPainted(false);
+        btnkasir.setContentAreaFilled(false);
+        btnkasir.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnkasir.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnkasirActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnkasir, new org.netbeans.lib.awtextra.AbsoluteConstraints(350, 460, 410, 220));
 
-        btnkasir.setText("manajemen kasir");
+        btnlaporan.setBorderPainted(false);
+        btnlaporan.setContentAreaFilled(false);
+        btnlaporan.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnlaporan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnlaporanActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btnlaporan, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 460, 420, 220));
 
-        btnlaporan.setText("laporan");
+        ubahharga.setBorderPainted(false);
+        ubahharga.setContentAreaFilled(false);
+        ubahharga.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        ubahharga.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                ubahhargaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(ubahharga, new org.netbeans.lib.awtextra.AbsoluteConstraints(810, 100, 430, 220));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(560, 560, 560)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnpesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnlaporan, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(110, 110, 110)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btngrafik, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnkasir, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(369, Short.MAX_VALUE))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(80, 80, 80)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnpesanan, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnkasir, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(80, 80, 80)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnlaporan, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btngrafik, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(348, Short.MAX_VALUE))
-        );
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/bgmenu.png"))); // NOI18N
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1360, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnpesananActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnpesananActionPerformed
+    private void ubahhargaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_ubahhargaActionPerformed
         try {
-            pesanan a = new pesanan();
+            menu a = new menu();
             a.setVisible(true);
+            this.dispose();
         } catch (SQLException ex) {
             Logger.getLogger(homeadmin.class.getName()).log(Level.SEVERE, null, ex);
         }
-    }//GEN-LAST:event_btnpesananActionPerformed
+    }//GEN-LAST:event_ubahhargaActionPerformed
+
+    private void btngrafikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrafikActionPerformed
+        grafik a = new grafik();
+        a.setVisible(true);
+        this.dispose();
+    }//GEN-LAST:event_btngrafikActionPerformed
+
+    private void btnkasirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnkasirActionPerformed
+        try {
+            manajemenkasir a = new manajemenkasir();
+            a.setVisible(true);
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(homeadmin.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btnkasirActionPerformed
+
+    private void btnlaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnlaporanActionPerformed
+       laporan a = new laporan();
+       a.setVisible(true);
+       this.dispose();
+    }//GEN-LAST:event_btnlaporanActionPerformed
 
     /**
      * @param args the command line arguments
@@ -132,6 +158,7 @@ public class homeadmin extends javax.swing.JFrame {
     private javax.swing.JButton btngrafik;
     private javax.swing.JButton btnkasir;
     private javax.swing.JButton btnlaporan;
-    private javax.swing.JButton btnpesanan;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton ubahharga;
     // End of variables declaration//GEN-END:variables
 }

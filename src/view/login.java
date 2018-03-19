@@ -5,6 +5,13 @@
  */
 package view;
 
+import java.awt.event.KeyEvent;
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.swing.JOptionPane;
+import model.mlogin;
+
 /**
  *
  * @author Nila
@@ -14,9 +21,12 @@ public class login extends javax.swing.JFrame {
     /**
      * Creates new form login
      */
-    public login() {
+    mlogin login;
+
+    public login() throws SQLException {
         initComponents();
         this.setLocationRelativeTo(this);
+        this.login = new mlogin();
     }
 
     /**
@@ -28,39 +38,20 @@ public class login extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        txtpassword = new javax.swing.JTextField();
         txtusername = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        txtpassword = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        txtpassword.setBackground(new java.awt.Color(176, 98, 18));
-        txtpassword.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        txtpassword.setForeground(new java.awt.Color(255, 255, 255));
-        txtpassword.setText("password");
-        txtpassword.setBorder(null);
-        txtpassword.setOpaque(false);
-        txtpassword.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtpasswordMouseClicked(evt);
-            }
-        });
-        getContentPane().add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 220, 40));
-
         txtusername.setBackground(new java.awt.Color(176, 98, 18));
         txtusername.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtusername.setForeground(new java.awt.Color(255, 255, 255));
-        txtusername.setText("username");
         txtusername.setBorder(null);
         txtusername.setOpaque(false);
-        txtusername.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                txtusernameMouseClicked(evt);
-            }
-        });
         getContentPane().add(txtusername, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 220, 30));
 
         jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/btnlogin1.png"))); // NOI18N
@@ -68,7 +59,23 @@ public class login extends javax.swing.JFrame {
         jButton1.setBorderPainted(false);
         jButton1.setContentAreaFilled(false);
         jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/btnlogin2.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(389, 290, 100, 40));
+
+        txtpassword.setForeground(new java.awt.Color(255, 255, 255));
+        txtpassword.setBorder(null);
+        txtpassword.setDoubleBuffered(true);
+        txtpassword.setOpaque(false);
+        txtpassword.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtpasswordKeyPressed(evt);
+            }
+        });
+        getContentPane().add(txtpassword, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 240, 220, 40));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/login.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, -1, -1));
@@ -76,13 +83,38 @@ public class login extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtusernameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtusernameMouseClicked
-        txtusername.setText("");
-    }//GEN-LAST:event_txtusernameMouseClicked
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        login();
+    }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void txtpasswordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtpasswordMouseClicked
-        txtpassword.setText("");
-    }//GEN-LAST:event_txtpasswordMouseClicked
+    private void txtpasswordKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtpasswordKeyPressed
+        if (evt.getKeyCode() == KeyEvent.VK_ENTER) {
+            login();
+        }
+    }//GEN-LAST:event_txtpasswordKeyPressed
+    public void login() {
+        if (txtpassword.getText().equalsIgnoreCase(login.getpassword(txtusername.getText()))) {
+            if (login.getlevel(txtusername.getText()).equalsIgnoreCase("admin")) {
+                homeadmin a = new homeadmin();
+                a.setVisible(true);
+                this.dispose();
+            } else {
+                try {
+                    pesanan a = new pesanan();
+                    a.setVisible(true);
+                    this.dispose();
+                } catch (SQLException ex) {
+                    Logger.getLogger(homeadmin.class.getName()).log(Level.SEVERE, null, ex);
+                }
+            }
+        } else {
+            message("gagal login periksa usernam dan password anda");
+        }
+    }
+
+    public void message(String txt) {
+        JOptionPane.showMessageDialog(null, txt, "error", JOptionPane.OK_OPTION);
+    }
 
     /**
      * @param args the command line arguments
@@ -114,7 +146,11 @@ public class login extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new login().setVisible(true);
+                try {
+                    new login().setVisible(true);
+                } catch (SQLException ex) {
+                    Logger.getLogger(login.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         });
     }
@@ -122,7 +158,7 @@ public class login extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JTextField txtpassword;
+    private javax.swing.JPasswordField txtpassword;
     private javax.swing.JTextField txtusername;
     // End of variables declaration//GEN-END:variables
 }

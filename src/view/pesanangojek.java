@@ -53,7 +53,14 @@ public class pesanangojek extends javax.swing.JFrame {
     JasperDesign jasperDesign;
     JasperPrint jasperPrint;
     Map<String, Object> param = new HashMap<String, Object>();
-
+JasperReport jasperReport2;
+    JasperDesign jasperDesign2;
+    JasperPrint jasperPrint2;
+    Map<String, Object> param2 = new HashMap<String, Object>();
+    JasperReport jasperReport3;
+    JasperDesign jasperDesign3;
+    JasperPrint jasperPrint3;
+    Map<String, Object> param3 = new HashMap<String, Object>();
     public pesanangojek() throws SQLException {
         initComponents();
         showtgl();
@@ -120,7 +127,6 @@ public class pesanangojek extends javax.swing.JFrame {
         pil18 = new javax.swing.JCheckBox();
         pil19 = new javax.swing.JCheckBox();
         pil20 = new javax.swing.JCheckBox();
-        tambah = new javax.swing.JButton();
         panelminuman = new javax.swing.JPanel();
         minuman1 = new javax.swing.JButton();
         minuman2 = new javax.swing.JButton();
@@ -142,6 +148,8 @@ public class pesanangojek extends javax.swing.JFrame {
         minuman18 = new javax.swing.JButton();
         minuman17 = new javax.swing.JButton();
         minuman16 = new javax.swing.JButton();
+        jLabel3 = new javax.swing.JLabel();
+        tambah = new javax.swing.JButton();
         panelpesanan = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablemenu = new javax.swing.JTable();
@@ -159,6 +167,8 @@ public class pesanangojek extends javax.swing.JFrame {
         boxtgl = new javax.swing.JLabel();
         boxjam = new javax.swing.JLabel();
         boxnamapelanggan = new javax.swing.JTextField();
+        btngojek = new javax.swing.JButton();
+        jButton1 = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -378,181 +388,269 @@ public class pesanangojek extends javax.swing.JFrame {
 
         getContentPane().add(paneltoping, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 420, 290));
 
-        tambah.setText("tambah");
+        panelminuman.setBackground(new java.awt.Color(51, 255, 51));
+        panelminuman.setOpaque(false);
+        panelminuman.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        minuman1.setBorderPainted(false);
+        minuman1.setContentAreaFilled(false);
+        minuman1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman1.setFocusPainted(false);
+        minuman1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/es teh.png"))); // NOI18N
+        minuman1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman1ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 120, 50));
+
+        minuman2.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        minuman2.setBorderPainted(false);
+        minuman2.setContentAreaFilled(false);
+        minuman2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman2.setFocusPainted(false);
+        minuman2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/es teh jumbo.png"))); // NOI18N
+        minuman2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman2ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 60, 120, 60));
+
+        minuman4.setBorderPainted(false);
+        minuman4.setContentAreaFilled(false);
+        minuman4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman4.setFocusPainted(false);
+        minuman4.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/es jeruk jumbo.png"))); // NOI18N
+        minuman4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman4ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 180, 120, 50));
+
+        minuman3.setBorderPainted(false);
+        minuman3.setContentAreaFilled(false);
+        minuman3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman3.setFocusPainted(false);
+        minuman3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/es jeruk.png"))); // NOI18N
+        minuman3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman3ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, 120, 50));
+
+        minuman5.setBorderPainted(false);
+        minuman5.setContentAreaFilled(false);
+        minuman5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman5.setFocusPainted(false);
+        minuman5.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/es teh tarik.png"))); // NOI18N
+        minuman5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman5ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 240, 120, 50));
+
+        minuman10.setBorderPainted(false);
+        minuman10.setContentAreaFilled(false);
+        minuman10.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman10.setFocusPainted(false);
+        minuman10.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/susu jeruk.png"))); // NOI18N
+        minuman10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman10ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, 120, 50));
+
+        minuman9.setBorderPainted(false);
+        minuman9.setContentAreaFilled(false);
+        minuman9.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman9.setFocusPainted(false);
+        minuman9.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/choco ice.png"))); // NOI18N
+        minuman9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman9ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 190, 120, 40));
+
+        minuman8.setBorderPainted(false);
+        minuman8.setContentAreaFilled(false);
+        minuman8.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman8.setFocusPainted(false);
+        minuman8.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/es capucino.png"))); // NOI18N
+        minuman8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman8ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, 120, 50));
+
+        minuman7.setBorderPainted(false);
+        minuman7.setContentAreaFilled(false);
+        minuman7.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman7.setFocusPainted(false);
+        minuman7.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/es susu coklat.png"))); // NOI18N
+        minuman7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman7ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman7, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 70, 120, 40));
+
+        minuman6.setBorderPainted(false);
+        minuman6.setContentAreaFilled(false);
+        minuman6.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman6.setFocusPainted(false);
+        minuman6.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/es susu putih.png"))); // NOI18N
+        minuman6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman6ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman6, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, 110, 50));
+
+        minuman15.setBorderPainted(false);
+        minuman15.setContentAreaFilled(false);
+        minuman15.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman15.setFocusPainted(false);
+        minuman15.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/susu melon.png"))); // NOI18N
+        minuman15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman15ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 240, 110, 50));
+
+        minuman14.setBorderPainted(false);
+        minuman14.setContentAreaFilled(false);
+        minuman14.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman14.setFocusPainted(false);
+        minuman14.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/susu strawberry.png"))); // NOI18N
+        minuman14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman14ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman14, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 190, 110, 40));
+
+        minuman13.setBorderPainted(false);
+        minuman13.setContentAreaFilled(false);
+        minuman13.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman13.setFocusPainted(false);
+        minuman13.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/susu soda.png"))); // NOI18N
+        minuman13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman13ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman13, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, 110, 40));
+
+        minuman12.setBorderPainted(false);
+        minuman12.setContentAreaFilled(false);
+        minuman12.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman12.setFocusPainted(false);
+        minuman12.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/ice lemon tea.png"))); // NOI18N
+        minuman12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman12ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman12, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 70, 110, 40));
+
+        minuman11.setBorderPainted(false);
+        minuman11.setContentAreaFilled(false);
+        minuman11.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman11.setFocusPainted(false);
+        minuman11.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/jabon.png"))); // NOI18N
+        minuman11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman11ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman11, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, 120, 50));
+
+        minuman20.setBorderPainted(false);
+        minuman20.setContentAreaFilled(false);
+        minuman20.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman20.setFocusPainted(false);
+        minuman20.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/air es.png"))); // NOI18N
+        minuman20.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman20ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman20, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 240, 110, 50));
+
+        minuman19.setBorderPainted(false);
+        minuman19.setContentAreaFilled(false);
+        minuman19.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman19.setFocusPainted(false);
+        minuman19.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/air mineral.png"))); // NOI18N
+        minuman19.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman19ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman19, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 190, 110, 40));
+
+        minuman18.setBorderPainted(false);
+        minuman18.setContentAreaFilled(false);
+        minuman18.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman18.setFocusPainted(false);
+        minuman18.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/kopi hitam.png"))); // NOI18N
+        minuman18.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman18ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman18, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 130, 110, 40));
+
+        minuman17.setBorderPainted(false);
+        minuman17.setContentAreaFilled(false);
+        minuman17.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman17.setFocusPainted(false);
+        minuman17.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/melon squash.png"))); // NOI18N
+        minuman17.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman17ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman17, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 70, 110, 40));
+
+        minuman16.setBorderPainted(false);
+        minuman16.setContentAreaFilled(false);
+        minuman16.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman16.setFocusPainted(false);
+        minuman16.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/strawberry squash.png"))); // NOI18N
+        minuman16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman16ActionPerformed(evt);
+            }
+        });
+        panelminuman.add(minuman16, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 10, 110, 40));
+
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/minuman.png"))); // NOI18N
+        panelminuman.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 490, 300));
+
+        getContentPane().add(panelminuman, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 110, 490, 300));
+
+        tambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tambah.png"))); // NOI18N
+        tambah.setBorderPainted(false);
+        tambah.setContentAreaFilled(false);
+        tambah.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         tambah.setEnabled(false);
+        tambah.setFocusPainted(false);
+        tambah.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tambah2.png"))); // NOI18N
         tambah.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 tambahActionPerformed(evt);
             }
         });
         getContentPane().add(tambah, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 420, 100, 50));
-
-        panelminuman.setBackground(new java.awt.Color(51, 255, 51));
-        panelminuman.setOpaque(false);
-        panelminuman.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        minuman1.setText("ES TEH");
-        minuman1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman1ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, 90, 40));
-
-        minuman2.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
-        minuman2.setText("ES TEH JUMBO");
-        minuman2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman2ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 70, 90, 40));
-
-        minuman4.setText("es jeruk jumbo");
-        minuman4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman4ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 190, 90, 40));
-
-        minuman3.setText("ES JERUK");
-        minuman3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman3ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, 90, 40));
-
-        minuman5.setText("es teh tarik");
-        minuman5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman5ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, 90, 40));
-
-        minuman10.setText("sus jeruk");
-        minuman10.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman10ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman10, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 250, 90, 40));
-
-        minuman9.setText("choco ice");
-        minuman9.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman9ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman9, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 190, 90, 40));
-
-        minuman8.setText("es capucino");
-        minuman8.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman8ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman8, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 130, 90, 40));
-
-        minuman7.setText("es susu coklat");
-        minuman7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman7ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman7, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 70, 90, 40));
-
-        minuman6.setText("es susu putih");
-        minuman6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman6ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman6, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 10, 90, 40));
-
-        minuman15.setText("susu melon");
-        minuman15.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman15ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 250, 90, 40));
-
-        minuman14.setText("susu strawberry");
-        minuman14.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman14ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman14, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 190, 90, 40));
-
-        minuman13.setText("susu soda");
-        minuman13.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman13ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, 90, 40));
-
-        minuman12.setText("ice lemon tea");
-        minuman12.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman12ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman12, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 70, 90, 40));
-
-        minuman11.setText("jabon beer/jamu");
-        minuman11.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman11ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman11, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 90, 40));
-
-        minuman20.setText("air es");
-        minuman20.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman20ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman20, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 250, 90, 40));
-
-        minuman19.setText("air mineral");
-        minuman19.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman19ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman19, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 190, 90, 40));
-
-        minuman18.setText("kopi hitam");
-        minuman18.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman18ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman18, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, 90, 40));
-
-        minuman17.setText("melon squash");
-        minuman17.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman17ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman17, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 70, 90, 40));
-
-        minuman16.setText("strawberry squash");
-        minuman16.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                minuman16ActionPerformed(evt);
-            }
-        });
-        panelminuman.add(minuman16, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, 90, 40));
-
-        getContentPane().add(panelminuman, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 110, 490, 300));
 
         panelpesanan.setBackground(new java.awt.Color(51, 255, 51));
         panelpesanan.setOpaque(false);
@@ -634,36 +732,50 @@ public class pesanangojek extends javax.swing.JFrame {
         });
         jScrollPane3.setViewportView(tableminuman);
 
-        panelpesanan.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 230, 240));
+        panelpesanan.add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 240, 240));
 
-        btndeletemenu.setText("delete menu");
+        btndeletemenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hapus makanan.png"))); // NOI18N
+        btndeletemenu.setBorderPainted(false);
+        btndeletemenu.setContentAreaFilled(false);
+        btndeletemenu.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btndeletemenu.setEnabled(false);
+        btndeletemenu.setFocusPainted(false);
         btndeletemenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btndeletemenuActionPerformed(evt);
             }
         });
-        panelpesanan.add(btndeletemenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 20, 100, 60));
+        panelpesanan.add(btndeletemenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 20, 150, 60));
 
-        btndeletetoping.setText("delete toping");
+        btndeletetoping.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hapus toping.png"))); // NOI18N
+        btndeletetoping.setBorderPainted(false);
+        btndeletetoping.setContentAreaFilled(false);
+        btndeletetoping.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btndeletetoping.setEnabled(false);
+        btndeletetoping.setFocusPainted(false);
+        btndeletetoping.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hapus toping2.png"))); // NOI18N
         btndeletetoping.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btndeletetopingActionPerformed(evt);
             }
         });
-        panelpesanan.add(btndeletetoping, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 90, 100, 60));
+        panelpesanan.add(btndeletetoping, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 90, 150, 60));
 
-        btndeleteminuman.setText("delete minuman");
+        btndeleteminuman.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hapus minuman.png"))); // NOI18N
+        btndeleteminuman.setBorderPainted(false);
+        btndeleteminuman.setContentAreaFilled(false);
+        btndeleteminuman.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btndeleteminuman.setEnabled(false);
+        btndeleteminuman.setFocusPainted(false);
+        btndeleteminuman.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hapus minuman2.png"))); // NOI18N
         btndeleteminuman.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btndeleteminumanActionPerformed(evt);
             }
         });
-        panelpesanan.add(btndeleteminuman, new org.netbeans.lib.awtextra.AbsoluteConstraints(870, 160, 100, 60));
+        panelpesanan.add(btndeleteminuman, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 160, 150, 60));
 
-        getContentPane().add(panelpesanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 990, 250));
+        getContentPane().add(panelpesanan, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 480, 1020, 250));
 
         boxhargatotal.setEditable(false);
         boxhargatotal.setBackground(new java.awt.Color(93, 68, 33));
@@ -679,7 +791,13 @@ public class pesanangojek extends javax.swing.JFrame {
         });
         getContentPane().add(boxhargatotal, new org.netbeans.lib.awtextra.AbsoluteConstraints(970, 20, 370, 80));
 
-        clear.setText("clear");
+        clear.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear.png"))); // NOI18N
+        clear.setToolTipText("");
+        clear.setBorderPainted(false);
+        clear.setContentAreaFilled(false);
+        clear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        clear.setFocusPainted(false);
+        clear.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/clear2.png"))); // NOI18N
         clear.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 clearActionPerformed(evt);
@@ -710,25 +828,53 @@ public class pesanangojek extends javax.swing.JFrame {
                 boxbayarKeyReleased(evt);
             }
         });
-        getContentPane().add(boxbayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1060, 540, 290, 60));
+        getContentPane().add(boxbayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 520, 300, 70));
 
         boxtgl.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         boxtgl.setForeground(new java.awt.Color(255, 153, 51));
         boxtgl.setText("jLabel2");
-        getContentPane().add(boxtgl, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, 130, -1));
+        getContentPane().add(boxtgl, new org.netbeans.lib.awtextra.AbsoluteConstraints(180, 60, 130, 40));
 
         boxjam.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         boxjam.setForeground(new java.awt.Color(255, 153, 51));
         boxjam.setText("jLabel2");
-        getContentPane().add(boxjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 40, 140, 20));
+        getContentPane().add(boxjam, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 60, 140, 40));
 
-        boxnamapelanggan.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        boxnamapelanggan.setFont(new java.awt.Font("Tahoma", 0, 24)); // NOI18N
+        boxnamapelanggan.setForeground(new java.awt.Color(255, 255, 255));
         boxnamapelanggan.setText("nama pelanggan");
         boxnamapelanggan.setBorder(null);
         boxnamapelanggan.setOpaque(false);
-        getContentPane().add(boxnamapelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(590, 30, 360, 60));
+        getContentPane().add(boxnamapelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 30, 230, 60));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/transaksi.png"))); // NOI18N
+        btngojek.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/reguler.png"))); // NOI18N
+        btngojek.setBorderPainted(false);
+        btngojek.setContentAreaFilled(false);
+        btngojek.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btngojek.setFocusPainted(false);
+        btngojek.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/reguler2.png"))); // NOI18N
+        btngojek.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btngojekActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btngojek, new org.netbeans.lib.awtextra.AbsoluteConstraints(140, 0, 140, 40));
+
+        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout.png"))); // NOI18N
+        jButton1.setBorderPainted(false);
+        jButton1.setContentAreaFilled(false);
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        jButton1.setFocusPainted(false);
+        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout2.png"))); // NOI18N
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 40));
+
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/transaksigojek.png"))); // NOI18N
+        jLabel1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
         pack();
@@ -980,10 +1126,6 @@ public class pesanangojek extends javax.swing.JFrame {
         tambah.setEnabled(true);
     }//GEN-LAST:event_menu7ActionPerformed
 
-    private void minuman1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman1ActionPerformed
-        addminuman(1);
-    }//GEN-LAST:event_minuman1ActionPerformed
-
     private void tablemenuMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_tablemenuMouseClicked
         btndeletemenu.setEnabled(true);
         btndeleteminuman.setEnabled(false);
@@ -991,6 +1133,7 @@ public class pesanangojek extends javax.swing.JFrame {
         try {
             String idtoping = tablemenu.getValueAt(tablemenu.getSelectedRow(), 3).toString();
             tabeltoping.setModel(pesanan.gettoping(idtoping));
+            hidekolom(tabeltoping, 0);
         } catch (Exception ex) {
             cleartable(tabeltoping);
         }
@@ -1066,15 +1209,12 @@ public class pesanangojek extends javax.swing.JFrame {
     }//GEN-LAST:event_boxbayarKeyPressed
     public void cetak() {
         String bayar = rubahuang(Double.parseDouble(boxbayar.getText()));
-        String nama = "";
-        if (boxnamapelanggan.getText().equalsIgnoreCase("")) {
-            nama = "customer";
-        } else {
-            nama = boxnamapelanggan.getText();
-        }
+        String nama = boxnamapelanggan.getText();
         try {
 
             File file = new File("src/report/strukjual.jrxml");
+            File file2 = new File("src/report/makanan.jrxml");
+            File file3 = new File("src/report/minuman.jrxml");
             try {
                 jasperDesign = JRXmlLoader.load(file);
                 param.clear();
@@ -1083,8 +1223,9 @@ public class pesanangojek extends javax.swing.JFrame {
                 param.put("id_pesanan", idpesanan);
                 param.put("kembalian", boxkembalian.getText());
                 param.put("totalharga", boxhargatotal.getText());
-                param.put("totalbayar", bayar);
+                param.put("totalbayar", boxbayar.getText());
                 param.put("namapelanggan", nama);
+                param.put("lantai", "take away");
                 jasperReport = JasperCompileManager.compileReport(jasperDesign);
                 jasperPrint = JasperFillManager.fillReport(jasperReport, param, pesanan.getConnection());
 //                JasperViewer.viewReport(jasperPrint, true);
@@ -1092,8 +1233,42 @@ public class pesanangojek extends javax.swing.JFrame {
             } catch (Exception e) {
                 e.printStackTrace();
             }
+            try {
+                if (pesanan.cekmakanan(idpesanan)) {
+                    System.out.println("masukmakanan");
+                    jasperDesign2 = JRXmlLoader.load(file2);
+                    param2.clear();
+                    param2.put("id_pesanan", idpesanan);
+                    param2.put("namapelanggan", nama);
+                    param2.put("lantai", "take away");
+                    jasperReport2 = JasperCompileManager.compileReport(jasperDesign2);
+                    jasperPrint2 = JasperFillManager.fillReport(jasperReport2, param2, pesanan.getConnection());
+//                JasperViewer.viewReport(jasperPrint, true);
+                    JasperPrintManager.printReport(jasperPrint2, false);
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            try {
+                if (pesanan.cekminum(idpesanan)) {
+                    System.out.println("masukminuman");
+                    jasperDesign3 = JRXmlLoader.load(file3);
+                    param3.clear();
+                    param3.put("id_pesanan", idpesanan);
+                    param3.put("namapelanggan", nama);
+                    param3.put("lantai", "take away");
+                    jasperReport3 = JasperCompileManager.compileReport(jasperDesign3);
+                    jasperPrint3 = JasperFillManager.fillReport(jasperReport3, param3, pesanan.getConnection());
+//                JasperViewer.viewReport(jasperPrint, true);
+                    JasperPrintManager.printReport(jasperPrint3, false);
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         } catch (Exception ex) {
             JOptionPane.showMessageDialog(rootPane, "Dokumen Tidak Ada" + ex);
+            JOptionPane.showMessageDialog(null, ex);
             ex.printStackTrace();
         }
     }
@@ -1134,82 +1309,6 @@ public class pesanangojek extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_pil1ActionPerformed
 
-    private void minuman6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman6ActionPerformed
-        addminuman(6);
-    }//GEN-LAST:event_minuman6ActionPerformed
-
-    private void minuman11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman11ActionPerformed
-        addminuman(11);
-    }//GEN-LAST:event_minuman11ActionPerformed
-
-    private void minuman16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman16ActionPerformed
-        addminuman(16);
-    }//GEN-LAST:event_minuman16ActionPerformed
-
-    private void minuman2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman2ActionPerformed
-        addminuman(2);
-    }//GEN-LAST:event_minuman2ActionPerformed
-
-    private void minuman3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman3ActionPerformed
-        addminuman(3);
-    }//GEN-LAST:event_minuman3ActionPerformed
-
-    private void minuman4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman4ActionPerformed
-        addminuman(4);
-    }//GEN-LAST:event_minuman4ActionPerformed
-
-    private void minuman5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman5ActionPerformed
-        addminuman(5);
-    }//GEN-LAST:event_minuman5ActionPerformed
-
-    private void minuman7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman7ActionPerformed
-        addminuman(7);
-    }//GEN-LAST:event_minuman7ActionPerformed
-
-    private void minuman8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman8ActionPerformed
-        addminuman(8);
-    }//GEN-LAST:event_minuman8ActionPerformed
-
-    private void minuman9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman9ActionPerformed
-        addminuman(9);
-    }//GEN-LAST:event_minuman9ActionPerformed
-
-    private void minuman10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman10ActionPerformed
-        addminuman(10);
-    }//GEN-LAST:event_minuman10ActionPerformed
-
-    private void minuman12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman12ActionPerformed
-        addminuman(12);
-    }//GEN-LAST:event_minuman12ActionPerformed
-
-    private void minuman13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman13ActionPerformed
-        addminuman(13);
-    }//GEN-LAST:event_minuman13ActionPerformed
-
-    private void minuman14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman14ActionPerformed
-        addminuman(14);
-    }//GEN-LAST:event_minuman14ActionPerformed
-
-    private void minuman15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman15ActionPerformed
-        addminuman(15);
-    }//GEN-LAST:event_minuman15ActionPerformed
-
-    private void minuman17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman17ActionPerformed
-        addminuman(17);
-    }//GEN-LAST:event_minuman17ActionPerformed
-
-    private void minuman18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman18ActionPerformed
-        addminuman(18);
-    }//GEN-LAST:event_minuman18ActionPerformed
-
-    private void minuman19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman19ActionPerformed
-        addminuman(19);
-    }//GEN-LAST:event_minuman19ActionPerformed
-
-    private void minuman20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman20ActionPerformed
-        addminuman(20);
-    }//GEN-LAST:event_minuman20ActionPerformed
-
     private void pillevelKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_pillevelKeyReleased
         try {
             int level = Integer.parseInt(pillevel.getText());
@@ -1222,6 +1321,106 @@ public class pesanangojek extends javax.swing.JFrame {
     private void pillevelMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_pillevelMouseClicked
         pillevel.setText("");
     }//GEN-LAST:event_pillevelMouseClicked
+
+    private void minuman1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman1ActionPerformed
+        addminuman(1);
+    }//GEN-LAST:event_minuman1ActionPerformed
+
+    private void minuman2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman2ActionPerformed
+        addminuman(2);
+    }//GEN-LAST:event_minuman2ActionPerformed
+
+    private void minuman4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman4ActionPerformed
+        addminuman(4);
+    }//GEN-LAST:event_minuman4ActionPerformed
+
+    private void minuman3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman3ActionPerformed
+        addminuman(3);
+    }//GEN-LAST:event_minuman3ActionPerformed
+
+    private void minuman5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman5ActionPerformed
+        addminuman(5);
+    }//GEN-LAST:event_minuman5ActionPerformed
+
+    private void minuman10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman10ActionPerformed
+        addminuman(10);
+    }//GEN-LAST:event_minuman10ActionPerformed
+
+    private void minuman9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman9ActionPerformed
+        addminuman(9);
+    }//GEN-LAST:event_minuman9ActionPerformed
+
+    private void minuman8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman8ActionPerformed
+        addminuman(8);
+    }//GEN-LAST:event_minuman8ActionPerformed
+
+    private void minuman7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman7ActionPerformed
+        addminuman(7);
+    }//GEN-LAST:event_minuman7ActionPerformed
+
+    private void minuman6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman6ActionPerformed
+        addminuman(6);
+    }//GEN-LAST:event_minuman6ActionPerformed
+
+    private void minuman15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman15ActionPerformed
+        addminuman(15);
+    }//GEN-LAST:event_minuman15ActionPerformed
+
+    private void minuman14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman14ActionPerformed
+        addminuman(14);
+    }//GEN-LAST:event_minuman14ActionPerformed
+
+    private void minuman13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman13ActionPerformed
+        addminuman(13);
+    }//GEN-LAST:event_minuman13ActionPerformed
+
+    private void minuman12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman12ActionPerformed
+        addminuman(12);
+    }//GEN-LAST:event_minuman12ActionPerformed
+
+    private void minuman11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman11ActionPerformed
+        addminuman(11);
+    }//GEN-LAST:event_minuman11ActionPerformed
+
+    private void minuman20ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman20ActionPerformed
+        addminuman(20);
+    }//GEN-LAST:event_minuman20ActionPerformed
+
+    private void minuman19ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman19ActionPerformed
+        addminuman(19);
+    }//GEN-LAST:event_minuman19ActionPerformed
+
+    private void minuman18ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman18ActionPerformed
+        addminuman(18);
+    }//GEN-LAST:event_minuman18ActionPerformed
+
+    private void minuman17ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman17ActionPerformed
+        addminuman(17);
+    }//GEN-LAST:event_minuman17ActionPerformed
+
+    private void minuman16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman16ActionPerformed
+        addminuman(16);
+    }//GEN-LAST:event_minuman16ActionPerformed
+
+    private void btngojekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngojekActionPerformed
+        try {
+            pesanan a = new pesanan();
+            a.setVisible(true);
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(pesanan.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_btngojekActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        try {
+            login a = new login();
+            a.setVisible(true);
+            this.dispose();
+        } catch (SQLException ex) {
+            Logger.getLogger(grafik.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_jButton1ActionPerformed
     public String rubahuang(double uang) {
         String mataUang = String.format("Rp.%,.0f", uang).replaceAll(",", ".") + ",00";
         System.out.println("uang" + mataUang);
@@ -1244,6 +1443,12 @@ public class pesanangojek extends javax.swing.JFrame {
             String uang = pesanan.getuangbayar(idpesanan);
             hargatotal = Double.parseDouble(pesanan.getuangbayarasli(idpesanan));
             boxhargatotal.setText(uang);
+            hidekolom(tablemenu, 0);
+            hidekolom(tablemenu, 3);
+            hidekolom(tableminuman, 0);
+            hidekolom(tabeltoping, 0);
+            tablemenu.getColumnModel().getColumn(2).setMinWidth(50);
+            tablemenu.getColumnModel().getColumn(2).setMaxWidth(50);
         } catch (SQLException ex) {
             Logger.getLogger(pesanangojek.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -1254,7 +1459,10 @@ public class pesanangojek extends javax.swing.JFrame {
         model.setRowCount(0);
         table.setModel(model);
     }
-
+public void hidekolom(JTable tabel, int col) {
+        tabel.getColumnModel().getColumn(col).setMinWidth(0);
+        tabel.getColumnModel().getColumn(col).setMaxWidth(0);
+    }
     public void message(String txt) {
         JOptionPane.showMessageDialog(null, txt, "error", JOptionPane.OK_OPTION);
     }
@@ -1315,10 +1523,13 @@ public class pesanangojek extends javax.swing.JFrame {
     private javax.swing.JButton btndeletemenu;
     private javax.swing.JButton btndeleteminuman;
     private javax.swing.JButton btndeletetoping;
+    private javax.swing.JButton btngojek;
     private javax.swing.JButton clear;
     private javax.swing.ButtonGroup groupmenu;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;

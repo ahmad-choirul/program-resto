@@ -81,7 +81,18 @@ public class mpesanan extends koneksi {
     public DefaultTableModel cekpesananmakanan(String data) throws SQLException {
         String kolom[] = {"no", "makanan", "level", "id toping"};
         String query = "SELECT id_daftar_pesanan,m.nama_menu,level,id_pesan_toping FROM `pesanan` p join menu m on (p.id_menu=m.id_menu) where p.id_menu is not null and id_pesanan = " + data;
+        DefaultTableModel tabel =getDatatotal(query, kolom);
         return getDatatotal(query, kolom);
+    }
+    public boolean cekmakanan(String data) throws SQLException {
+        String kolom[] = {"no", "makanan"};
+        String query = "SELECT id_menu FROM `pesanan` where id_pesanan = " + data;
+        return execute(query);
+    }
+    public boolean cekminum(String data) throws SQLException {
+        String kolom[] = {"no", "makanan"};
+        String query = "SELECT id_minuman FROM `pesanan` where id_pesanan = " + data;
+        return execute(query);
     }
 
     public DefaultTableModel cekpesananminuman(String data) throws SQLException {
@@ -92,7 +103,7 @@ public class mpesanan extends koneksi {
     }
 
     public DefaultTableModel gettoping(String data) throws SQLException {
-        String kolom[] = {"no", "minuman"};
+        String kolom[] = {"no", "toping"};
         String query = "SELECT `id_table_toping`,t.nama_toping FROM `pesan_toping` p join toping t on "
                 + "(p.id_toping=t.id_toping) WHERE `id_pesan_toping` = " + data;
         return getDatatotal(query, kolom);
@@ -131,7 +142,7 @@ public class mpesanan extends koneksi {
     public double gethargaminuman(int minuman) {
         double id = 0;
         try {
-            String query = "SELECT harga from minuman where id_minuman = "+minuman;
+            String query = "SELECT harga_gojek from minuman where id_minuman = "+minuman;
             id = Double.parseDouble(getdataidNoaray(query));
         } catch (SQLException ex) {
             Logger.getLogger(mpesanan.class.getName()).log(Level.SEVERE, null, ex);
@@ -141,7 +152,7 @@ public class mpesanan extends koneksi {
     public double gethargatoppinggojek(String toping) {
         double id = 0;
         try {
-            String query = "SELECT harga_toping from toping where id_toping = "+toping;
+            String query = "SELECT harga_gojek from toping where id_toping = "+toping;
             id = Double.parseDouble(getdataidNoaray(query));
         } catch (SQLException ex) {
             Logger.getLogger(mpesanan.class.getName()).log(Level.SEVERE, null, ex);
@@ -151,7 +162,7 @@ public class mpesanan extends koneksi {
     public double gethargamenugojek(int menu) {
         double id = 0;
         try {
-            String query = "SELECT harga_menu from menu where id_menu = "+menu;
+            String query = "SELECT harga_gojek from menu where id_menu = "+menu;
             id = Double.parseDouble(getdataidNoaray(query));
         } catch (SQLException ex) {
             Logger.getLogger(mpesanan.class.getName()).log(Level.SEVERE, null, ex);
@@ -161,7 +172,7 @@ public class mpesanan extends koneksi {
     public double gethargaminumangojek(int minuman) {
         double id = 0;
         try {
-            String query = "SELECT harga from minuman where id_minuman = "+minuman;
+            String query = "SELECT harga_gojek from minuman where id_minuman = "+minuman;
             id = Double.parseDouble(getdataidNoaray(query));
         } catch (SQLException ex) {
             Logger.getLogger(mpesanan.class.getName()).log(Level.SEVERE, null, ex);
@@ -201,4 +212,5 @@ public class mpesanan extends koneksi {
         }
         return id;
     }
+
 }

@@ -56,14 +56,13 @@ public class koneksi {
         return sukseseksekusi;
     }
 
-    public String[] getdataid(String query, String data[]) throws SQLException {
+    public String[] getdatatoarray(String query, String data[]) throws SQLException {
         ResultSet rs = getResult(query);
-        if (rs.next()) {
-            for (int i = 0; i < data.length; i++) {
-                data[i] = rs.getString(i + 1);
-            }
+        int count = 0;
+        while (rs.next()) {
+            data[count] = rs.getString("top");
+            count++;
         }
-
         return data;
     }
 

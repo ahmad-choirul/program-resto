@@ -5,6 +5,10 @@
  */
 package view;
 
+import java.sql.SQLException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+
 /**
  *
  * @author Nila
@@ -15,8 +19,12 @@ public class ProgramResto {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        homeadmin a = new homeadmin();
-        a.setVisible(true);
+        try {
+            login a = new login();
+            a.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(ProgramResto.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
 }
