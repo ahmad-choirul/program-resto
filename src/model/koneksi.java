@@ -56,11 +56,51 @@ public class koneksi {
         return sukseseksekusi;
     }
 
+    public boolean cekdata(String query) throws SQLException {
+        boolean cek;
+        ResultSet rs = getResult(query);
+        rs.next();
+        int rowCount = rs.getInt(1);
+        if (rowCount == 0) {
+            cek = false;
+        } else {
+            cek = true;
+        }
+        return cek;
+    }
+
     public String[] getdatatoarray(String query, String data[]) throws SQLException {
         ResultSet rs = getResult(query);
         int count = 0;
         while (rs.next()) {
-            data[count] = rs.getString("top");
+            data[count] = rs.getString(1);
+            count++;
+        }
+        return data;
+    }
+
+    public String[] getdataarraylist(String query) throws SQLException {
+        ResultSet rs = getResult(query);
+        int count = 0;
+        while (rs.next()) {
+            count++;
+        }
+        String data[] = new String[count];
+        int hitung = 0;
+        while (rs.next()) {
+            data[hitung] = rs.getString(1);
+            System.out.println("dapat kasir " + data[hitung]);
+            hitung++;
+        }
+        return data;
+    }
+
+    public String[] getdatachart(String query, String data[]) throws SQLException {
+        ResultSet rs = getResult(query);
+        int count = 0;
+        while (rs.next()) {
+            count = Integer.parseInt(rs.getString(1));
+            data[count - 1] = rs.getString(2);
             count++;
         }
         return data;

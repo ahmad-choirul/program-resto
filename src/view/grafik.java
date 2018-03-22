@@ -8,6 +8,11 @@ package view;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import model.mlaporan;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartFrame;
+import org.jfree.chart.JFreeChart;
+import org.jfree.data.category.DefaultCategoryDataset;
 
 /**
  *
@@ -18,8 +23,14 @@ public class grafik extends javax.swing.JFrame {
     /**
      * Creates new form grafik
      */
+    mlaporan laporan;
     public grafik() {
-        initComponents();
+        try {
+            initComponents();
+            laporan= new mlaporan();
+        } catch (SQLException ex) {
+            Logger.getLogger(grafik.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
 
     /**
@@ -36,6 +47,10 @@ public class grafik extends javax.swing.JFrame {
         btnmanajemenkasir = new javax.swing.JButton();
         btngrafik = new javax.swing.JButton();
         btnlaporan = new javax.swing.JButton();
+        getyear = new com.toedter.calendar.JYearChooser();
+        jLabel2 = new javax.swing.JLabel();
+        jButton2 = new javax.swing.JButton();
+        panel = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -98,6 +113,27 @@ public class grafik extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnlaporan, new org.netbeans.lib.awtextra.AbsoluteConstraints(1210, 20, 160, 60));
+        getContentPane().add(getyear, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 110, 160, 40));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel2.setText("pilih tahun");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(990, 114, 160, 30));
+
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/set tanggal.png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setFocusPainted(false);
+        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/set tanggal2.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1190, 150, 140, 80));
+
+        panel.setBorder(new javax.swing.border.MatteBorder(null));
+        panel.setOpaque(false);
+        getContentPane().add(panel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 120, 940, 590));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/grafik.png"))); // NOI18N
         jLabel1.setText("jLabel1");
@@ -148,6 +184,33 @@ public class grafik extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnlaporanActionPerformed
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        double getcart[]=laporan.getchart(getyear.getYear()+"");
+        DefaultCategoryDataset objek= new DefaultCategoryDataset();
+        objek.setValue(getcart[0], "keuntungan", "januari");
+        objek.setValue(getcart[1], "keuntungan", "februari");
+        objek.setValue(getcart[2], "keuntungan", "maret");
+        objek.setValue(getcart[3], "keuntungan", "april");
+        objek.setValue(getcart[4], "keuntungan", "mei");
+        objek.setValue(getcart[5], "keuntungan", "juni");
+        objek.setValue(getcart[6], "keuntungan", "juli");
+        objek.setValue(getcart[7], "keuntungan", "agustus");
+        objek.setValue(getcart[8], "keuntungan", "september");
+        objek.setValue(getcart[9], "keuntungan", "oktober");
+        objek.setValue(getcart[10], "keuntungan", "november");
+        objek.setValue(getcart[11], "keuntungan", "desember");
+        for (int i = 0; i < getcart.length; i++) {
+            System.out.println("bulan ke"+i+" = "+getcart[i]);
+            
+        }
+        
+        JFreeChart chart=ChartFactory.createBarChart("penjualan", "bulan","penjualan",objek);
+        ChartFrame chartframe = new ChartFrame("penjualan", chart);
+      chartframe.setVisible(true);
+      chartframe.setBounds(40, 120, 940, 590);
+      chartframe.setAlwaysOnTop(true);
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -188,7 +251,11 @@ public class grafik extends javax.swing.JFrame {
     private javax.swing.JButton btngrafik;
     private javax.swing.JButton btnlaporan;
     private javax.swing.JButton btnmanajemenkasir;
+    private com.toedter.calendar.JYearChooser getyear;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JPanel panel;
     // End of variables declaration//GEN-END:variables
 }

@@ -53,14 +53,14 @@
 					<textElement>
 						<font isBold="false"/>
 					</textElement>
-					<text><![CDATA[Cherry Title]]></text>
+					<text><![CDATA[The Preanger]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="SubTitle" x="157" y="66" width="249" height="29" uuid="e7c939ae-ea95-4f06-a616-d77a33e66577"/>
+					<reportElement style="SubTitle" x="2" y="66" width="249" height="29" uuid="e7c939ae-ea95-4f06-a616-d77a33e66577"/>
 					<textElement>
-						<font size="22" isBold="false"/>
+						<font fontName="MS UI Gothic" size="22" isBold="true"/>
 					</textElement>
-					<text><![CDATA[Cherry SubTitle]]></text>
+					<text><![CDATA[Rekap Penjualan]]></text>
 				</staticText>
 			</frame>
 			<frame>

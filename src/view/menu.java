@@ -82,7 +82,7 @@ public class menu extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(tabel);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 100, 490, 620));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(820, 140, 490, 580));
         getContentPane().add(txthargagojek, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 410, 240, 50));
         getContentPane().add(txthargareguler, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 340, 240, 50));
         getContentPane().add(txtnama, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 270, 240, 50));
@@ -99,6 +99,7 @@ public class menu extends javax.swing.JFrame {
         jLabel4.setText("harga reguler");
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 340, 210, 40));
 
+        btntoping.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/btnminuman.png"))); // NOI18N
         btntoping.setBorderPainted(false);
         btntoping.setContentAreaFilled(false);
         btntoping.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));

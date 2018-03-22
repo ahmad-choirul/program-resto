@@ -109,6 +109,13 @@
 				</textElement>
 				<textFieldExpression><![CDATA[$P{totalharga}]]></textFieldExpression>
 			</textField>
+			<staticText>
+				<reportElement x="8" y="30" width="136" height="20" uuid="95b36441-946c-4655-ae5d-a33d62f8c2a9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="7"/>
+				</textElement>
+				<text><![CDATA[terima kasih atas kunjungan anda]]></text>
+			</staticText>
 		</band>
 	</summary>
 </jasperReport>

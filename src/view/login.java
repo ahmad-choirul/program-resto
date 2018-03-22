@@ -100,7 +100,7 @@ public class login extends javax.swing.JFrame {
                 this.dispose();
             } else {
                 try {
-                    pesanan a = new pesanan();
+                    pesanan a = new pesanan(txtusername.getText());
                     a.setVisible(true);
                     this.dispose();
                 } catch (SQLException ex) {

@@ -61,13 +61,17 @@ public class pesanan extends javax.swing.JFrame {
     JasperDesign jasperDesign3;
     JasperPrint jasperPrint3;
     Map<String, Object> param3 = new HashMap<String, Object>();
+    String kasir;
+    int idkasir;
 
-    public pesanan() throws SQLException {
+    public pesanan(String kasir) throws SQLException {
         initComponents();
+        this.kasir = kasir;
         showtgl();
         showjam();
         pesanan = new mpesanan();
-        idpesanan = pesanan.getidpesanan();
+        idpesanan = pesanan.generatenotransaksi();
+        idkasir = pesanan.getidkasir(kasir);
     }
 
     public void showtgl() {
@@ -171,6 +175,7 @@ public class pesanan extends javax.swing.JFrame {
         lantai = new javax.swing.JComboBox<>();
         btngojek = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
+        tmbtoping = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -838,7 +843,7 @@ public class pesanan extends javax.swing.JFrame {
         boxkembalian.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
         boxkembalian.setBorder(null);
         boxkembalian.setOpaque(false);
-        getContentPane().add(boxkembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 630, 310, 70));
+        getContentPane().add(boxkembalian, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 650, 310, 60));
 
         boxbayar.setBackground(new java.awt.Color(93, 68, 33));
         boxbayar.setFont(new java.awt.Font("Arial", 1, 36)); // NOI18N
@@ -854,7 +859,7 @@ public class pesanan extends javax.swing.JFrame {
                 boxbayarKeyReleased(evt);
             }
         });
-        getContentPane().add(boxbayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1040, 520, 310, 70));
+        getContentPane().add(boxbayar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1050, 540, 300, 60));
 
         boxtgl.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         boxtgl.setForeground(new java.awt.Color(255, 153, 51));
@@ -909,6 +914,19 @@ public class pesanan extends javax.swing.JFrame {
         });
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 40));
 
+        tmbtoping.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/addtoping.png"))); // NOI18N
+        tmbtoping.setBorderPainted(false);
+        tmbtoping.setContentAreaFilled(false);
+        tmbtoping.setEnabled(false);
+        tmbtoping.setFocusPainted(false);
+        tmbtoping.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/addtoping1.png"))); // NOI18N
+        tmbtoping.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                tmbtopingActionPerformed(evt);
+            }
+        });
+        getContentPane().add(tmbtoping, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 180, 50));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/transaksi.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
@@ -930,127 +948,127 @@ public class pesanan extends javax.swing.JFrame {
         int menu = 0;
         if (menu1.isSelected()) {
             menu = 1;
-            hargasatu = hargasatu + pesanan.gethargamenu(menu) + hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
         } else if (menu2.isSelected()) {
             menu = 2;
-            hargasatu = hargasatu + pesanan.gethargamenu(menu) + hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
         } else if (menu3.isSelected()) {
             menu = 3;
-            hargasatu = hargasatu + pesanan.gethargamenu(menu) + hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
         } else if (menu4.isSelected()) {
             menu = 4;
-            hargasatu = hargasatu + pesanan.gethargamenu(menu) + hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
 
         } else if (menu5.isSelected()) {
             menu = 5;
-            hargasatu = hargasatu + pesanan.gethargamenu(menu) + hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
 
         } else if (menu6.isSelected()) {
             menu = 6;
-            hargasatu = hargasatu + pesanan.gethargamenu(menu) + hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
 
         } else if (menu7.isSelected()) {
             menu = 7;
-            hargasatu = hargasatu + pesanan.gethargamenu(menu) + hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
         }
 
         if (pil1.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("1");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("1");
             toping = true;
             daftartoping.add("1");
         }
         if (pil2.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("2");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("2");
             toping = true;
             daftartoping.add("2");
         }
         if (pil3.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("3");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("3");
             toping = true;
             daftartoping.add("3");
         }
         if (pil4.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("4");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("4");
             toping = true;
             daftartoping.add("4");
         }
         if (pil5.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("5");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("5");
             toping = true;
             daftartoping.add("5");
         }
         if (pil6.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("6");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("6");
             toping = true;
             daftartoping.add("6");
         }
         if (pil7.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("7");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("7");
             toping = true;
             daftartoping.add("7");
         }
         if (pil8.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("8");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("8");
             toping = true;
             daftartoping.add("8");
         }
         if (pil9.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("9");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("9");
             toping = true;
             daftartoping.add("9");
         }
         if (pil10.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("10");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("10");
             toping = true;
             daftartoping.add("10");
         }
         if (pil11.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("11");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("11");
             toping = true;
             daftartoping.add("11");
         }
         if (pil12.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("12");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("12");
             toping = true;
             daftartoping.add("12");
         }
         if (pil13.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("13");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("13");
             toping = true;
             daftartoping.add("13");
         }
         if (pil14.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("14");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("14");
             toping = true;
             daftartoping.add("14");
         }
         if (pil15.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("15");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("15");
             toping = true;
             daftartoping.add("15");
         }
         if (pil16.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("16");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("16");
             toping = true;
             daftartoping.add("16");
         }
         if (pil17.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("17");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("17");
             toping = true;
             daftartoping.add("17");
         }
         if (pil18.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("18");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("18");
             toping = true;
             daftartoping.add("18");
         }
         if (pil19.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("19");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("19");
             toping = true;
             daftartoping.add("19");
         }
         if (pil20.isSelected()) {
-            hargasatu = hargasatu + pesanan.gethargatopping("20");
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("20");
             toping = true;
             daftartoping.add("20");
         }
@@ -1080,7 +1098,7 @@ public class pesanan extends javax.swing.JFrame {
         //data[3]=level
         //data[4]=harga_bayar
         String data[] = {"" + idpesanan, id, idtoping, "" + level, "" + hargasatu};
-        if (pesanan.tambahpesananmakan(data)) {
+        if (pesanan.tambahpesananmakan(data, idkasir)) {
         } else {
             message("gagal insert makanan");
         }
@@ -1093,7 +1111,7 @@ public class pesanan extends javax.swing.JFrame {
         //data[3]=level
         //data[4]=harga_bayar
         String data[] = {"" + idpesanan, id, "" + level, "" + hargasatu};
-        if (pesanan.tambahpesananmakantanpatoping(data)) {
+        if (pesanan.tambahpesananmakantanpatoping(data, idkasir)) {
         } else {
             message("gagal insert makanan");
         }
@@ -1169,6 +1187,7 @@ public class pesanan extends javax.swing.JFrame {
         btndeletemenu.setEnabled(true);
         btndeleteminuman.setEnabled(false);
         btndeletetoping.setEnabled(false);
+        tmbtoping.setEnabled(true);
         try {
             String idtoping = tablemenu.getValueAt(tablemenu.getSelectedRow(), 3).toString();
             tabeltoping.setModel(pesanan.gettoping(idtoping));
@@ -1239,7 +1258,6 @@ public class pesanan extends javax.swing.JFrame {
                 popupkembalian.setkembalian(boxkembalian.getText());
                 clear();
                 idpesanan = pesanan.getidpesanan();
-
                 boxhargatotal.setText("");
                 boxbayar.setText("");
                 boxkembalian.setText("");
@@ -1247,36 +1265,42 @@ public class pesanan extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_boxbayarKeyPressed
     public void cetak() {
-        String bayar = rubahuang(Double.parseDouble(boxbayar.getText()));
         String nama = boxnamapelanggan.getText();
         try {
-
-            File file = new File("src/report/strukjual.jrxml");
-            File file2 = new File("src/report/makanan.jrxml");
-            File file3 = new File("src/report/minuman.jrxml");
+            File cetakdua = new File("src/report/strukjualrev2.jrxml");
+            File cetakmakanan = new File("src/report/strukjualmakanan.jrxml");
+            File cetakminuman = new File("src/report/strukjualminuman.jrxml");
+            File dapurmakanan = new File("src/report/makanan.jrxml");
+            File dapurminuman = new File("src/report/minuman.jrxml");
             try {
-                jasperDesign = JRXmlLoader.load(file);
+                if (!pesanan.cekmakanan(idpesanan)) {
+                    jasperDesign = JRXmlLoader.load(cetakminuman);
+                } else if (!pesanan.cekminum(idpesanan)) {
+                    jasperDesign = JRXmlLoader.load(cetakmakanan);
+                } else {
+                    jasperDesign = JRXmlLoader.load(cetakdua);
+                }
                 param.clear();
                 param.put("tgl", boxtgl.getText());
                 param.put("jam", boxjam.getText());
                 param.put("id_pesanan", idpesanan);
                 param.put("kembalian", boxkembalian.getText());
                 param.put("totalharga", boxhargatotal.getText());
-                param.put("totalbayar", boxbayar.getText());
+                param.put("totalbayar", rubahuang(Double.parseDouble(boxbayar.getText())));
                 param.put("namapelanggan", nama);
                 param.put("lantai", lantai.getSelectedItem().toString());
+                param.put("kasir", kasir);
                 jasperReport = JasperCompileManager.compileReport(jasperDesign);
                 jasperPrint = JasperFillManager.fillReport(jasperReport, param, pesanan.getConnection());
 //                JasperViewer.viewReport(jasperPrint, true);
                 JasperPrintManager.printReport(jasperPrint, false);
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
                 e.printStackTrace();
             }
             try {
                 if (pesanan.cekmakanan(idpesanan)) {
                     System.out.println("masukmakanan");
-                    jasperDesign2 = JRXmlLoader.load(file2);
+                    jasperDesign2 = JRXmlLoader.load(dapurmakanan);
                     param2.clear();
                     param2.put("id_pesanan", idpesanan);
                     param2.put("namapelanggan", nama);
@@ -1287,13 +1311,12 @@ public class pesanan extends javax.swing.JFrame {
                     JasperPrintManager.printReport(jasperPrint2, false);
                 }
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
                 e.printStackTrace();
             }
             try {
                 if (pesanan.cekminum(idpesanan)) {
                     System.out.println("masukminuman");
-                    jasperDesign3 = JRXmlLoader.load(file3);
+                    jasperDesign3 = JRXmlLoader.load(dapurminuman);
                     param3.clear();
                     param3.put("id_pesanan", idpesanan);
                     param3.put("namapelanggan", nama);
@@ -1305,7 +1328,6 @@ public class pesanan extends javax.swing.JFrame {
                 }
 
             } catch (Exception e) {
-                JOptionPane.showMessageDialog(null, e);
                 e.printStackTrace();
             }
         } catch (Exception ex) {
@@ -1446,7 +1468,7 @@ public class pesanan extends javax.swing.JFrame {
 
     private void btngojekActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngojekActionPerformed
         try {
-            pesanangojek a = new pesanangojek();
+            pesanangojek a = new pesanangojek(kasir);
             a.setVisible(true);
             this.dispose();
         } catch (SQLException ex) {
@@ -1463,6 +1485,122 @@ public class pesanan extends javax.swing.JFrame {
             Logger.getLogger(grafik.class.getName()).log(Level.SEVERE, null, ex);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void tmbtopingActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_tmbtopingActionPerformed
+        ArrayList<String> daftartoping = new ArrayList<String>();
+        double hargatambah = 0;
+        if (pil1.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("1");
+            toping = true;
+            daftartoping.add("1");
+        }
+        if (pil2.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("2");
+            toping = true;
+            daftartoping.add("2");
+        }
+        if (pil3.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("3");
+            toping = true;
+            daftartoping.add("3");
+        }
+        if (pil4.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("4");
+            toping = true;
+            daftartoping.add("4");
+        }
+        if (pil5.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("5");
+            toping = true;
+            daftartoping.add("5");
+        }
+        if (pil6.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("6");
+            toping = true;
+            daftartoping.add("6");
+        }
+        if (pil7.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("7");
+            toping = true;
+            daftartoping.add("7");
+        }
+        if (pil8.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("8");
+            toping = true;
+            daftartoping.add("8");
+        }
+        if (pil9.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("9");
+            toping = true;
+            daftartoping.add("9");
+        }
+        if (pil10.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("10");
+            toping = true;
+            daftartoping.add("10");
+        }
+        if (pil11.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("11");
+            toping = true;
+            daftartoping.add("11");
+        }
+        if (pil12.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("12");
+            toping = true;
+            daftartoping.add("12");
+        }
+        if (pil13.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("13");
+            toping = true;
+            daftartoping.add("13");
+        }
+        if (pil14.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("14");
+            toping = true;
+            daftartoping.add("14");
+        }
+        if (pil15.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("15");
+            toping = true;
+            daftartoping.add("15");
+        }
+        if (pil16.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("16");
+            toping = true;
+            daftartoping.add("16");
+        }
+        if (pil17.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("17");
+            toping = true;
+            daftartoping.add("17");
+        }
+        if (pil18.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("18");
+            toping = true;
+            daftartoping.add("18");
+        }
+        if (pil19.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("19");
+            toping = true;
+            daftartoping.add("19");
+        }
+        if (pil20.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("20");
+            toping = true;
+            daftartoping.add("20");
+        }
+        for (int i = 0; i < daftartoping.size(); i++) {
+            if (pesanan.tambahtoping(tablemenu.getValueAt(tablemenu.getSelectedRow(), 3).toString(), daftartoping.get(i).toString())) {
+
+            } else {
+                message("gagal insert toping");
+            }
+        }
+        pesanan.updatehargatambah(tablemenu.getValueAt(tablemenu.getSelectedRow(), 0).toString(), hargasatu + "");
+        tmbtoping.setEnabled(false);
+        refreshtable();
+        clear();
+    }//GEN-LAST:event_tmbtopingActionPerformed
     public String rubahuang(double uang) {
         String mataUang = String.format("Rp.%,.0f", uang).replaceAll(",", ".") + ",00";
         System.out.println("uang" + mataUang);
@@ -1471,8 +1609,8 @@ public class pesanan extends javax.swing.JFrame {
     }
 
     public void addminuman(int id) {
-        String data[] = {idpesanan, "" + id, "" + pesanan.gethargaminuman(id)};
-        pesanan.tambahpesananminum(data);
+        String data[] = {idpesanan, "" + id, "" + pesanan.gethargaminumanreguler(id)};
+        pesanan.tambahpesananminum(data, idkasir);
         refreshtable();
     }
 
@@ -1544,11 +1682,6 @@ public class pesanan extends javax.swing.JFrame {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                try {
-                    new pesanan().setVisible(true);
-                } catch (SQLException ex) {
-                    Logger.getLogger(pesanan.class.getName()).log(Level.SEVERE, null, ex);
-                }
             }
         });
     }
@@ -1630,5 +1763,6 @@ public class pesanan extends javax.swing.JFrame {
     private javax.swing.JTable tablemenu;
     private javax.swing.JTable tableminuman;
     private javax.swing.JButton tambah;
+    private javax.swing.JButton tmbtoping;
     // End of variables declaration//GEN-END:variables
 }

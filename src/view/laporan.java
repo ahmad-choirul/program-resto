@@ -15,6 +15,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import javax.swing.table.TableCellRenderer;
 import model.mlaporan;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
@@ -33,16 +34,15 @@ import net.sf.jasperreports.view.JasperViewer;
 public class laporan extends javax.swing.JFrame {
 
     mlaporan laporan;
-JasperReport jasperReport3;
+    JasperReport jasperReport3;
     JasperDesign jasperDesign3;
     JasperPrint jasperPrint3;
     Map<String, Object> param3 = new HashMap<String, Object>();
+    public TableCellRenderer kanan = new RenderingKanan();
+
     public laporan() {
         try {
             this.laporan = new mlaporan();
-            String topmakanan[] = {"kosong", "kosong", "kosong"};
-            String toptoping[] = {"kosong", "kosong", "kosong"};
-            String topminuman[] = {"kosong", "kosong", "kosong"};
             initComponents();
         } catch (SQLException ex) {
             Logger.getLogger(laporan.class.getName()).log(Level.SEVERE, null, ex);
@@ -99,6 +99,8 @@ JasperReport jasperReport3;
         btnlaporan = new javax.swing.JButton();
         btngrafik = new javax.swing.JButton();
         printpdf = new javax.swing.JButton();
+        jLabel17 = new javax.swing.JLabel();
+        txttotalpenjualan = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -118,7 +120,7 @@ JasperReport jasperReport3;
         ));
         jScrollPane1.setViewportView(table);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 890, 600));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 100, 890, 590));
         getContentPane().add(tglakhir, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 140, 190, 40));
         getContentPane().add(tglawal, new org.netbeans.lib.awtextra.AbsoluteConstraints(1130, 90, 190, 40));
 
@@ -225,7 +227,7 @@ JasperReport jasperReport3;
 
         txtmakanan2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtmakanan2.setText(" ");
-        panelmakan.add(txtmakanan2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 250, -1));
+        panelmakan.add(txtmakanan2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 250, -1));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("makanan");
@@ -313,6 +315,13 @@ JasperReport jasperReport3;
         });
         getContentPane().add(printpdf, new org.netbeans.lib.awtextra.AbsoluteConstraints(1150, 190, 160, 60));
 
+        jLabel17.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        jLabel17.setText("total penjualan");
+        getContentPane().add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(440, 689, -1, 60));
+
+        txttotalpenjualan.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        getContentPane().add(txttotalpenjualan, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 690, 280, 60));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/laporan.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
@@ -327,14 +336,20 @@ JasperReport jasperReport3;
             String tglakhir = gettanggal(kedua);
             if (pertama.equals(kedua)) {
                 table.setModel(laporan.getlaporan(tglawal, tglakhir));
+                table.getColumnModel().getColumn(6).setCellRenderer(kanan);
                 settop(tglawal, tglakhir);
+                txttotalpenjualan.setText(laporan.gettotaluang(tglawal, tglakhir));
             } else if (pertama.before(kedua)) {
                 table.setModel(laporan.getlaporan(tglawal, tglakhir));
+                table.getColumnModel().getColumn(6).setCellRenderer(kanan);
                 settop(tglawal, tglakhir);
+                txttotalpenjualan.setText(laporan.gettotaluang(tglawal, tglakhir));
+
             } else {
                 message("tgl awal harus tidak boleh melebihi tgl akhir");
             }
         } catch (SQLException ex) {
+            ex.printStackTrace();
         }
     }//GEN-LAST:event_jButton1ActionPerformed
     public void settop(String tglawal, String tglakhir) {
@@ -382,7 +397,7 @@ JasperReport jasperReport3;
     }//GEN-LAST:event_btnmanajemenkasirActionPerformed
 
     private void btngrafikActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btngrafikActionPerformed
-        grafik a= new grafik();
+        grafik a = new grafik();
         a.setVisible(true);
         this.dispose();
     }//GEN-LAST:event_btngrafikActionPerformed
@@ -407,7 +422,7 @@ JasperReport jasperReport3;
             param3.put("tglakhir", tglakhir);
             jasperReport3 = JasperCompileManager.compileReport(jasperDesign3);
             jasperPrint3 = JasperFillManager.fillReport(jasperReport3, param3, laporan.getConnection());
-                JasperViewer.viewReport(jasperPrint3, true);
+            JasperViewer.viewReport(jasperPrint3, true);
 //JasperPrintManager.printReport(jasperPrint3, false);
         } catch (JRException ex) {
             Logger.getLogger(laporan.class.getName()).log(Level.SEVERE, null, ex);
@@ -472,6 +487,7 @@ JasperReport jasperReport3;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
@@ -497,5 +513,6 @@ JasperReport jasperReport3;
     private javax.swing.JLabel txttoping1;
     private javax.swing.JLabel txttoping2;
     private javax.swing.JLabel txttoping3;
+    private javax.swing.JLabel txttotalpenjualan;
     // End of variables declaration//GEN-END:variables
 }
