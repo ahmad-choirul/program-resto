@@ -93,14 +93,12 @@ public class mpesanan extends koneksi {
     }
 
     public boolean cekmakanan(String data) throws SQLException {
-        String kolom[] = {"no", "makanan"};
-        String query = "SELECT id_menu FROM `pesanan` where id_pesanan = " + data;
+        String query = "SELECT id_menu FROM `pesanan` where id_pesanan = " + data +" and id_menu is not null";
         return cekdata(query);
     }
 
     public boolean cekminum(String data) throws SQLException {
-        String kolom[] = {"no", "makanan"};
-        String query = "SELECT id_minuman FROM `pesanan` where id_pesanan = " + data;
+        String query = "SELECT id_minuman FROM `pesanan` where id_pesanan = " + data+" and id_minuman is not null";
         return cekdata(query);
     }
 

@@ -21,13 +21,13 @@
 	<parameter name="lantai" class="java.lang.String"/>
 	<parameter name="kasir" class="java.lang.String"/>
 	<queryString>
-		<![CDATA[select m.nama_minuman,COUNT(p.id_minuman) as jumlah,SUM(p.harga_bayar) as hargabayar from pesanan p JOIN minuman m on(p.id_minuman=m.id_minuman) where p.id_pesanan= $P{id_pesanan} GROUP BY m.nama_minuman]]>
+		<![CDATA[select m.nama_minuman,COUNT(p.id_minuman) as jumlah,concat('Rp ', format( SUM(p.harga_bayar), 0)) as hargabayar from pesanan p JOIN minuman m on(p.id_minuman=m.id_minuman) where p.id_pesanan= $P{id_pesanan} GROUP BY m.nama_minuman]]>
 	</queryString>
 	<field name="nama_minuman" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<field name="jumlah" class="java.lang.Long"/>
-	<field name="hargabayar" class="java.lang.Double"/>
+	<field name="hargabayar" class="java.lang.String"/>
 	<title>
 		<band height="103" splitType="Stretch">
 			<staticText>

@@ -276,11 +276,11 @@ public class pesanan extends javax.swing.JFrame {
                 pillevelKeyReleased(evt);
             }
         });
-        panelmenu.add(pillevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 180, 70, 40));
+        panelmenu.add(pillevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 70, 40));
 
         jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel2.setText("level");
-        panelmenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 150, -1, -1));
+        panelmenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, -1));
 
         getContentPane().add(panelmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 370, 300));
 
@@ -1273,12 +1273,21 @@ public class pesanan extends javax.swing.JFrame {
             File dapurmakanan = new File("src/report/makanan.jrxml");
             File dapurminuman = new File("src/report/minuman.jrxml");
             try {
-                if (!pesanan.cekmakanan(idpesanan)) {
-                    jasperDesign = JRXmlLoader.load(cetakminuman);
-                } else if (!pesanan.cekminum(idpesanan)) {
-                    jasperDesign = JRXmlLoader.load(cetakmakanan);
-                } else {
+                boolean cekmakanan = pesanan.cekmakanan(idpesanan);
+                boolean cekminum = pesanan.cekminum(idpesanan);
+                System.out.println("cek makanan"+cekmakanan);
+                System.out.println("cek minuman "+cekminum);
+                if (cekmakanan && cekminum) {
+                    System.out.println("struk dua");
                     jasperDesign = JRXmlLoader.load(cetakdua);
+                }
+                if (cekminum && !cekmakanan) {
+                    System.out.println("struk minuman");
+                    jasperDesign = JRXmlLoader.load(cetakminuman);
+                }
+                if (cekmakanan && !cekminum) {
+                    System.out.println("struk makanan");
+                    jasperDesign = JRXmlLoader.load(cetakmakanan);
                 }
                 param.clear();
                 param.put("tgl", boxtgl.getText());

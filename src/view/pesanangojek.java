@@ -53,7 +53,7 @@ public class pesanangojek extends javax.swing.JFrame {
     JasperDesign jasperDesign;
     JasperPrint jasperPrint;
     Map<String, Object> param = new HashMap<String, Object>();
-JasperReport jasperReport2;
+    JasperReport jasperReport2;
     JasperDesign jasperDesign2;
     JasperPrint jasperPrint2;
     Map<String, Object> param2 = new HashMap<String, Object>();
@@ -63,16 +63,16 @@ JasperReport jasperReport2;
     Map<String, Object> param3 = new HashMap<String, Object>();
     String kasir;
     int idkasir;
+
     public pesanangojek(String kasir) throws SQLException {
         initComponents();
-        this.kasir= kasir;
+        this.kasir = kasir;
         showtgl();
         showjam();
         pesanan = new mpesanan();
         idpesanan = pesanan.getidpesanan();
-        idkasir=pesanan.getidkasir(kasir);
+        idkasir = pesanan.getidkasir(kasir);
     }
-
 
     public void showtgl() {
         Date d = new Date();
@@ -910,32 +910,32 @@ JasperReport jasperReport2;
                 count += 2;
             }
         }
-        System.out.println("harga tambah = "+hargatambah);
+        System.out.println("harga tambah = " + hargatambah);
         int menu = 0;
         if (menu1.isSelected()) {
             menu = 1;
-            hargasatu = hargasatu + pesanan.gethargamenugojek(menu)+hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenugojek(menu) + hargatambah;
         } else if (menu2.isSelected()) {
             menu = 2;
-            hargasatu = hargasatu + pesanan.gethargamenugojek(menu)+hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenugojek(menu) + hargatambah;
         } else if (menu3.isSelected()) {
             menu = 3;
-            hargasatu = hargasatu + pesanan.gethargamenugojek(menu)+hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenugojek(menu) + hargatambah;
         } else if (menu4.isSelected()) {
             menu = 4;
-            hargasatu = hargasatu + pesanan.gethargamenugojek(menu)+hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenugojek(menu) + hargatambah;
 
         } else if (menu5.isSelected()) {
             menu = 5;
-            hargasatu = hargasatu + pesanan.gethargamenugojek(menu)+hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenugojek(menu) + hargatambah;
 
         } else if (menu6.isSelected()) {
             menu = 6;
-            hargasatu = hargasatu + pesanan.gethargamenugojek(menu)+hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenugojek(menu) + hargatambah;
 
         } else if (menu7.isSelected()) {
             menu = 7;
-            hargasatu = hargasatu + pesanan.gethargamenugojek(menu)+hargatambah;
+            hargasatu = hargasatu + pesanan.gethargamenugojek(menu) + hargatambah;
         }
 
         if (pil1.isSelected()) {
@@ -1049,9 +1049,9 @@ JasperReport jasperReport2;
         System.out.println("idtoping sesudah" + idtoping);
         idtoping = null;
         hargasatu = hargasatu + hargatambah;
-        System.out.println("harga satu "+hargasatu);
+        System.out.println("harga satu " + hargasatu);
         hargatotal = hargatotal + hargasatu;
-        System.out.println("harga total = "+hargatotal);
+        System.out.println("harga total = " + hargatotal);
         hargasatu = 0;
         refreshtable();
         clear();
@@ -1064,7 +1064,7 @@ JasperReport jasperReport2;
         //data[3]=level
         //data[4]=harga_bayar
         String data[] = {"" + idpesanan, id, idtoping, "" + level, "" + hargasatu};
-        if (pesanan.tambahpesananmakan(data,idkasir)) {
+        if (pesanan.tambahpesananmakan(data, idkasir)) {
         } else {
             message("gagal insert makanan");
         }
@@ -1077,7 +1077,7 @@ JasperReport jasperReport2;
         //data[3]=level
         //data[4]=harga_bayar
         String data[] = {"" + idpesanan, id, "" + level, "" + hargasatu};
-        if (pesanan.tambahpesananmakantanpatoping(data,idkasir)) {
+        if (pesanan.tambahpesananmakantanpatoping(data, idkasir)) {
         } else {
             message("gagal insert makanan");
         }
@@ -1219,10 +1219,9 @@ JasperReport jasperReport2;
                 popupkembalian.setkembalian(boxkembalian.getText());
                 clear();
                 idpesanan = pesanan.getidpesanan();
-                
-        boxhargatotal.setText("");
-        boxbayar.setText("");
-        boxkembalian.setText("");
+                boxhargatotal.setText("");
+                boxbayar.setText("");
+                boxkembalian.setText("");
             }
         }
     }//GEN-LAST:event_boxbayarKeyPressed
@@ -1235,12 +1234,21 @@ JasperReport jasperReport2;
             File dapurmakanan = new File("src/report/makanan.jrxml");
             File dapurminuman = new File("src/report/minuman.jrxml");
             try {
-                if (!pesanan.cekmakanan(idpesanan)) {
-                    jasperDesign = JRXmlLoader.load(cetakminuman);
-                } else if (!pesanan.cekminum(idpesanan)) {
-                    jasperDesign = JRXmlLoader.load(cetakmakanan);
-                } else {
+                boolean cekmakanan = pesanan.cekmakanan(idpesanan);
+                boolean cekminum = pesanan.cekminum(idpesanan);
+                System.out.println("cek makanan" + cekmakanan);
+                System.out.println("cek minuman " + cekminum);
+                if (cekmakanan && cekminum) {
+                    System.out.println("struk dua");
                     jasperDesign = JRXmlLoader.load(cetakdua);
+                }
+                if (cekminum && !cekmakanan) {
+                    System.out.println("struk minuman");
+                    jasperDesign = JRXmlLoader.load(cetakminuman);
+                }
+                if (cekmakanan && !cekminum) {
+                    System.out.println("struk makanan");
+                    jasperDesign = JRXmlLoader.load(cetakmakanan);
                 }
                 param.clear();
                 param.put("tgl", boxtgl.getText());
@@ -1572,7 +1580,7 @@ JasperReport jasperReport2;
 
     public void addminuman(int id) {
         String data[] = {idpesanan, "" + id, "" + pesanan.gethargaminumangojek(id)};
-        pesanan.tambahpesananminum(data,idkasir);
+        pesanan.tambahpesananminum(data, idkasir);
         refreshtable();
     }
 
@@ -1601,10 +1609,12 @@ JasperReport jasperReport2;
         model.setRowCount(0);
         table.setModel(model);
     }
-public void hidekolom(JTable tabel, int col) {
+
+    public void hidekolom(JTable tabel, int col) {
         tabel.getColumnModel().getColumn(col).setMinWidth(0);
         tabel.getColumnModel().getColumn(col).setMaxWidth(0);
     }
+
     public void message(String txt) {
         JOptionPane.showMessageDialog(null, txt, "error", JOptionPane.OK_OPTION);
     }
