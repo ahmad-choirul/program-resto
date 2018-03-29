@@ -2,7 +2,7 @@
 <jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="strukjual" language="groovy" pageWidth="164" pageHeight="842" columnWidth="144" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="0" uuid="716fdaa4-ab1c-45d1-a342-e3ed01e79326">
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="0"/>
-	<property name="ireport.y" value="119"/>
+	<property name="ireport.y" value="0"/>
 	<style name="Title" fontName="Times New Roman" fontSize="50" isBold="true" pdfFontName="Times-Bold"/>
 	<style name="SubTitle" forecolor="#736343" fontName="Arial" fontSize="18"/>
 	<style name="Column header" forecolor="#666666" fontName="Arial" fontSize="12" isBold="true"/>
@@ -37,67 +37,108 @@
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
 	<title>
-		<band height="103" splitType="Stretch">
+		<band height="121" splitType="Stretch">
 			<staticText>
-				<reportElement style="SubTitle" x="4" y="40" width="140" height="22" uuid="4e1f7ae4-a758-47a4-94c9-0fdbe014bfd6"/>
+				<reportElement style="SubTitle" x="3" y="57" width="140" height="14" uuid="e59610ad-9581-494f-af8b-859e2c7c5f42"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Times New Roman" size="12" isBold="true" pdfFontName="Times-Roman"/>
+					<font fontName="Arial Narrow" size="12" isBold="true" pdfFontName="Times-Roman"/>
 				</textElement>
 				<text><![CDATA[The Preanger]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="6" y="61" width="138" height="10" uuid="184c3892-0b89-453f-bcd2-25046d1c38e6"/>
+				<reportElement x="7" y="71" width="138" height="10" uuid="84632989-fef5-4a80-9f46-326bf6c4d624"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="5" isBold="true"/>
+					<font fontName="Arial Narrow" size="5" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Jl. Sumatra No 122a Sumbersari Jember]]></text>
 			</staticText>
 			<textField isStretchWithOverflow="true">
-				<reportElement style="Detail" x="3" y="85" width="58" height="8" uuid="b57aab71-1554-4d87-8b42-b331ea95964e"/>
+				<reportElement style="Detail" x="48" y="81" width="58" height="8" uuid="aff41c5b-257f-4cca-b748-a126332fee86"/>
 				<textElement verticalAlignment="Middle">
-					<font size="6" isBold="true"/>
+					<font fontName="Arial Narrow" size="6" isBold="true"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{id_pesanan}]]></textFieldExpression>
+				<textFieldExpression><![CDATA[$P{id_pesanan}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="78" y="82" width="50" height="10" uuid="f5cadfa6-8089-4bf7-aee6-2a4616a56a20"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="6" isBold="true"/>
+				<reportElement x="48" y="88" width="30" height="8" uuid="2c97534c-3428-4051-a1cd-cae30bd82348"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="6" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{tgl}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="80" y="71" width="48" height="10" uuid="8f7e3d9c-b466-4139-97c5-dea46ea8062a"/>
-				<textElement textAlignment="Right" verticalAlignment="Middle">
-					<font size="6" isBold="true"/>
+				<reportElement x="76" y="88" width="45" height="8" uuid="c6230de3-1f27-41df-9d5e-034b9d77982b"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Narrow" size="6" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{jam}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="3" y="71" width="69" height="8" uuid="77f2dc6a-1ce0-428d-bc4b-92a6bf88ee3e"/>
+				<reportElement x="48" y="104" width="69" height="8" uuid="6d964e39-5b2f-4414-9ae0-7b500bb63f8c"/>
 				<textElement verticalAlignment="Middle">
-					<font size="6" isBold="true"/>
+					<font fontName="Arial Narrow" size="6" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{namapelanggan}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="3" y="78" width="44" height="8" uuid="29427dac-82f8-4793-b362-ea2be6cdbdd3"/>
+				<reportElement x="48" y="112" width="44" height="8" uuid="49883c97-2052-4c52-bc2a-85d87879e9ff"/>
 				<textElement verticalAlignment="Middle">
-					<font size="6" isBold="true"/>
+					<font fontName="Arial Narrow" size="6" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{lantai}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="3" y="92" width="63" height="8" uuid="2b18c979-acd7-4ccd-a62f-6d8dcb1c0d60"/>
+				<reportElement x="48" y="96" width="63" height="8" uuid="98f546cf-920c-40cc-8009-7c74112a34d5"/>
 				<textElement verticalAlignment="Middle">
-					<font size="6" isBold="true"/>
+					<font fontName="Arial Narrow" size="6" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{kasir}]]></textFieldExpression>
 			</textField>
 			<image>
-				<reportElement x="51" y="0" width="53" height="50" uuid="8fbb05f3-c60d-4caf-812a-6580c707dc31"/>
+				<reportElement x="52" y="10" width="53" height="50" uuid="acb1cc81-cda0-43e0-88db-d8d2d6ecc621"/>
 				<imageExpression><![CDATA["D:\\google drive\\back up tugas\\project luar\\program resto\\src\\report\\logo_hitam.png"]]></imageExpression>
 			</image>
+			<staticText>
+				<reportElement x="2" y="81" width="46" height="8" uuid="4af136cc-461f-4156-ab3e-c57a1dc17593"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Nomor	:	]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="88" width="46" height="8" uuid="59229914-c61d-4b6a-b906-f562afbdbd8e"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Tanggal	:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="96" width="46" height="8" uuid="81ee30fa-638b-4a69-8d10-9117a7a2334f"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Kasir	:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="104" width="46" height="8" uuid="d3ce90b9-3b44-4368-8d6c-98c977d85750"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Nama	:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="2" y="112" width="46" height="8" uuid="db6e4d34-5101-496d-b370-dad837e44072"/>
+				<textElement>
+					<font size="6"/>
+				</textElement>
+				<text><![CDATA[Meja	:]]></text>
+			</staticText>
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="4" y="119" width="138" height="1" uuid="ea6a9416-7751-4142-b3aa-79423777ee03"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
 		</band>
 	</title>
 	<pageHeader>
@@ -175,7 +216,7 @@
 		</band>
 	</detail>
 	<summary>
-		<band height="51">
+		<band height="65">
 			<textField>
 				<reportElement x="80" y="0" width="61" height="10" uuid="7d2bb025-616b-4114-b1c3-55cf24a56615"/>
 				<textElement>
@@ -219,18 +260,12 @@
 				<text><![CDATA[kembalian]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="6" y="30" width="138" height="10" uuid="c10d326c-babc-4e7d-9a38-ee42d41df07c"/>
+				<reportElement x="0" y="30" width="136" height="34" uuid="a15f3da8-92c6-4207-bd2f-aeebdfbd0a9a"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="7" isBold="true"/>
 				</textElement>
-				<text><![CDATA[TERIMA KASIH ]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="9" y="40" width="135" height="10" uuid="97e58e77-958b-4638-8af0-0e246d6437d9"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="7" isBold="true"/>
-				</textElement>
-				<text><![CDATA[ATAS KUNJUNGAN ANDA]]></text>
+				<text><![CDATA["" TERIMA KASIH ATAS KUNJUNGAN "" ANDA
+Follow IG : @thepreanger]]></text>
 			</staticText>
 		</band>
 	</summary>

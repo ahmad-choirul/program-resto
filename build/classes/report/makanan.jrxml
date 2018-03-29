@@ -1,11 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dapurmakanan" language="groovy" pageWidth="164" pageHeight="842" columnWidth="144" leftMargin="0" rightMargin="20" topMargin="20" bottomMargin="0" uuid="0129981d-cb8d-4ae3-aa78-d8c16ea43886">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="dapurmakanan" language="groovy" pageWidth="164" pageHeight="842" columnWidth="144" leftMargin="0" rightMargin="20" topMargin="0" bottomMargin="0" uuid="0129981d-cb8d-4ae3-aa78-d8c16ea43886">
 	<property name="ireport.zoom" value="3.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<parameter name="id_pesanan" class="java.lang.String"/>
 	<parameter name="namapelanggan" class="java.lang.String"/>
 	<parameter name="lantai" class="java.lang.String"/>
+	<parameter name="id_potong" class="java.lang.String"/>
 	<queryString>
 		<![CDATA[select m.nama_menu, GROUP_CONCAT(nama_toping SEPARATOR ',') as toping,p.level from pesan_toping pt JOIN toping t ON(pt.id_toping=t.id_toping) RIGHT join pesanan p ON(p.id_pesan_toping=pt.id_pesan_toping) join menu m on (m.id_menu=p.id_menu) where p.id_pesanan =$P{id_pesanan} GROUP BY m.nama_menu,p.id_daftar_pesanan]]>
 	</queryString>
@@ -20,57 +21,66 @@
 		<band splitType="Stretch"/>
 	</background>
 	<pageHeader>
-		<band height="34" splitType="Stretch">
+		<band height="48" splitType="Stretch">
 			<textField>
-				<reportElement x="51" y="12" width="73" height="11" uuid="c6104428-0a75-4540-9bc9-1e13e35ecc07"/>
+				<reportElement x="51" y="25" width="73" height="11" uuid="c6104428-0a75-4540-9bc9-1e13e35ecc07"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{namapelanggan}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="12" width="27" height="11" uuid="a4d67886-5f19-4136-985d-ddc1c63c7584"/>
+				<reportElement x="0" y="25" width="27" height="11" uuid="a4d67886-5f19-4136-985d-ddc1c63c7584"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<text><![CDATA[nama ]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="51" y="23" width="73" height="11" uuid="63ef65ec-002a-4b92-8e72-930e2c188679"/>
+				<reportElement x="51" y="36" width="73" height="11" uuid="63ef65ec-002a-4b92-8e72-930e2c188679"/>
 				<textElement textAlignment="Right" verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$P{lantai}]]></textFieldExpression>
 			</textField>
 			<staticText>
-				<reportElement x="0" y="23" width="27" height="11" uuid="2740a623-c5cf-4edd-b1ef-c5451d149038"/>
+				<reportElement x="0" y="36" width="27" height="11" uuid="2740a623-c5cf-4edd-b1ef-c5451d149038"/>
 				<textElement verticalAlignment="Middle">
 					<font size="8" isBold="false"/>
 				</textElement>
-				<text><![CDATA[lantai]]></text>
+				<text><![CDATA[meja]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="0" y="0" width="144" height="20" uuid="e31b609a-44cd-4da9-ac9b-fd86acbc0cd0"/>
-				<textElement textAlignment="Center"/>
+				<reportElement x="0" y="0" width="144" height="12" uuid="e31b609a-44cd-4da9-ac9b-fd86acbc0cd0"/>
+				<textElement textAlignment="Center">
+					<font size="9"/>
+				</textElement>
 				<text><![CDATA[MAKANAN]]></text>
 			</staticText>
+			<textField>
+				<reportElement x="13" y="12" width="121" height="13" uuid="7ba4ed65-3872-4b23-90d2-e00dd5fe7e8c"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="9" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$P{id_potong}]]></textFieldExpression>
+			</textField>
 		</band>
 	</pageHeader>
 	<columnHeader>
 		<band height="12" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="82" height="11" uuid="95319bbf-99e7-4707-8603-d959bd4968ec"/>
+				<reportElement x="0" y="0" width="110" height="11" uuid="95319bbf-99e7-4707-8603-d959bd4968ec"/>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
 				<text><![CDATA[nama menu]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="82" y="0" width="28" height="11" uuid="afe940df-43e6-468d-80bb-f94c76ace82e"/>
+				<reportElement x="110" y="0" width="14" height="11" uuid="afe940df-43e6-468d-80bb-f94c76ace82e"/>
 				<textElement>
 					<font size="8" isBold="true"/>
 				</textElement>
-				<text><![CDATA[level]]></text>
+				<text><![CDATA[lv]]></text>
 			</staticText>
 			<line>
 				<reportElement x="0" y="11" width="124" height="1" uuid="4186bd8d-e21c-4e0e-9c74-31f1f823be95"/>
@@ -83,23 +93,23 @@
 	<detail>
 		<band height="36" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="0" width="82" height="12" uuid="834eba79-fe01-4db5-a15b-addf350580e0"/>
+				<reportElement x="0" y="0" width="110" height="12" uuid="834eba79-fe01-4db5-a15b-addf350580e0"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{nama_menu}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="82" y="0" width="28" height="12" uuid="027009b3-d915-4567-ac60-6d8773e28604"/>
+				<reportElement x="110" y="0" width="14" height="12" uuid="027009b3-d915-4567-ac60-6d8773e28604"/>
 				<textElement>
 					<font size="8"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{level}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="0" y="23" width="110" height="12" uuid="5af6d997-56ea-43b0-b949-789d812a7f75"/>
+				<reportElement x="0" y="23" width="144" height="12" uuid="5af6d997-56ea-43b0-b949-789d812a7f75"/>
 				<textElement>
-					<font size="8"/>
+					<font size="7"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{toping}]]></textFieldExpression>
 			</textField>

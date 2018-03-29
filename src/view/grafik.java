@@ -8,6 +8,7 @@ package view;
 import java.sql.SQLException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import model.mlaporan;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartFrame;
@@ -30,6 +31,7 @@ public class grafik extends javax.swing.JFrame {
             laporan= new mlaporan();
         } catch (SQLException ex) {
             Logger.getLogger(grafik.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, "error"+ex);
         }
     }
 

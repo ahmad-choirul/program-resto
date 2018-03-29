@@ -93,12 +93,14 @@ public class mpesanan extends koneksi {
     }
 
     public boolean cekmakanan(String data) throws SQLException {
-        String query = "SELECT id_menu FROM `pesanan` where id_pesanan = " + data +" and id_menu is not null";
+        String query = "SELECT count(id_menu) FROM `pesanan` where id_pesanan = " + data +" and id_menu is not null";
+        System.out.println("query cek minum = "+query);
         return cekdata(query);
     }
 
     public boolean cekminum(String data) throws SQLException {
-        String query = "SELECT id_minuman FROM `pesanan` where id_pesanan = " + data+" and id_minuman is not null";
+        String query = "SELECT count(id_minuman) FROM `pesanan` where id_pesanan = " + data+" and id_minuman is not null";
+        System.out.println("query cek minum = "+query);
         return cekdata(query);
     }
 

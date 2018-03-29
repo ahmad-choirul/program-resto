@@ -19,7 +19,10 @@ public class mlaporan extends koneksi {
     public mlaporan() throws SQLException {
         super();
     }
-
+public boolean deletepesanan(String id){
+String query="DELETE FROM `pesanan` WHERE `id_pesanan` = '"+id+"'";
+return execute(query);
+}
     public DefaultTableModel getlaporan(String tglawal, String tglakhir) throws SQLException {
         String kolom[] = {"id_pesanan", "tgl pesanan", "nama menu", "nama minuman", "toping", "level", "harga bayar","kasir"};
         String query = "select p.id_pesanan,P.tgl_pesanan,m.nama_menu, mn.nama_minuman, GROUP_CONCAT(nama_toping SEPARATOR ',') as toping,p.level,concat('Rp ', format( p.harga_bayar, 0)) as harga_bayar,k.nama from pesan_toping "

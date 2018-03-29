@@ -57,11 +57,22 @@ public class koneksi {
     }
 
     public boolean cekdata(String query) throws SQLException {
-        boolean cek;
+        boolean cek = false;
+//        ResultSet rs = getResult(query);
+//        rs.next();
+//        int rowCount = rs.getInt(1);
+//        if (rowCount == 0) {
+//            cek = false;
+//        } else {
+//            cek = true;
+//        }
+//        return cek;
         ResultSet rs = getResult(query);
-        rs.next();
-        int rowCount = rs.getInt(1);
-        if (rowCount == 0) {
+        String data = "";
+        if (rs.next()) {
+            data = rs.getString(1);
+        }
+        if (data.equalsIgnoreCase("0")) {
             cek = false;
         } else {
             cek = true;

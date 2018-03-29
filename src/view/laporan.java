@@ -67,7 +67,7 @@ public class laporan extends javax.swing.JFrame {
         tglawal = new com.toedter.calendar.JDateChooser();
         jLabel3 = new javax.swing.JLabel();
         jLabel2 = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        settgl = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         panelminuman = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
@@ -101,6 +101,7 @@ public class laporan extends javax.swing.JFrame {
         printpdf = new javax.swing.JButton();
         jLabel17 = new javax.swing.JLabel();
         txttotalpenjualan = new javax.swing.JLabel();
+        hapus = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -132,18 +133,18 @@ public class laporan extends javax.swing.JFrame {
         jLabel2.setText("Tanggal Awal");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(950, 90, 170, 40));
 
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/set tanggal.png"))); // NOI18N
-        jButton1.setBorderPainted(false);
-        jButton1.setContentAreaFilled(false);
-        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        jButton1.setFocusPainted(false);
-        jButton1.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/set tanggal2.png"))); // NOI18N
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        settgl.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/set tanggal.png"))); // NOI18N
+        settgl.setBorderPainted(false);
+        settgl.setContentAreaFilled(false);
+        settgl.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        settgl.setFocusPainted(false);
+        settgl.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/set tanggal2.png"))); // NOI18N
+        settgl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                settglActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 190, 140, 60));
+        getContentPane().add(settgl, new org.netbeans.lib.awtextra.AbsoluteConstraints(960, 190, 140, 60));
 
         jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/logout admin.png"))); // NOI18N
         jButton2.setBorderPainted(false);
@@ -227,7 +228,7 @@ public class laporan extends javax.swing.JFrame {
 
         txtmakanan2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtmakanan2.setText(" ");
-        panelmakan.add(txtmakanan2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 160, 250, -1));
+        panelmakan.add(txtmakanan2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 250, 30));
 
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         jLabel4.setText("makanan");
@@ -250,7 +251,7 @@ public class laporan extends javax.swing.JFrame {
 
         txtmakanan3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         txtmakanan3.setText(" ");
-        panelmakan.add(txtmakanan3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 140, 250, -1));
+        panelmakan.add(txtmakanan3, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 100, 250, 30));
 
         getContentPane().add(panelmakan, new org.netbeans.lib.awtextra.AbsoluteConstraints(1010, 520, 320, 200));
 
@@ -322,13 +323,28 @@ public class laporan extends javax.swing.JFrame {
         txttotalpenjualan.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         getContentPane().add(txttotalpenjualan, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 690, 280, 60));
 
+        hapus.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hapus.png"))); // NOI18N
+        hapus.setBorderPainted(false);
+        hapus.setContentAreaFilled(false);
+        hapus.setFocusPainted(false);
+        hapus.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hapus2.png"))); // NOI18N
+        hapus.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                hapusActionPerformed(evt);
+            }
+        });
+        getContentPane().add(hapus, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 690, 150, 60));
+
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/laporan.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void settglActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_settglActionPerformed
+        setlaporan();
+    }//GEN-LAST:event_settglActionPerformed
+    public void setlaporan() {
         try {
             Date pertama = this.tglawal.getDate();
             Date kedua = this.tglakhir.getDate();
@@ -351,7 +367,8 @@ public class laporan extends javax.swing.JFrame {
         } catch (SQLException ex) {
             ex.printStackTrace();
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }
+
     public void settop(String tglawal, String tglakhir) {
         String datamakanan[] = laporan.gettopmakanan(tglawal, tglakhir);
         String datatoping[] = laporan.gettoptoping(tglawal, tglakhir);
@@ -409,25 +426,58 @@ public class laporan extends javax.swing.JFrame {
     }//GEN-LAST:event_btnlaporanActionPerformed
 
     private void printpdfActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_printpdfActionPerformed
-        try {
             Date pertama = this.tglawal.getDate();
             Date kedua = this.tglakhir.getDate();
             String tglawal = gettanggal(pertama);
             String tglakhir = gettanggal(kedua);
             File file3 = new File("src/report/laporanpdf.jrxml");
             System.out.println("masukminuman");
+        try {
             jasperDesign3 = JRXmlLoader.load(file3);
+        } catch (JRException ex) {
+            Logger.getLogger(laporan.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex);
+        }
             param3.clear();
             param3.put("tglawal", tglawal);
             param3.put("tglakhir", tglakhir);
+            param3.put("totalpenjualan", txttotalpenjualan.getText());
+        try {
             jasperReport3 = JasperCompileManager.compileReport(jasperDesign3);
-            jasperPrint3 = JasperFillManager.fillReport(jasperReport3, param3, laporan.getConnection());
-            JasperViewer.viewReport(jasperPrint3, true);
-//JasperPrintManager.printReport(jasperPrint3, false);
         } catch (JRException ex) {
             Logger.getLogger(laporan.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex);
         }
+        try {
+            jasperPrint3 = JasperFillManager.fillReport(jasperReport3, param3, laporan.getConnection());
+        } catch (JRException ex) {
+            Logger.getLogger(laporan.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex);
+        }
+        try {
+            //            JasperViewer.viewReport(jasperPrint3, true);
+            JasperPrintManager.printReport(jasperPrint3, true);
+        } catch (JRException ex) {
+            Logger.getLogger(laporan.class.getName()).log(Level.SEVERE, null, ex);
+            JOptionPane.showMessageDialog(this, ex);
+        }
+       
     }//GEN-LAST:event_printpdfActionPerformed
+
+    private void hapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hapusActionPerformed
+        if (table.getSelectedRow() == -1) {
+            message("pilih data dulu");
+        } else {
+            if (laporan.deletepesanan(table.getValueAt(table.getSelectedRow(), 0).toString())) {
+                setlaporan();
+                message("data penjualan di hapus");
+            } else {
+                message("gagal hapus");
+            }
+            
+        }
+
+    }//GEN-LAST:event_hapusActionPerformed
     public String gettanggal(Date date) {
         DateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
         return dateformat.format(date);
@@ -477,7 +527,7 @@ public class laporan extends javax.swing.JFrame {
     private javax.swing.JButton btngrafik;
     private javax.swing.JButton btnlaporan;
     private javax.swing.JButton btnmanajemenkasir;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton hapus;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
@@ -501,6 +551,7 @@ public class laporan extends javax.swing.JFrame {
     private javax.swing.JPanel panelminuman;
     private javax.swing.JPanel paneltoping;
     private javax.swing.JButton printpdf;
+    private javax.swing.JButton settgl;
     private javax.swing.JTable table;
     private com.toedter.calendar.JDateChooser tglakhir;
     private com.toedter.calendar.JDateChooser tglawal;

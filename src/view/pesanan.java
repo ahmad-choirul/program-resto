@@ -63,6 +63,8 @@ public class pesanan extends javax.swing.JFrame {
     Map<String, Object> param3 = new HashMap<String, Object>();
     String kasir;
     int idkasir;
+    int setminuman = 0;
+    int setmenu = 0;
 
     public pesanan(String kasir) throws SQLException {
         initComponents();
@@ -72,6 +74,8 @@ public class pesanan extends javax.swing.JFrame {
         pesanan = new mpesanan();
         idpesanan = pesanan.generatenotransaksi();
         idkasir = pesanan.getidkasir(kasir);
+        panelminuman1.setVisible(false);
+panelmenubasah.setVisible(false);
     }
 
     public void showtgl() {
@@ -101,7 +105,9 @@ public class pesanan extends javax.swing.JFrame {
     private void initComponents() {
 
         groupmenu = new javax.swing.ButtonGroup();
-        panelmenu = new javax.swing.JPanel();
+        nextmenu = new javax.swing.JButton();
+        pillevel = new javax.swing.JTextField();
+        panelmenukering = new javax.swing.JPanel();
         menu1 = new javax.swing.JRadioButton();
         menu2 = new javax.swing.JRadioButton();
         menu3 = new javax.swing.JRadioButton();
@@ -109,8 +115,16 @@ public class pesanan extends javax.swing.JFrame {
         menu4 = new javax.swing.JRadioButton();
         menu5 = new javax.swing.JRadioButton();
         menu6 = new javax.swing.JRadioButton();
-        pillevel = new javax.swing.JTextField();
-        jLabel2 = new javax.swing.JLabel();
+        menu8 = new javax.swing.JRadioButton();
+        menu9 = new javax.swing.JRadioButton();
+        panelmenubasah = new javax.swing.JPanel();
+        menu10 = new javax.swing.JRadioButton();
+        menu11 = new javax.swing.JRadioButton();
+        menu12 = new javax.swing.JRadioButton();
+        menu13 = new javax.swing.JRadioButton();
+        menu14 = new javax.swing.JRadioButton();
+        menu15 = new javax.swing.JRadioButton();
+        menu16 = new javax.swing.JRadioButton();
         paneltoping = new javax.swing.JPanel();
         pil1 = new javax.swing.JCheckBox();
         pil2 = new javax.swing.JCheckBox();
@@ -132,6 +146,11 @@ public class pesanan extends javax.swing.JFrame {
         pil18 = new javax.swing.JCheckBox();
         pil19 = new javax.swing.JCheckBox();
         pil20 = new javax.swing.JCheckBox();
+        pil21 = new javax.swing.JCheckBox();
+        pil22 = new javax.swing.JCheckBox();
+        pil23 = new javax.swing.JCheckBox();
+        pil24 = new javax.swing.JCheckBox();
+        pil25 = new javax.swing.JCheckBox();
         tambah = new javax.swing.JButton();
         panelminuman = new javax.swing.JPanel();
         minuman1 = new javax.swing.JButton();
@@ -155,6 +174,14 @@ public class pesanan extends javax.swing.JFrame {
         minuman17 = new javax.swing.JButton();
         minuman16 = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        panelminuman1 = new javax.swing.JPanel();
+        minuman21 = new javax.swing.JButton();
+        minuman22 = new javax.swing.JButton();
+        minuman24 = new javax.swing.JButton();
+        minuman23 = new javax.swing.JButton();
+        minuman26 = new javax.swing.JButton();
+        minuman27 = new javax.swing.JButton();
+        minuman25 = new javax.swing.JButton();
         panelpesanan = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablemenu = new javax.swing.JTable();
@@ -172,96 +199,29 @@ public class pesanan extends javax.swing.JFrame {
         boxtgl = new javax.swing.JLabel();
         boxjam = new javax.swing.JLabel();
         boxnamapelanggan = new javax.swing.JTextField();
-        lantai = new javax.swing.JComboBox<>();
         btngojek = new javax.swing.JButton();
         jButton1 = new javax.swing.JButton();
         tmbtoping = new javax.swing.JButton();
+        meja = new javax.swing.JTextField();
+        jButton2 = new javax.swing.JButton();
+        lantai = new javax.swing.JComboBox<>();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        panelmenu.setBackground(new java.awt.Color(255, 153, 51));
-        panelmenu.setOpaque(false);
-        panelmenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        groupmenu.add(menu1);
-        menu1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        menu1.setText("SEBLAK ORIGINAL LEUTIK");
-        menu1.setOpaque(false);
-        menu1.addActionListener(new java.awt.event.ActionListener() {
+        nextmenu.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/next.png"))); // NOI18N
+        nextmenu.setBorderPainted(false);
+        nextmenu.setContentAreaFilled(false);
+        nextmenu.setFocusPainted(false);
+        nextmenu.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/next2.png"))); // NOI18N
+        nextmenu.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu1ActionPerformed(evt);
+                nextmenuActionPerformed(evt);
             }
         });
-        panelmenu.add(menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 10, -1, -1));
-
-        groupmenu.add(menu2);
-        menu2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        menu2.setText("SEBLAK ORIGINAL GEDE");
-        menu2.setOpaque(false);
-        menu2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu2ActionPerformed(evt);
-            }
-        });
-        panelmenu.add(menu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 50, -1, -1));
-
-        groupmenu.add(menu3);
-        menu3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        menu3.setText("MIE GONDIH MONAH");
-        menu3.setOpaque(false);
-        menu3.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu3ActionPerformed(evt);
-            }
-        });
-        panelmenu.add(menu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 90, -1, -1));
-
-        groupmenu.add(menu7);
-        menu7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        menu7.setText("NASI GILA");
-        menu7.setOpaque(false);
-        menu7.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu7ActionPerformed(evt);
-            }
-        });
-        panelmenu.add(menu7, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 250, -1, -1));
-
-        groupmenu.add(menu4);
-        menu4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        menu4.setText("MIE KROYOK");
-        menu4.setOpaque(false);
-        menu4.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu4ActionPerformed(evt);
-            }
-        });
-        panelmenu.add(menu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 130, -1, -1));
-
-        groupmenu.add(menu5);
-        menu5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        menu5.setText("OMLET SEBLAK");
-        menu5.setOpaque(false);
-        menu5.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu5ActionPerformed(evt);
-            }
-        });
-        panelmenu.add(menu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 170, -1, -1));
-
-        groupmenu.add(menu6);
-        menu6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        menu6.setText("RUJAK CIRENG");
-        menu6.setOpaque(false);
-        menu6.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                menu6ActionPerformed(evt);
-            }
-        });
-        panelmenu.add(menu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 210, -1, -1));
+        getContentPane().add(nextmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 90, 50));
 
         pillevel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         pillevel.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -276,13 +236,195 @@ public class pesanan extends javax.swing.JFrame {
                 pillevelKeyReleased(evt);
             }
         });
-        panelmenu.add(pillevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(280, 250, 70, 40));
+        getContentPane().add(pillevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 60, 30));
 
-        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        jLabel2.setText("level");
-        panelmenu.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 220, -1, -1));
+        panelmenukering.setBackground(new java.awt.Color(255, 153, 51));
+        panelmenukering.setOpaque(false);
+        panelmenukering.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        getContentPane().add(panelmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 370, 300));
+        groupmenu.add(menu1);
+        menu1.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu1.setText("SEBLAK ORG LEUTIK (krg)");
+        menu1.setOpaque(false);
+        menu1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu1ActionPerformed(evt);
+            }
+        });
+        panelmenukering.add(menu1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        groupmenu.add(menu2);
+        menu2.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu2.setText("SEBLAK ORG GEDE (krg)");
+        menu2.setOpaque(false);
+        menu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu2ActionPerformed(evt);
+            }
+        });
+        panelmenukering.add(menu2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        groupmenu.add(menu3);
+        menu3.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu3.setText("MIE GONDAH MONAH (krg)");
+        menu3.setOpaque(false);
+        menu3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu3ActionPerformed(evt);
+            }
+        });
+        panelmenukering.add(menu3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+
+        groupmenu.add(menu7);
+        menu7.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu7.setText("NASI GILA (krg)");
+        menu7.setOpaque(false);
+        menu7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu7ActionPerformed(evt);
+            }
+        });
+        panelmenukering.add(menu7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
+
+        groupmenu.add(menu4);
+        menu4.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu4.setText("MIE KROYOK (krg)");
+        menu4.setOpaque(false);
+        menu4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu4ActionPerformed(evt);
+            }
+        });
+        panelmenukering.add(menu4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+
+        groupmenu.add(menu5);
+        menu5.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu5.setText("OMLET SEBLAK (krg)");
+        menu5.setOpaque(false);
+        menu5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu5ActionPerformed(evt);
+            }
+        });
+        panelmenukering.add(menu5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+
+        groupmenu.add(menu6);
+        menu6.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu6.setText("RUJAK CIRENG (krg)");
+        menu6.setOpaque(false);
+        menu6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu6ActionPerformed(evt);
+            }
+        });
+        panelmenukering.add(menu6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        groupmenu.add(menu8);
+        menu8.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu8.setText("NASI PUTIH");
+        menu8.setOpaque(false);
+        menu8.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu8ActionPerformed(evt);
+            }
+        });
+        panelmenukering.add(menu8, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 220, -1, -1));
+
+        groupmenu.add(menu9);
+        menu9.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu9.setText("MENU KOSONG");
+        menu9.setOpaque(false);
+        menu9.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu9ActionPerformed(evt);
+            }
+        });
+        panelmenukering.add(menu9, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+
+        getContentPane().add(panelmenukering, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 280, 300));
+
+        panelmenubasah.setBackground(new java.awt.Color(255, 153, 51));
+        panelmenubasah.setOpaque(false);
+        panelmenubasah.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        groupmenu.add(menu10);
+        menu10.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu10.setText("SEBLAK ORG LEUTIK (bsh)");
+        menu10.setOpaque(false);
+        menu10.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu10ActionPerformed(evt);
+            }
+        });
+        panelmenubasah.add(menu10, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+
+        groupmenu.add(menu11);
+        menu11.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu11.setText("SEBLAK ORG GEDE (bsh)");
+        menu11.setOpaque(false);
+        menu11.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu11ActionPerformed(evt);
+            }
+        });
+        panelmenubasah.add(menu11, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 40, -1, -1));
+
+        groupmenu.add(menu12);
+        menu12.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu12.setText("MIE KROYOK (bsh)");
+        menu12.setOpaque(false);
+        menu12.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu12ActionPerformed(evt);
+            }
+        });
+        panelmenubasah.add(menu12, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 70, -1, -1));
+
+        groupmenu.add(menu13);
+        menu13.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu13.setText("OMLET SEBLAK (bsh)");
+        menu13.setOpaque(false);
+        menu13.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu13ActionPerformed(evt);
+            }
+        });
+        panelmenubasah.add(menu13, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, -1, -1));
+
+        groupmenu.add(menu14);
+        menu14.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu14.setText("RUJAK CIRENG (bsh)");
+        menu14.setOpaque(false);
+        menu14.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu14ActionPerformed(evt);
+            }
+        });
+        panelmenubasah.add(menu14, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+
+        groupmenu.add(menu15);
+        menu15.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu15.setText("NASI GILA (bsh)");
+        menu15.setOpaque(false);
+        menu15.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu15ActionPerformed(evt);
+            }
+        });
+        panelmenubasah.add(menu15, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 160, -1, -1));
+
+        groupmenu.add(menu16);
+        menu16.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        menu16.setText("MENU KOSONG");
+        menu16.setOpaque(false);
+        menu16.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                menu16ActionPerformed(evt);
+            }
+        });
+        panelmenubasah.add(menu16, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 190, -1, -1));
+
+        getContentPane().add(panelmenubasah, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 110, 280, 300));
 
         paneltoping.setBackground(new java.awt.Color(255, 153, 51));
         paneltoping.setOpaque(false);
@@ -316,7 +458,7 @@ public class pesanan extends javax.swing.JFrame {
         pil5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         pil5.setText("MIE");
         pil5.setOpaque(false);
-        paneltoping.add(pil5, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        paneltoping.add(pil5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, -1, -1));
 
         pil6.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         pil6.setText("KWETIAU");
@@ -356,7 +498,7 @@ public class pesanan extends javax.swing.JFrame {
         pil13.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         pil13.setText("SALMON BALL");
         pil13.setOpaque(false);
-        paneltoping.add(pil13, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 210, -1, -1));
+        paneltoping.add(pil13, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
 
         pil14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         pil14.setText("TELUR");
@@ -366,34 +508,64 @@ public class pesanan extends javax.swing.JFrame {
         pil15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         pil15.setText("SAYAP");
         pil15.setOpaque(false);
-        paneltoping.add(pil15, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, -1, -1));
+        paneltoping.add(pil15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
 
         pil16.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         pil16.setText("CRABSTIK");
         pil16.setOpaque(false);
-        paneltoping.add(pil16, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 50, -1, -1));
+        paneltoping.add(pil16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
 
         pil17.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         pil17.setText("FISH CHESSE");
         pil17.setOpaque(false);
-        paneltoping.add(pil17, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, -1, -1));
+        paneltoping.add(pil17, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
 
         pil18.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         pil18.setText("CIGOR");
         pil18.setOpaque(false);
-        paneltoping.add(pil18, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 130, -1, -1));
+        paneltoping.add(pil18, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, -1, -1));
 
         pil19.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         pil19.setText("JAMUR KUPING");
         pil19.setOpaque(false);
-        paneltoping.add(pil19, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, -1, -1));
+        paneltoping.add(pil19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
 
         pil20.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
         pil20.setText("OTAK2 SINGAPUR");
         pil20.setOpaque(false);
         paneltoping.add(pil20, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
 
-        getContentPane().add(paneltoping, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 120, 420, 290));
+        pil21.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil21.setText("DUMPLING AYAM");
+        pil21.setOpaque(false);
+        paneltoping.add(pil21, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
+
+        pil22.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil22.setText("SHRIMP BALL");
+        pil22.setOpaque(false);
+        paneltoping.add(pil22, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, -1, -1));
+
+        pil23.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil23.setText("FISH STICK");
+        pil23.setOpaque(false);
+        paneltoping.add(pil23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+
+        pil24.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil24.setText("FISH ROLL");
+        pil24.setOpaque(false);
+        paneltoping.add(pil24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
+
+        pil25.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil25.setText("SARDEN");
+        pil25.setOpaque(false);
+        pil25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pil25ActionPerformed(evt);
+            }
+        });
+        paneltoping.add(pil25, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
+
+        getContentPane().add(paneltoping, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 510, 290));
 
         tambah.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tambah.png"))); // NOI18N
         tambah.setBorderPainted(false);
@@ -659,6 +831,104 @@ public class pesanan extends javax.swing.JFrame {
 
         getContentPane().add(panelminuman, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 110, 490, 300));
 
+        panelminuman1.setBackground(new java.awt.Color(51, 255, 51));
+        panelminuman1.setOpaque(false);
+        panelminuman1.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        minuman21.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/teh_panas.png"))); // NOI18N
+        minuman21.setBorderPainted(false);
+        minuman21.setContentAreaFilled(false);
+        minuman21.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman21.setFocusPainted(false);
+        minuman21.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/teh_panas2.png"))); // NOI18N
+        minuman21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman21ActionPerformed(evt);
+            }
+        });
+        panelminuman1.add(minuman21, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 220, 60));
+
+        minuman22.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        minuman22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/jeruk_hangat.png"))); // NOI18N
+        minuman22.setBorderPainted(false);
+        minuman22.setContentAreaFilled(false);
+        minuman22.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman22.setFocusPainted(false);
+        minuman22.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/jeruk_hangat2.png"))); // NOI18N
+        minuman22.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman22ActionPerformed(evt);
+            }
+        });
+        panelminuman1.add(minuman22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 220, 60));
+
+        minuman24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/susuputih_hangat.png"))); // NOI18N
+        minuman24.setBorderPainted(false);
+        minuman24.setContentAreaFilled(false);
+        minuman24.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman24.setFocusPainted(false);
+        minuman24.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/susuputih_hangat2.png"))); // NOI18N
+        minuman24.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman24ActionPerformed(evt);
+            }
+        });
+        panelminuman1.add(minuman24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 220, 60));
+
+        minuman23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tehtarik.png"))); // NOI18N
+        minuman23.setBorderPainted(false);
+        minuman23.setContentAreaFilled(false);
+        minuman23.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman23.setFocusPainted(false);
+        minuman23.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tehtarik2.png"))); // NOI18N
+        minuman23.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman23ActionPerformed(evt);
+            }
+        });
+        panelminuman1.add(minuman23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 220, 60));
+
+        minuman26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hotcapucino.png"))); // NOI18N
+        minuman26.setBorderPainted(false);
+        minuman26.setContentAreaFilled(false);
+        minuman26.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman26.setFocusPainted(false);
+        minuman26.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hotcapucino2.png"))); // NOI18N
+        minuman26.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman26ActionPerformed(evt);
+            }
+        });
+        panelminuman1.add(minuman26, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 220, 60));
+
+        minuman27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hotchoco.png"))); // NOI18N
+        minuman27.setBorderPainted(false);
+        minuman27.setContentAreaFilled(false);
+        minuman27.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman27.setFocusPainted(false);
+        minuman27.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hotchoco2.png"))); // NOI18N
+        minuman27.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman27ActionPerformed(evt);
+            }
+        });
+        panelminuman1.add(minuman27, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 220, 60));
+
+        minuman25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/susucoklat_panas.png"))); // NOI18N
+        minuman25.setBorderPainted(false);
+        minuman25.setContentAreaFilled(false);
+        minuman25.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman25.setFocusPainted(false);
+        minuman25.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/susucoklat_panas2.png"))); // NOI18N
+        minuman25.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman25ActionPerformed(evt);
+            }
+        });
+        panelminuman1.add(minuman25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 220, 60));
+
+        getContentPane().add(panelminuman1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 110, 490, 300));
+
         panelpesanan.setBackground(new java.awt.Color(51, 255, 51));
         panelpesanan.setOpaque(false);
         panelpesanan.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -883,10 +1153,6 @@ public class pesanan extends javax.swing.JFrame {
         });
         getContentPane().add(boxnamapelanggan, new org.netbeans.lib.awtextra.AbsoluteConstraints(720, 30, 230, 60));
 
-        lantai.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-        lantai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "lantai Atas", "lantai Bawah" }));
-        getContentPane().add(lantai, new org.netbeans.lib.awtextra.AbsoluteConstraints(1180, 470, 150, 40));
-
         btngojek.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/gojek.png"))); // NOI18N
         btngojek.setBorderPainted(false);
         btngojek.setContentAreaFilled(false);
@@ -925,7 +1191,27 @@ public class pesanan extends javax.swing.JFrame {
                 tmbtopingActionPerformed(evt);
             }
         });
-        getContentPane().add(tmbtoping, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 420, 180, 50));
+        getContentPane().add(tmbtoping, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 420, 180, 50));
+
+        meja.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        getContentPane().add(meja, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 500, 180, 30));
+
+        jButton2.setBackground(new java.awt.Color(255, 153, 51));
+        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/next.png"))); // NOI18N
+        jButton2.setBorderPainted(false);
+        jButton2.setContentAreaFilled(false);
+        jButton2.setFocusPainted(false);
+        jButton2.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/next2.png"))); // NOI18N
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1233, 410, 90, 60));
+
+        lantai.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        lantai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "lantai atas", "lantai bawah", "Bungkus" }));
+        getContentPane().add(lantai, new org.netbeans.lib.awtextra.AbsoluteConstraints(1160, 470, 180, 30));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/transaksi.png"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1370, 770));
@@ -970,6 +1256,35 @@ public class pesanan extends javax.swing.JFrame {
         } else if (menu7.isSelected()) {
             menu = 7;
             hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
+
+        } else if (menu8.isSelected()) {
+            menu = 8;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
+        } else if (menu9.isSelected()) {
+            menu = 15;
+            hargasatu = hargasatu +0 + hargatambah;
+
+        } else if (menu10.isSelected()) {
+            menu = 9;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
+        } else if (menu11.isSelected()) {
+            menu = 10;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
+        } else if (menu12.isSelected()) {
+            menu = 11;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
+        } else if (menu13.isSelected()) {
+            menu = 12;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
+        } else if (menu14.isSelected()) {
+            menu = 13;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
+        } else if (menu15.isSelected()) {
+            menu = 14;
+            hargasatu = hargasatu + pesanan.gethargamenureguler(menu) + hargatambah;
+        } else if (menu16.isSelected()) {
+            menu = 15;
+            hargasatu = hargasatu + 0 + hargatambah;
         }
 
         if (pil1.isSelected()) {
@@ -1072,6 +1387,31 @@ public class pesanan extends javax.swing.JFrame {
             toping = true;
             daftartoping.add("20");
         }
+        if (pil21.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("21");
+            toping = true;
+            daftartoping.add("21");
+        }
+        if (pil22.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("22");
+            toping = true;
+            daftartoping.add("22");
+        }
+        if (pil23.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("23");
+            toping = true;
+            daftartoping.add("23");
+        }
+        if (pil24.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("24");
+            toping = true;
+            daftartoping.add("24");
+        }
+        if (pil25.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("25");
+            toping = true;
+            daftartoping.add("25");
+        }
 
         System.out.println("idtoping sebelum" + idtoping);
         if (toping) {
@@ -1151,7 +1491,13 @@ public class pesanan extends javax.swing.JFrame {
         pil18.setSelected(false);
         pil19.setSelected(false);
         pil20.setSelected(false);
+        pil21.setSelected(false);
+        pil22.setSelected(false);
+        pil23.setSelected(false);
+        pil24.setSelected(false);
+        pil25.setSelected(false);
         pillevel.setText("" + 1);
+        meja.setText("");
     }
     private void boxhargatotalActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_boxhargatotalActionPerformed
         // TODO add your handling code here:
@@ -1273,31 +1619,34 @@ public class pesanan extends javax.swing.JFrame {
             File dapurmakanan = new File("src/report/makanan.jrxml");
             File dapurminuman = new File("src/report/minuman.jrxml");
             try {
-                boolean cekmakanan = pesanan.cekmakanan(idpesanan);
+                boolean cekmakan = pesanan.cekmakanan(idpesanan);
                 boolean cekminum = pesanan.cekminum(idpesanan);
-                System.out.println("cek makanan"+cekmakanan);
-                System.out.println("cek minuman "+cekminum);
-                if (cekmakanan && cekminum) {
+                System.out.println("cek makanan" + cekmakan);
+                System.out.println("cek minuman " + cekminum);
+                if (cekmakan && cekminum) {
                     System.out.println("struk dua");
                     jasperDesign = JRXmlLoader.load(cetakdua);
-                }
-                if (cekminum && !cekmakanan) {
+                } else if (cekminum) {
                     System.out.println("struk minuman");
                     jasperDesign = JRXmlLoader.load(cetakminuman);
-                }
-                if (cekmakanan && !cekminum) {
+                } else if (cekmakan) {
                     System.out.println("struk makanan");
                     jasperDesign = JRXmlLoader.load(cetakmakanan);
                 }
+            } catch (Exception e) {
+                JOptionPane.showMessageDialog(rootPane, "error get struk" + e);
+            }
+
+            try {
                 param.clear();
                 param.put("tgl", boxtgl.getText());
                 param.put("jam", boxjam.getText());
                 param.put("id_pesanan", idpesanan);
                 param.put("kembalian", boxkembalian.getText());
                 param.put("totalharga", boxhargatotal.getText());
-                param.put("totalbayar", rubahuang(Double.parseDouble(boxbayar.getText())));
+                param.put("totalbayar", "Rp. " + boxbayar.getText());
                 param.put("namapelanggan", nama);
-                param.put("lantai", lantai.getSelectedItem().toString());
+                param.put("lantai", lantai.getSelectedItem().toString()+" : "+ meja.getText());
                 param.put("kasir", kasir);
                 jasperReport = JasperCompileManager.compileReport(jasperDesign);
                 jasperPrint = JasperFillManager.fillReport(jasperReport, param, pesanan.getConnection());
@@ -1312,8 +1661,9 @@ public class pesanan extends javax.swing.JFrame {
                     jasperDesign2 = JRXmlLoader.load(dapurmakanan);
                     param2.clear();
                     param2.put("id_pesanan", idpesanan);
+                    param2.put("id_potong", idpesanan.substring(6, 12));
                     param2.put("namapelanggan", nama);
-                    param2.put("lantai", lantai.getSelectedItem().toString());
+                    param2.put("lantai", lantai.getSelectedItem().toString()+" : "+ meja.getText());
                     jasperReport2 = JasperCompileManager.compileReport(jasperDesign2);
                     jasperPrint2 = JasperFillManager.fillReport(jasperReport2, param2, pesanan.getConnection());
 //                JasperViewer.viewReport(jasperPrint, true);
@@ -1329,7 +1679,8 @@ public class pesanan extends javax.swing.JFrame {
                     param3.clear();
                     param3.put("id_pesanan", idpesanan);
                     param3.put("namapelanggan", nama);
-                    param3.put("lantai", lantai.getSelectedItem().toString());
+                    param3.put("id_potong", idpesanan.substring(6, 12));
+                    param3.put("lantai",lantai.getSelectedItem().toString()+" : "+ meja.getText());
                     jasperReport3 = JasperCompileManager.compileReport(jasperDesign3);
                     jasperPrint3 = JasperFillManager.fillReport(jasperReport3, param3, pesanan.getConnection());
 //                JasperViewer.viewReport(jasperPrint, true);
@@ -1598,9 +1949,35 @@ public class pesanan extends javax.swing.JFrame {
             toping = true;
             daftartoping.add("20");
         }
+        if (pil21.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("21");
+            toping = true;
+            daftartoping.add("21");
+        }
+        if (pil22.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("22");
+            toping = true;
+            daftartoping.add("22");
+        }
+        if (pil23.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("23");
+            toping = true;
+            daftartoping.add("23");
+        }
+        if (pil24.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("24");
+            toping = true;
+            daftartoping.add("24");
+        }
+        if (pil25.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("25");
+            toping = true;
+            daftartoping.add("25");
+        }
         for (int i = 0; i < daftartoping.size(); i++) {
+            System.out.println("id menu = " + tablemenu.getSelectedRow());
+            System.out.println("daftar toping " + daftartoping.get(i));
             if (pesanan.tambahtoping(tablemenu.getValueAt(tablemenu.getSelectedRow(), 3).toString(), daftartoping.get(i).toString())) {
-
             } else {
                 message("gagal insert toping");
             }
@@ -1610,9 +1987,106 @@ public class pesanan extends javax.swing.JFrame {
         refreshtable();
         clear();
     }//GEN-LAST:event_tmbtopingActionPerformed
+
+    private void menu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu8ActionPerformed
+        tambah.setEnabled(true);
+    }//GEN-LAST:event_menu8ActionPerformed
+
+    private void pil25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pil25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pil25ActionPerformed
+
+    private void minuman21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman21ActionPerformed
+        addminuman(21);
+    }//GEN-LAST:event_minuman21ActionPerformed
+
+    private void minuman22ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman22ActionPerformed
+        // TODO add your handling code here:
+        addminuman(22);
+    }//GEN-LAST:event_minuman22ActionPerformed
+
+    private void minuman24ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman24ActionPerformed
+        // TODO add your handling code here:
+        addminuman(23);
+    }//GEN-LAST:event_minuman24ActionPerformed
+
+    private void minuman23ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman23ActionPerformed
+        // TODO add your handling code here:
+        addminuman(24);
+    }//GEN-LAST:event_minuman23ActionPerformed
+
+    private void minuman26ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman26ActionPerformed
+        // TODO add your handling code here:
+        addminuman(25);
+    }//GEN-LAST:event_minuman26ActionPerformed
+
+    private void minuman27ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman27ActionPerformed
+        // TODO add your handling code here:
+        addminuman(26);
+    }//GEN-LAST:event_minuman27ActionPerformed
+
+    private void minuman25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman25ActionPerformed
+        // TODO add your handling code here:
+        addminuman(27);
+    }//GEN-LAST:event_minuman25ActionPerformed
+
+    private void menu9ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu9ActionPerformed
+        tambah.setEnabled(true);
+    }//GEN-LAST:event_menu9ActionPerformed
+
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        if (setminuman == 0) {
+            panelminuman.setVisible(false);
+            panelminuman1.setVisible(true);
+            setminuman = 1;
+        } else {
+            panelminuman1.setVisible(false);
+            panelminuman.setVisible(true);
+            setminuman = 0;
+        }
+    }//GEN-LAST:event_jButton2ActionPerformed
+
+    private void menu10ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu10ActionPerformed
+        tambah.setEnabled(true);
+    }//GEN-LAST:event_menu10ActionPerformed
+
+    private void menu11ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu11ActionPerformed
+        tambah.setEnabled(true);
+    }//GEN-LAST:event_menu11ActionPerformed
+
+    private void menu12ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu12ActionPerformed
+        tambah.setEnabled(true);
+    }//GEN-LAST:event_menu12ActionPerformed
+
+    private void menu13ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu13ActionPerformed
+        tambah.setEnabled(true);
+    }//GEN-LAST:event_menu13ActionPerformed
+
+    private void menu14ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu14ActionPerformed
+        tambah.setEnabled(true);
+    }//GEN-LAST:event_menu14ActionPerformed
+
+    private void menu15ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu15ActionPerformed
+        tambah.setEnabled(true);
+    }//GEN-LAST:event_menu15ActionPerformed
+
+    private void menu16ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu16ActionPerformed
+        tambah.setEnabled(true);
+    }//GEN-LAST:event_menu16ActionPerformed
+
+    private void nextmenuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextmenuActionPerformed
+        if (setmenu == 0) {
+            panelmenukering.setVisible(false);
+            panelmenubasah.setVisible(true);
+            setmenu = 1;
+        } else {
+            panelmenukering.setVisible(true);
+            panelmenubasah.setVisible(false);
+            setmenu = 0;
+        }
+    }//GEN-LAST:event_nextmenuActionPerformed
     public String rubahuang(double uang) {
         String mataUang = String.format("Rp.%,.0f", uang).replaceAll(",", ".") + ",00";
-        System.out.println("uang" + mataUang);
         return mataUang;
 
     }
@@ -1709,20 +2183,30 @@ public class pesanan extends javax.swing.JFrame {
     private javax.swing.JButton clear;
     private javax.swing.ButtonGroup groupmenu;
     private javax.swing.JButton jButton1;
+    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JComboBox<String> lantai;
+    private javax.swing.JTextField meja;
     private javax.swing.JRadioButton menu1;
+    private javax.swing.JRadioButton menu10;
+    private javax.swing.JRadioButton menu11;
+    private javax.swing.JRadioButton menu12;
+    private javax.swing.JRadioButton menu13;
+    private javax.swing.JRadioButton menu14;
+    private javax.swing.JRadioButton menu15;
+    private javax.swing.JRadioButton menu16;
     private javax.swing.JRadioButton menu2;
     private javax.swing.JRadioButton menu3;
     private javax.swing.JRadioButton menu4;
     private javax.swing.JRadioButton menu5;
     private javax.swing.JRadioButton menu6;
     private javax.swing.JRadioButton menu7;
+    private javax.swing.JRadioButton menu8;
+    private javax.swing.JRadioButton menu9;
     private javax.swing.JButton minuman1;
     private javax.swing.JButton minuman10;
     private javax.swing.JButton minuman11;
@@ -1736,6 +2220,13 @@ public class pesanan extends javax.swing.JFrame {
     private javax.swing.JButton minuman19;
     private javax.swing.JButton minuman2;
     private javax.swing.JButton minuman20;
+    private javax.swing.JButton minuman21;
+    private javax.swing.JButton minuman22;
+    private javax.swing.JButton minuman23;
+    private javax.swing.JButton minuman24;
+    private javax.swing.JButton minuman25;
+    private javax.swing.JButton minuman26;
+    private javax.swing.JButton minuman27;
     private javax.swing.JButton minuman3;
     private javax.swing.JButton minuman4;
     private javax.swing.JButton minuman5;
@@ -1743,8 +2234,11 @@ public class pesanan extends javax.swing.JFrame {
     private javax.swing.JButton minuman7;
     private javax.swing.JButton minuman8;
     private javax.swing.JButton minuman9;
-    private javax.swing.JPanel panelmenu;
+    private javax.swing.JButton nextmenu;
+    private javax.swing.JPanel panelmenubasah;
+    private javax.swing.JPanel panelmenukering;
     private javax.swing.JPanel panelminuman;
+    private javax.swing.JPanel panelminuman1;
     private javax.swing.JPanel panelpesanan;
     private javax.swing.JPanel paneltoping;
     private javax.swing.JCheckBox pil1;
@@ -1760,6 +2254,11 @@ public class pesanan extends javax.swing.JFrame {
     private javax.swing.JCheckBox pil19;
     private javax.swing.JCheckBox pil2;
     private javax.swing.JCheckBox pil20;
+    private javax.swing.JCheckBox pil21;
+    private javax.swing.JCheckBox pil22;
+    private javax.swing.JCheckBox pil23;
+    private javax.swing.JCheckBox pil24;
+    private javax.swing.JCheckBox pil25;
     private javax.swing.JCheckBox pil3;
     private javax.swing.JCheckBox pil4;
     private javax.swing.JCheckBox pil5;
