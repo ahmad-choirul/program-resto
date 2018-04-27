@@ -151,6 +151,9 @@ panelmenubasah.setVisible(false);
         pil23 = new javax.swing.JCheckBox();
         pil24 = new javax.swing.JCheckBox();
         pil25 = new javax.swing.JCheckBox();
+        pil26 = new javax.swing.JCheckBox();
+        pil27 = new javax.swing.JCheckBox();
+        pil28 = new javax.swing.JCheckBox();
         tambah = new javax.swing.JButton();
         panelminuman = new javax.swing.JPanel();
         minuman1 = new javax.swing.JButton();
@@ -182,6 +185,11 @@ panelmenubasah.setVisible(false);
         minuman26 = new javax.swing.JButton();
         minuman27 = new javax.swing.JButton();
         minuman25 = new javax.swing.JButton();
+        minuman28 = new javax.swing.JButton();
+        minuman29 = new javax.swing.JButton();
+        minuman30 = new javax.swing.JButton();
+        minuman31 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
         panelpesanan = new javax.swing.JPanel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablemenu = new javax.swing.JTable();
@@ -221,7 +229,7 @@ panelmenubasah.setVisible(false);
                 nextmenuActionPerformed(evt);
             }
         });
-        getContentPane().add(nextmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 350, 90, 50));
+        getContentPane().add(nextmenu, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 360, 70, 40));
 
         pillevel.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         pillevel.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
@@ -236,7 +244,7 @@ panelmenubasah.setVisible(false);
                 pillevelKeyReleased(evt);
             }
         });
-        getContentPane().add(pillevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 310, 60, 30));
+        getContentPane().add(pillevel, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 330, 70, 30));
 
         panelmenukering.setBackground(new java.awt.Color(255, 153, 51));
         panelmenukering.setOpaque(false);
@@ -430,7 +438,7 @@ panelmenubasah.setVisible(false);
         paneltoping.setOpaque(false);
         paneltoping.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        pil1.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil1.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil1.setText("SOSIS");
         pil1.setOpaque(false);
         pil1.addActionListener(new java.awt.event.ActionListener() {
@@ -438,124 +446,129 @@ panelmenubasah.setVisible(false);
                 pil1ActionPerformed(evt);
             }
         });
-        paneltoping.add(pil1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, -1, -1));
+        paneltoping.add(pil1, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 20, -1, -1));
 
-        pil2.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil2.setText("BASO");
         pil2.setOpaque(false);
         paneltoping.add(pil2, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, -1, -1));
 
-        pil3.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil3.setText("KIKIL");
         pil3.setOpaque(false);
-        paneltoping.add(pil3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 90, -1, -1));
+        paneltoping.add(pil3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 80, -1, -1));
 
-        pil4.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil4.setText("CEKER");
         pil4.setOpaque(false);
-        paneltoping.add(pil4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 130, -1, -1));
+        paneltoping.add(pil4, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 110, -1, -1));
 
-        pil5.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil5.setText("MIE");
         pil5.setOpaque(false);
-        paneltoping.add(pil5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 90, -1, -1));
+        paneltoping.add(pil5, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 80, -1, -1));
 
-        pil6.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil6.setText("KWETIAU");
         pil6.setOpaque(false);
-        paneltoping.add(pil6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 210, -1, -1));
+        paneltoping.add(pil6, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
 
-        pil7.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil7.setText("MAKARONI");
         pil7.setOpaque(false);
-        paneltoping.add(pil7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, -1, -1));
+        paneltoping.add(pil7, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, -1, -1));
 
-        pil8.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil8.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil8.setText("TULANGAN");
         pil8.setOpaque(false);
-        paneltoping.add(pil8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 10, -1, -1));
+        paneltoping.add(pil8, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 20, -1, -1));
 
-        pil9.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil9.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil9.setText("SIOMAY");
         pil9.setOpaque(false);
         paneltoping.add(pil9, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 50, -1, -1));
 
-        pil10.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil10.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil10.setText("BATAGOR");
         pil10.setOpaque(false);
-        paneltoping.add(pil10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 90, -1, -1));
+        paneltoping.add(pil10, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 80, -1, -1));
 
-        pil11.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil11.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil11.setText("CUANKI");
         pil11.setOpaque(false);
-        paneltoping.add(pil11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 130, -1, -1));
+        paneltoping.add(pil11, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 110, -1, -1));
 
-        pil12.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil12.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil12.setText("SCALLOP");
         pil12.setOpaque(false);
-        paneltoping.add(pil12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
+        paneltoping.add(pil12, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 140, -1, -1));
 
-        pil13.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil13.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil13.setText("SALMON BALL");
         pil13.setOpaque(false);
-        paneltoping.add(pil13, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 210, -1, -1));
+        paneltoping.add(pil13, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
 
-        pil14.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil14.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil14.setText("TELUR");
         pil14.setOpaque(false);
-        paneltoping.add(pil14, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 210, -1, -1));
+        paneltoping.add(pil14, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 170, -1, -1));
 
-        pil15.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil15.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil15.setText("SAYAP");
         pil15.setOpaque(false);
-        paneltoping.add(pil15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 10, -1, -1));
+        paneltoping.add(pil15, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 20, -1, -1));
 
-        pil16.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil16.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil16.setText("CRABSTIK");
         pil16.setOpaque(false);
         paneltoping.add(pil16, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 50, -1, -1));
 
-        pil17.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil17.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil17.setText("FISH CHESSE");
         pil17.setOpaque(false);
-        paneltoping.add(pil17, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 90, -1, -1));
+        paneltoping.add(pil17, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 80, -1, -1));
 
-        pil18.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil18.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil18.setText("CIGOR");
         pil18.setOpaque(false);
-        paneltoping.add(pil18, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 130, -1, -1));
+        paneltoping.add(pil18, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 110, -1, -1));
 
-        pil19.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil19.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil19.setText("JAMUR KUPING");
         pil19.setOpaque(false);
-        paneltoping.add(pil19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 170, -1, -1));
+        paneltoping.add(pil19, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 140, -1, -1));
 
-        pil20.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil20.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil20.setText("OTAK2 SINGAPUR");
         pil20.setOpaque(false);
-        paneltoping.add(pil20, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 250, -1, -1));
+        paneltoping.add(pil20, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 230, -1, -1));
 
-        pil21.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil21.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil21.setText("DUMPLING AYAM");
         pil21.setOpaque(false);
-        paneltoping.add(pil21, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 250, -1, -1));
+        pil21.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pil21ActionPerformed(evt);
+            }
+        });
+        paneltoping.add(pil21, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 230, -1, -1));
 
-        pil22.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil22.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil22.setText("SHRIMP BALL");
         pil22.setOpaque(false);
-        paneltoping.add(pil22, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 130, -1, -1));
+        paneltoping.add(pil22, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 110, -1, -1));
 
-        pil23.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil23.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil23.setText("FISH STICK");
         pil23.setOpaque(false);
-        paneltoping.add(pil23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 170, -1, -1));
+        paneltoping.add(pil23, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 140, -1, -1));
 
-        pil24.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil24.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil24.setText("FISH ROLL");
         pil24.setOpaque(false);
         paneltoping.add(pil24, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 50, -1, -1));
 
-        pil25.setFont(new java.awt.Font("Tahoma", 1, 16)); // NOI18N
+        pil25.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         pil25.setText("SARDEN");
         pil25.setOpaque(false);
         pil25.addActionListener(new java.awt.event.ActionListener() {
@@ -563,7 +576,22 @@ panelmenubasah.setVisible(false);
                 pil25ActionPerformed(evt);
             }
         });
-        paneltoping.add(pil25, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 10, -1, -1));
+        paneltoping.add(pil25, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 20, -1, -1));
+
+        pil26.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        pil26.setText("CUMI BALL");
+        pil26.setOpaque(false);
+        paneltoping.add(pil26, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 170, -1, -1));
+
+        pil27.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        pil27.setText("CIRENG");
+        pil27.setOpaque(false);
+        paneltoping.add(pil27, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 140, -1, -1));
+
+        pil28.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        pil28.setText("KEJU");
+        pil28.setOpaque(false);
+        paneltoping.add(pil28, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 200, -1, -1));
 
         getContentPane().add(paneltoping, new org.netbeans.lib.awtextra.AbsoluteConstraints(330, 120, 510, 290));
 
@@ -846,7 +874,7 @@ panelmenubasah.setVisible(false);
                 minuman21ActionPerformed(evt);
             }
         });
-        panelminuman1.add(minuman21, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 90, 220, 60));
+        panelminuman1.add(minuman21, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 200, 210, 50));
 
         minuman22.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
         minuman22.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/jeruk_hangat.png"))); // NOI18N
@@ -860,7 +888,7 @@ panelmenubasah.setVisible(false);
                 minuman22ActionPerformed(evt);
             }
         });
-        panelminuman1.add(minuman22, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 80, 220, 60));
+        panelminuman1.add(minuman22, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 50, 210, 50));
 
         minuman24.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/susuputih_hangat.png"))); // NOI18N
         minuman24.setBorderPainted(false);
@@ -873,7 +901,7 @@ panelmenubasah.setVisible(false);
                 minuman24ActionPerformed(evt);
             }
         });
-        panelminuman1.add(minuman24, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 150, 220, 60));
+        panelminuman1.add(minuman24, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 150, 210, 50));
 
         minuman23.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/tehtarik.png"))); // NOI18N
         minuman23.setBorderPainted(false);
@@ -886,7 +914,7 @@ panelmenubasah.setVisible(false);
                 minuman23ActionPerformed(evt);
             }
         });
-        panelminuman1.add(minuman23, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, 220, 60));
+        panelminuman1.add(minuman23, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 250, 210, 50));
 
         minuman26.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hotcapucino.png"))); // NOI18N
         minuman26.setBorderPainted(false);
@@ -899,7 +927,7 @@ panelmenubasah.setVisible(false);
                 minuman26ActionPerformed(evt);
             }
         });
-        panelminuman1.add(minuman26, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 170, 220, 60));
+        panelminuman1.add(minuman26, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 250, 210, 50));
 
         minuman27.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/hotchoco.png"))); // NOI18N
         minuman27.setBorderPainted(false);
@@ -912,7 +940,7 @@ panelmenubasah.setVisible(false);
                 minuman27ActionPerformed(evt);
             }
         });
-        panelminuman1.add(minuman27, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 10, 220, 60));
+        panelminuman1.add(minuman27, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 0, 210, 50));
 
         minuman25.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/susucoklat_panas.png"))); // NOI18N
         minuman25.setBorderPainted(false);
@@ -925,7 +953,72 @@ panelmenubasah.setVisible(false);
                 minuman25ActionPerformed(evt);
             }
         });
-        panelminuman1.add(minuman25, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 10, 220, 60));
+        panelminuman1.add(minuman25, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 100, 210, 50));
+
+        minuman28.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/blue ocean.png"))); // NOI18N
+        minuman28.setBorderPainted(false);
+        minuman28.setContentAreaFilled(false);
+        minuman28.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman28.setFocusPainted(false);
+        minuman28.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/blue ocean2.png"))); // NOI18N
+        minuman28.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman28ActionPerformed(evt);
+            }
+        });
+        panelminuman1.add(minuman28, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 150, 210, 50));
+
+        minuman29.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Blue fire.png"))); // NOI18N
+        minuman29.setBorderPainted(false);
+        minuman29.setContentAreaFilled(false);
+        minuman29.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman29.setFocusPainted(false);
+        minuman29.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Blue fire2.png"))); // NOI18N
+        minuman29.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman29ActionPerformed(evt);
+            }
+        });
+        panelminuman1.add(minuman29, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 100, 210, 50));
+
+        minuman30.setFont(new java.awt.Font("Tahoma", 0, 8)); // NOI18N
+        minuman30.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Milo.png"))); // NOI18N
+        minuman30.setBorderPainted(false);
+        minuman30.setContentAreaFilled(false);
+        minuman30.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman30.setFocusPainted(false);
+        minuman30.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/Milo2.png"))); // NOI18N
+        minuman30.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman30ActionPerformed(evt);
+            }
+        });
+        panelminuman1.add(minuman30, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 50, 210, 50));
+
+        minuman31.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/esjelly.png"))); // NOI18N
+        minuman31.setBorderPainted(false);
+        minuman31.setContentAreaFilled(false);
+        minuman31.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        minuman31.setFocusPainted(false);
+        minuman31.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/esjelly2.png"))); // NOI18N
+        minuman31.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                minuman31ActionPerformed(evt);
+            }
+        });
+        panelminuman1.add(minuman31, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 0, 210, 50));
+
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/image/sogem.png"))); // NOI18N
+        jButton3.setBorderPainted(false);
+        jButton3.setContentAreaFilled(false);
+        jButton3.setFocusPainted(false);
+        jButton3.setRolloverIcon(new javax.swing.ImageIcon(getClass().getResource("/image/sogem2.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        panelminuman1.add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 200, 210, 50));
 
         getContentPane().add(panelminuman1, new org.netbeans.lib.awtextra.AbsoluteConstraints(860, 110, 490, 300));
 
@@ -1207,7 +1300,7 @@ panelmenubasah.setVisible(false);
                 jButton2ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1233, 410, 90, 60));
+        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(1243, 410, 60, 40));
 
         lantai.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         lantai.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "lantai atas", "lantai bawah", "Bungkus" }));
@@ -1412,6 +1505,21 @@ panelmenubasah.setVisible(false);
             toping = true;
             daftartoping.add("25");
         }
+        if (pil26.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("26");
+            toping = true;
+            daftartoping.add("26");
+        }
+        if (pil27.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("27");
+            toping = true;
+            daftartoping.add("27");
+        }
+        if (pil28.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("28");
+            toping = true;
+            daftartoping.add("28");
+        }
 
         System.out.println("idtoping sebelum" + idtoping);
         if (toping) {
@@ -1496,6 +1604,9 @@ panelmenubasah.setVisible(false);
         pil23.setSelected(false);
         pil24.setSelected(false);
         pil25.setSelected(false);
+        pil26.setSelected(false);
+        pil27.setSelected(false);
+        pil28.setSelected(false);
         pillevel.setText("" + 1);
         meja.setText("");
     }
@@ -1728,10 +1839,6 @@ panelmenubasah.setVisible(false);
     private void menu6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu6ActionPerformed
         tambah.setEnabled(true);
     }//GEN-LAST:event_menu6ActionPerformed
-
-    private void pil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pil1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pil1ActionPerformed
 
     private void minuman6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman6ActionPerformed
         addminuman(6);
@@ -1974,6 +2081,20 @@ panelmenubasah.setVisible(false);
             toping = true;
             daftartoping.add("25");
         }
+        if (pil26.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("26");
+            toping = true;
+            daftartoping.add("26");
+        }
+        if (pil27.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("27");
+            toping = true;
+            daftartoping.add("27");
+        } if (pil28.isSelected()) {
+            hargasatu = hargasatu + pesanan.gethargatoppingreguler("28");
+            toping = true;
+            daftartoping.add("28");
+        }
         for (int i = 0; i < daftartoping.size(); i++) {
             System.out.println("id menu = " + tablemenu.getSelectedRow());
             System.out.println("daftar toping " + daftartoping.get(i));
@@ -1991,10 +2112,6 @@ panelmenubasah.setVisible(false);
     private void menu8ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_menu8ActionPerformed
         tambah.setEnabled(true);
     }//GEN-LAST:event_menu8ActionPerformed
-
-    private void pil25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pil25ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_pil25ActionPerformed
 
     private void minuman21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman21ActionPerformed
         addminuman(21);
@@ -2085,6 +2202,38 @@ panelmenubasah.setVisible(false);
             setmenu = 0;
         }
     }//GEN-LAST:event_nextmenuActionPerformed
+
+    private void minuman28ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman28ActionPerformed
+       addminuman(28);
+    }//GEN-LAST:event_minuman28ActionPerformed
+
+    private void minuman29ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman29ActionPerformed
+       addminuman(29);
+    }//GEN-LAST:event_minuman29ActionPerformed
+
+    private void minuman30ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman30ActionPerformed
+        addminuman(30);
+    }//GEN-LAST:event_minuman30ActionPerformed
+
+    private void minuman31ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_minuman31ActionPerformed
+        addminuman(31);
+    }//GEN-LAST:event_minuman31ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        addminuman(32);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void pil1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pil1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pil1ActionPerformed
+
+    private void pil21ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pil21ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pil21ActionPerformed
+
+    private void pil25ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pil25ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_pil25ActionPerformed
     public String rubahuang(double uang) {
         String mataUang = String.format("Rp.%,.0f", uang).replaceAll(",", ".") + ",00";
         return mataUang;
@@ -2184,6 +2333,7 @@ panelmenubasah.setVisible(false);
     private javax.swing.ButtonGroup groupmenu;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
@@ -2227,7 +2377,11 @@ panelmenubasah.setVisible(false);
     private javax.swing.JButton minuman25;
     private javax.swing.JButton minuman26;
     private javax.swing.JButton minuman27;
+    private javax.swing.JButton minuman28;
+    private javax.swing.JButton minuman29;
     private javax.swing.JButton minuman3;
+    private javax.swing.JButton minuman30;
+    private javax.swing.JButton minuman31;
     private javax.swing.JButton minuman4;
     private javax.swing.JButton minuman5;
     private javax.swing.JButton minuman6;
@@ -2259,6 +2413,9 @@ panelmenubasah.setVisible(false);
     private javax.swing.JCheckBox pil23;
     private javax.swing.JCheckBox pil24;
     private javax.swing.JCheckBox pil25;
+    private javax.swing.JCheckBox pil26;
+    private javax.swing.JCheckBox pil27;
+    private javax.swing.JCheckBox pil28;
     private javax.swing.JCheckBox pil3;
     private javax.swing.JCheckBox pil4;
     private javax.swing.JCheckBox pil5;
